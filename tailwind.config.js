@@ -7,7 +7,18 @@ export default {
   ],
   darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        softGreen: '#8CF474',
+        warmYellow: '#FFC368',
+        skyBlue: '#79C6F3',
+        delete: '#FF7B7B',
+
+        darkBG: '#181818',
+        whiteFaded: 'rgba(255, 255, 225, 0.25)',
+        darkFaded: 'rgba(0, 0, 0, 0.25)',
+      },
+    },
   },
   plugins: [],
 };
