@@ -1,4 +1,4 @@
-export function createElement({
+export function createHtmlElement({
   id,
   className = [],
   element,

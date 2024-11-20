@@ -1,32 +1,32 @@
-import { createElement } from './createElement';
+import { createHtmlElement } from './createElement';
 
 export function buildHeader() {
   const header = document.querySelector('header');
   header.classList.add('flex', 'justify-center', 'w-screen');
 
-  const nav = createElement({
+  const nav = createHtmlElement({
     element: 'nav',
     id: 'nav',
     className: ['flex', 'w-full', 'max-w-[1920px]'],
   });
 
-  const wrapper = createElement({
+  const wrapper = createHtmlElement({
     element: 'div',
     className: ['logo-container', 'flex', 'justify-between', 'w-full', 'mx-2'],
   });
 
-  const logo = createElement({
+  const logo = createHtmlElement({
     element: 'img',
     src: './public/images/logo-lightMode.png',
     alt: 'BidMe logo',
   });
 
-  const menu = createElement({
+  const menu = createHtmlElement({
     element: 'button',
     className: ['pointer'],
   });
 
-  const menuIcon = createElement({
+  const menuIcon = createHtmlElement({
     element: 'i',
     className: ['fa-solid', 'fa-bars'],
   });
