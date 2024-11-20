@@ -17,7 +17,7 @@ export function buildHeader() {
 
   const logo = createHtmlElement({
     element: 'img',
-    src: './public/images/logo-lightMode.png',
+    src: '/images/logo-lightMode.png',
     alt: 'BidMe logo',
   });
 
