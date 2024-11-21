@@ -5,6 +5,7 @@ export function createHtmlElement({
   textContent,
   src,
   alt,
+  href,
 }) {
   const htmlElement = document.createElement(element);
   htmlElement.textContent = textContent;
@@ -19,6 +20,10 @@ export function createHtmlElement({
   if (src || alt) {
     htmlElement.src = src;
     htmlElement.alt = alt ?? 'Gallery Listing';
+  }
+
+  if (href) {
+    htmlElement.href = href;
   }
 
   return htmlElement;
