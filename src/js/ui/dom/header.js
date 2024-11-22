@@ -30,7 +30,13 @@ export function buildHeader() {
 
   const logo = createHtmlElement({
     element: 'img',
-    className: ['cursor-pointer', 'ml-5'],
+    className: [
+      'cursor-pointer',
+      'ml-5',
+      'max-h-[50px]',
+      'md:max-h-[60px]',
+      'lg:max-h-[75px]',
+    ],
     src: '/images/logo-lightMode.png',
     alt: 'BidMe logo',
   });
@@ -39,13 +45,20 @@ export function buildHeader() {
   const menuButton = createHtmlElement({
     element: 'button',
     id: 'menuButton',
-    className: ['cursor-pointer', 'mr-5'],
+    className: ['menuButton', 'cursor-pointer', 'mr-5', 'relative'],
   });
   console.log('in build header', menuButton);
 
   const menuIcon = createHtmlElement({
     element: 'i',
-    className: ['fa-solid', 'fa-bars', 'text-2xl'],
+    id: 'menuIcon',
+    className: [
+      'fa-solid',
+      'fa-bars',
+      'text-2xl',
+      'text-black',
+      'transition-transform',
+    ],
   });
 
   const dropDownWrapper = createHtmlElement({
@@ -68,7 +81,6 @@ export function buildHeader() {
       'transform-origin-right',
       'bg-white',
       'drop-shadow-darkFaded',
-      // 'mt-[75px]', // decide if i want it pushed down or all the way to the top
     ],
   });
 
@@ -78,33 +90,93 @@ export function buildHeader() {
     className: [
       'flex',
       'flex-col',
-      'gap-5',
-      // 'w-auto',
-      // 'max-w-[300px]',
+      'gap-8',
+      'md:gap-12',
+      'lg:gap-20',
+      'mt-[50px]',
+      'md:mt-[60px]',
+      'lg:mt-[75px]',
+      'text-xs',
+      'md:text-base',
+      'lg:text-lg',
+      'font-bold',
     ],
   });
 
-  const homeWrapper = createHtmlElement({
+  const imageCreditsWrapper = createHtmlElement({
+    element: 'div',
+    className: ['flex', 'flex-col', 'items-center', 'gap-5'],
+  });
+
+  const profileImageContainer = createHtmlElement({
+    element: 'div',
+    className: [
+      'max-w-[50px]',
+      'max-h-[50px]',
+      'md:max-w-[75px]',
+      'md:max-h-[75px]',
+      'lg:max-w-[100px]',
+      'lg:max-h-[100px]',
+      'overflow-hidden',
+      'rounded-full',
+      'flex',
+      'justify-center',
+      'items-center',
+    ],
+  });
+
+  const profileImage = createHtmlElement({
+    element: 'img',
+    src: 'https://images.unsplash.com/photo-1592007694563-dc0a128d6c69?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    alt: 'dino',
+  });
+
+  const creditsContainer = createHtmlElement({
+    element: 'div',
+    className: ['flex', 'items-center', 'gap-2'],
+  });
+
+  const credits = createHtmlElement({
+    element: 'p',
+    textContent: '1000',
+    className: [],
+  });
+
+  const creditsIcon = createHtmlElement({
+    element: 'i',
+    className: ['fa-solid', 'fa-coins'],
+  });
+
+  profileImageContainer.appendChild(profileImage);
+  creditsContainer.append(credits, creditsIcon);
+  imageCreditsWrapper.append(profileImageContainer, creditsContainer);
+
+  const navigationWrapper = createHtmlElement({
+    element: 'div',
+    className: ['flex', 'flex-col', 'gap-5'],
+  });
+
+  const homeContainer = createHtmlElement({
     element: 'div',
     className: ['flex', 'gap-2', 'items-center'],
   });
 
-  const createWrapper = createHtmlElement({
+  const createContainer = createHtmlElement({
     element: 'div',
     className: ['flex', 'gap-2', 'items-center'],
   });
 
-  const logoutWrapper = createHtmlElement({
+  const logoutContainer = createHtmlElement({
     element: 'div',
     className: ['flex', 'gap-2', 'items-center'],
   });
 
-  const searchWrapper = createHtmlElement({
+  const searchContainer = createHtmlElement({
     element: 'div',
     className: ['flex', 'gap-2', 'items-center'],
   });
 
-  const lightModeWrapper = createHtmlElement({
+  const lightModeContainer = createHtmlElement({
     element: 'div',
     className: ['flex', 'gap-2', 'items-center'],
   });
@@ -113,34 +185,34 @@ export function buildHeader() {
     element: 'a',
     textContent: 'Home',
     href: homePage,
-    className: ['text-xs', 'md:text-base', 'lg:text-lg', 'font-bold'],
+    className: [],
   });
 
   const createLink = createHtmlElement({
     element: 'a',
     textContent: 'Create New BidMe',
     href: newListingPage,
-    className: ['text-xs', 'md:text-base', 'lg:text-lg', 'font-bold'],
+    className: [],
   });
 
   const logoutLink = createHtmlElement({
     element: 'a',
     textContent: 'Logout',
     href: authPage,
-    className: ['text-xs', 'md:text-base', 'lg:text-lg', 'font-bold'],
+    className: [],
   });
 
   const searchLink = createHtmlElement({
     element: 'a',
     textContent: 'Search BidMe´s',
     // href: searchPage,
-    className: ['text-xs', 'md:text-base', 'lg:text-lg', 'font-bold'],
+    className: [],
   });
 
   const lightModeSwitch = createHtmlElement({
     element: 'div',
     textContent: 'Switch to Dark-Mode',
-    className: ['text-xs', 'md:text-base', 'lg:text-lg', 'font-bold'],
+    className: [],
   });
 
   const homeIcon = createHtmlElement({
@@ -150,12 +222,13 @@ export function buildHeader() {
 
   const createIcon = createHtmlElement({
     element: 'i',
-    className: ['fa-regular', 'fa-square-plus'],
+    className: ['fa-solid', 'fa-circle-plus'],
   });
 
   const logoutIcon = createHtmlElement({
     element: 'i',
-    className: ['fa-solid', 'fa-arrow-right-from-bracket'],
+    className: ['fa-solid', 'fa-right-from-bracket'],
+    // log in icon --> fa-right-to-bracket
   });
 
   const searchIcon = createHtmlElement({
@@ -168,20 +241,21 @@ export function buildHeader() {
     className: ['fa-solid', 'fa-sun'],
   });
 
-  homeWrapper.append(homeIcon, homeLink);
-  createWrapper.append(createIcon, createLink);
-  logoutWrapper.append(logoutIcon, logoutLink);
-  searchWrapper.append(searchIcon, searchLink);
-  lightModeWrapper.append(lightModeIcon, lightModeSwitch);
-
-  dropDownContent.append(
-    homeWrapper,
-    createWrapper,
-    logoutWrapper,
-    searchWrapper,
-    lightModeWrapper
+  homeContainer.append(homeIcon, homeLink);
+  createContainer.append(createIcon, createLink);
+  logoutContainer.append(logoutIcon, logoutLink);
+  searchContainer.append(searchIcon, searchLink);
+  lightModeContainer.append(lightModeIcon, lightModeSwitch);
+  navigationWrapper.append(
+    homeContainer,
+    createContainer,
+    logoutContainer,
+    searchContainer,
+    lightModeContainer
   );
-  dropDownWrapper.appendChild(dropDownContent);
+
+  dropDownContent.append(imageCreditsWrapper, navigationWrapper);
+  dropDownWrapper.append(dropDownContent);
   menuButton.appendChild(menuIcon);
   navWrapper.append(logo, menuButton, dropDownWrapper);
   nav.appendChild(navWrapper);
@@ -190,17 +264,12 @@ export function buildHeader() {
 
 export function clickMenu() {
   const menuButton = document.getElementById('menuButton');
+  const menuIcon = document.getElementById('menuIcon');
   const dropDownWrapper = document.getElementById('dropDownWrapper');
 
   menuButton.addEventListener('click', (event) => {
     event.stopPropagation();
-    if (dropDownWrapper.classList.contains('w-0')) {
-      dropDownWrapper.classList.remove('w-0');
-      dropDownWrapper.classList.add('w-48', 'md:w-72', 'lg:w-96');
-    } else {
-      dropDownWrapper.classList.add('w-0');
-      dropDownWrapper.classList.remove('w-48', 'md:w-72', 'lg:w-96');
-    }
+    dropDownWrapper.classList.contains('w-0') ? openMenu() : closeMenu();
   });
 
   document.addEventListener('click', (event) => {
@@ -208,8 +277,34 @@ export function clickMenu() {
       !dropDownWrapper.contains(event.target) &&
       !menuButton.contains(event.target)
     ) {
-      dropDownWrapper.classList.add('w-0');
-      dropDownWrapper.classList.remove('w-48', 'md:w-72', 'lg:w-96');
+      closeMenu();
     }
   });
+
+  function toggleClasses(element, addClasses = [], removeClasses = []) {
+    element.classList.add(...addClasses);
+    element.classList.remove(...removeClasses);
+  }
+
+  function openMenu() {
+    toggleClasses(dropDownWrapper, ['w-48', 'md:w-72', 'lg:w-96'], ['w-0']);
+    toggleClasses(menuButton, ['z-50']);
+    toggleClasses(menuIcon, ['fa-xmark', 'rotate-180'], ['fa-bars']);
+  }
+
+  function closeMenu() {
+    if (dropDownWrapper.classList.contains('w-0')) return;
+
+    toggleClasses(dropDownWrapper, ['w-0'], ['w-48', 'md:w-72', 'lg:w-96']);
+    toggleClasses(menuButton, [], ['z-50']);
+    toggleClasses(menuIcon, ['opacity-0'], ['rotate-180', 'opacity-100']);
+
+    setTimeout(() => {
+      toggleClasses(
+        menuIcon,
+        ['fa-bars', 'opacity-100'],
+        ['fa-xmark', 'opacity-0']
+      );
+    }, 300);
+  }
 }
