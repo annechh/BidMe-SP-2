@@ -18,6 +18,9 @@ export default {
         whiteFaded: 'rgba(255, 255, 225, 0.25)',
         darkFaded: 'rgba(0, 0, 0, 0.25)',
       },
+      dropShadow: {
+        darkFaded: '0 5px 10px rgba(0, 0, 0, 0.25)',
+      },
     },
   },
   plugins: [],
