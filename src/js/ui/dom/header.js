@@ -5,6 +5,9 @@ import {
 } from '../../utilities/pagePaths';
 import { createHtmlElement } from './createElement';
 
+export const DISPLAY_LOGGED_IN = localStorage.accessToken ? 'flex' : 'none';
+export const DISPLAY_LOGGED_OUT = localStorage.accessToken ? 'none' : 'flex';
+
 export function buildHeader() {
   const header = document.querySelector('header');
   header.classList.add('flex', 'justify-center', 'w-screen');
