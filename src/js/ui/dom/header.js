@@ -167,7 +167,8 @@ export function buildHeader() {
 
   const logoutContainer = createHtmlElement({
     element: 'div',
-    className: ['flex', 'gap-2', 'items-center'],
+    id: 'logoutButton',
+    className: ['flex', 'gap-2', 'items-center', 'cursor-pointer'],
   });
 
   const searchContainer = createHtmlElement({
