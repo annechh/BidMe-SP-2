@@ -1,7 +1,4 @@
-import {
-  hideSuccessMessage,
-  showSuccessMessage,
-} from '../../utilities/validation';
+import { showSuccessMessage } from '../../utilities/validation';
 import { API_REGISTER } from '../endpoints';
 import { headers } from '../headers';
 
@@ -23,7 +20,6 @@ export async function register({ name, email, password }) {
       showSuccessMessage();
 
       setTimeout(() => {
-        hideSuccessMessage();
         window.location.href = '/';
       }, 2500);
       return data;

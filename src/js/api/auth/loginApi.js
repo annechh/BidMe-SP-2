@@ -1,10 +1,8 @@
-import { validateEmail, validatePassword } from '../../utilities/validation';
+import { showSuccessMessage } from '../../utilities/validation';
 import { API_LOGIN } from '../endpoints';
 import { headers } from '../headers';
 
 export async function login({ email, password }) {
-  validateEmail();
-  validatePassword();
   try {
     const response = await fetch(API_LOGIN, {
       method: 'POST',
@@ -20,10 +18,9 @@ export async function login({ email, password }) {
       localStorage.setItem('accessToken', accessToken);
       localStorage.setItem('userData', JSON.stringify(data.data));
 
-      showLoginSuccess();
+      showSuccessMessage();
 
       setTimeout(() => {
-        hideLoginSuccess();
         window.location.href = '/';
       }, 2500);
       return data;
@@ -33,23 +30,3 @@ export async function login({ email, password }) {
     console.error(error);
   }
 }
-
-function showLoginSuccess() {
-  const loginForm = document.forms.login;
-  const loginSuccess = document.getElementById('loginSuccess');
-  if (loginSuccess) {
-    loginSuccess.style.display = 'block';
-  }
-  if (loginForm) {
-    loginForm.style.display = 'none';
-  }
-}
-
-function hideLoginSuccess() {
-  const loginSuccess = document.getElementById('loginSuccess');
-  if (loginSuccess) {
-    loginSuccess.style.display = 'none';
-  }
-}
-
-hideLoginSuccess();
