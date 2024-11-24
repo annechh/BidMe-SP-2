@@ -84,3 +84,25 @@ export function validatePassword() {
 
   return passwordValidation(password, passwordError);
 }
+
+export function showSuccessMessage() {
+  const loginForm = document.forms.login;
+  const loginSuccess = document.getElementById('loginSuccess');
+
+  const registerForm = document.forms.register;
+  const registerSuccess = document.getElementById('registerSuccess');
+
+  if (loginSuccess) {
+    loginSuccess.style.display = 'block';
+  }
+  if (registerSuccess) {
+    registerSuccess.style.display = 'block';
+  }
+
+  if (loginForm) {
+    loginForm.style.display = 'none';
+  }
+  if (registerForm) {
+    registerForm.style.display = 'none';
+  }
+}
