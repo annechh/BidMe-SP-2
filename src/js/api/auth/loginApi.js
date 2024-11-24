@@ -1,3 +1,4 @@
+import { setLocalStorage } from '../../utilities/localStorage';
 import { showSuccessMessage } from '../../utilities/validation';
 import { API_LOGIN } from '../endpoints';
 import { headers } from '../headers';
@@ -14,9 +15,10 @@ export async function login({ email, password }) {
       alert('Failed to login, wrong email or password');
     } else {
       const data = await response.json();
-      const accessToken = data.data.accessToken;
-      localStorage.setItem('accessToken', accessToken);
-      localStorage.setItem('userData', JSON.stringify(data.data));
+      setLocalStorage({
+        accessToken: data.data.accessToken,
+        userData: JSON.stringify(data.data),
+      });
 
       showSuccessMessage();
 
