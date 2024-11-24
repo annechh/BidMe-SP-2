@@ -47,7 +47,6 @@ export function buildHeader() {
     id: 'menuButton',
     className: ['menuButton', 'cursor-pointer', 'mr-5', 'relative'],
   });
-  console.log('in build header', menuButton);
 
   const menuIcon = createHtmlElement({
     element: 'i',
