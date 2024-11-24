@@ -11,6 +11,63 @@
 
     <main>
       <h1>Register</h1>
+
+      <div class="form-div-wrapper">
+        <form class="form" name="register">
+          <div class="label-input-wrapper">
+            <label for="name">Name</label>
+            <input
+              class="input"
+              id="name"
+              type="text"
+              name="name"
+              title="Please enter a username using only letters and numbers"
+              maxlength="20"
+              placeholder="Name"
+            />
+            <label class="hidden" id="nameError" for="name"></label>
+          </div>
+
+          <div class="label-input-wrapper">
+            <label for="email">Email</label>
+            <input
+              class="input"
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Email"
+            />
+            <label class="hidden" id="emailError" for="email"></label>
+          </div>
+
+          <div class="label-input-wrapper">
+            <label for="password">Password</label>
+            <input
+              class="input"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+            <label class="hidden" id="passwordError" for="password"></label>
+          </div>
+
+          <button class="bg-skyBlue mx-4 mt-4">Register</button>
+          <a class="auth-link" href="/pages/auth/login/">Go to Login</a>
+        </form>
+        <div id="registerSuccess" class="login-success hidden">
+          <div class="">
+            <h2>Register Successful</h2>
+            <p>Redirecting you to the homepage</p>
+          </div>
+        </div>
+        <div id="registerFailed" class="login-failed hidden">
+          <div class="">
+            <h2>Register Failed</h2>
+            <p>Please try again</p>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer></footer>
