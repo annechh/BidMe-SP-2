@@ -11,7 +11,50 @@
     <header></header>
 
     <main>
-      <h1>Login</h1>
+      <h1 class="h1">Login</h1>
+      <p>Check your bids and BidMe’s</p>
+      <div class="form-div-wrapper">
+        <form class="form" name="login">
+          <div class="label-input-wrapper">
+            <label for="email">Email</label>
+            <input
+              class="input"
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Email"
+            />
+            <label class="hidden" id="emailError" for="email"></label>
+          </div>
+
+          <div class="label-input-wrapper">
+            <label for="password">Password</label>
+            <input
+              class="input"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+            <label class="hidden" id="passwordError" for="password"></label>
+          </div>
+
+          <button class="bg-skyBlue mx-4 mt-4">Login</button>
+          <a class="auth-link" href="/pages/auth/register/">Go to Register</a>
+        </form>
+        <div id="loginSuccess" class="login-success hidden">
+          <div class="">
+            <h2>Login Successful</h2>
+            <p>Redirecting you to the homepage</p>
+          </div>
+        </div>
+        <div id="loginFailed" class="login-failed hidden">
+          <div class="">
+            <h2>Login Failed</h2>
+            <p>Please try again</p>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer></footer>
