@@ -1,6 +1,8 @@
 import {
   homePage,
+  loginPage,
   newListingPage,
+  registerPage,
   // searchPage,
 } from '../../utilities/pagePaths';
 import { createHtmlElement } from './createElement';
@@ -136,6 +138,7 @@ export function buildHeader() {
     element: 'div',
     className: ['flex', 'items-center', 'gap-2'],
   });
+  creditsContainer.style.display = DISPLAY_LOGGED_IN;
 
   const credits = createHtmlElement({
     element: 'p',
@@ -166,11 +169,32 @@ export function buildHeader() {
     element: 'div',
     className: ['flex', 'gap-2', 'items-center'],
   });
+  createContainer.style.display = DISPLAY_LOGGED_IN;
+
+  const loginContainer = createHtmlElement({
+    element: 'div',
+    id: 'loginButton',
+    className: ['flex', 'gap-2', 'items-center', 'cursor-pointer'],
+  });
+  loginContainer.style.display = DISPLAY_LOGGED_OUT;
+  loginContainer.addEventListener('click', () => {
+    window.location.href = loginPage;
+  });
 
   const logoutContainer = createHtmlElement({
     element: 'div',
     id: 'logoutButton',
     className: ['flex', 'gap-2', 'items-center', 'cursor-pointer'],
+  });
+  logoutContainer.style.display = DISPLAY_LOGGED_IN;
+
+  const registerContainer = createHtmlElement({
+    element: 'div',
+    className: ['flex', 'gap-2', 'items-center', 'cursor-pointer'],
+  });
+  registerContainer.style.display = DISPLAY_LOGGED_OUT;
+  registerContainer.addEventListener('click', () => {
+    window.location.href = registerPage;
   });
 
   const searchContainer = createHtmlElement({
@@ -197,10 +221,21 @@ export function buildHeader() {
     className: [],
   });
 
+  const loginButton = createHtmlElement({
+    element: 'p',
+    textContent: 'Login',
+    className: [],
+  });
+
   const logoutButton = createHtmlElement({
     element: 'p',
     textContent: 'Logout',
     className: [],
+  });
+
+  const registerButton = createHtmlElement({
+    element: 'p',
+    textContent: 'Register',
   });
 
   const searchLink = createHtmlElement({
@@ -218,39 +253,52 @@ export function buildHeader() {
 
   const homeIcon = createHtmlElement({
     element: 'i',
-    className: ['fa-solid', 'fa-house'],
+    className: ['fa-solid', 'fa-house', 'w-[20px]'],
   });
 
   const createIcon = createHtmlElement({
     element: 'i',
-    className: ['fa-solid', 'fa-circle-plus'],
+    className: ['fa-solid', 'fa-circle-plus', 'w-[20px]'],
+  });
+
+  const loginIcon = createHtmlElement({
+    element: 'i',
+    className: ['fa-solid', 'fa-right-to-bracket', 'w-[20px]'],
   });
 
   const logoutIcon = createHtmlElement({
     element: 'i',
-    className: ['fa-solid', 'fa-right-from-bracket'],
-    // log in icon --> fa-right-to-bracket
+    className: ['fa-solid', 'fa-right-from-bracket', 'w-[20px]'],
+  });
+
+  const registerIcon = createHtmlElement({
+    element: 'i',
+    className: ['fa-solid', 'fa-user-plus', 'w-[20px]'],
   });
 
   const searchIcon = createHtmlElement({
     element: 'i',
-    className: ['fa-solid', 'fa-magnifying-glass'],
+    className: ['fa-solid', 'fa-magnifying-glass', 'w-[20px]'],
   });
 
   const lightModeIcon = createHtmlElement({
     element: 'i',
-    className: ['fa-solid', 'fa-sun'],
+    className: ['fa-solid', 'fa-sun', 'w-[20px]'],
   });
 
   homeContainer.append(homeIcon, homeLink);
   createContainer.append(createIcon, createLink);
+  registerContainer.append(registerIcon, registerButton);
   logoutContainer.append(logoutIcon, logoutButton);
+  loginContainer.append(loginIcon, loginButton);
   searchContainer.append(searchIcon, searchLink);
   lightModeContainer.append(lightModeIcon, lightModeSwitch);
   navigationWrapper.append(
     homeContainer,
     createContainer,
+    loginContainer,
     logoutContainer,
+    registerContainer,
     searchContainer,
     lightModeContainer
   );
