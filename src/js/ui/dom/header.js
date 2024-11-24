@@ -1,5 +1,4 @@
 import {
-  authPage,
   homePage,
   newListingPage,
   // searchPage,
@@ -195,10 +194,9 @@ export function buildHeader() {
     className: [],
   });
 
-  const logoutLink = createHtmlElement({
-    element: 'a',
+  const logoutButton = createHtmlElement({
+    element: 'p',
     textContent: 'Logout',
-    href: authPage,
     className: [],
   });
 
@@ -243,7 +241,7 @@ export function buildHeader() {
 
   homeContainer.append(homeIcon, homeLink);
   createContainer.append(createIcon, createLink);
-  logoutContainer.append(logoutIcon, logoutLink);
+  logoutContainer.append(logoutIcon, logoutButton);
   searchContainer.append(searchIcon, searchLink);
   lightModeContainer.append(lightModeIcon, lightModeSwitch);
   navigationWrapper.append(
