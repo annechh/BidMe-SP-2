@@ -29,7 +29,7 @@ export function emailValidation(email, emailError) {
   const emailPrefix = /^[\w\-.]+@(stud\.)?noroff\.no$/;
   if (!emailPrefix.test(email)) {
     emailError.textContent =
-      'Not a valid email address. Must contain @stud.noroff.no.';
+      'Not a valid email address. Must contain @stud.noroff.no or @noroff.no.';
     emailError.classList.remove('hidden');
     return false;
   }
