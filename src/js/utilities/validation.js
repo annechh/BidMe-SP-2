@@ -11,6 +11,20 @@ export function checkIfEmptyField(fieldValue, errorMessageElement) {
   }
 }
 
+export function nameValidation(name, nameError) {
+  const namePrefix = /^[\w]{1,20}$/;
+  if (!namePrefix.test(name)) {
+    nameError.textContent =
+      'Username can only contain letters, numbers, and underscores.';
+    nameError.classList.remove('hidden');
+    return false;
+  } else {
+    nameError.textContent = '';
+    nameError.classList.add('hidden');
+    return true;
+  }
+}
+
 export function emailValidation(email, emailError) {
   const emailPrefix = /^[\w\-.]+@(stud\.)?noroff\.no$/;
   if (!emailPrefix.test(email)) {
@@ -33,6 +47,18 @@ export function passwordValidation(password, passwordError) {
   passwordError.textContent = '';
   passwordError.classList.add('hidden');
   return true;
+}
+
+export function validateName() {
+  const nameInput = document.getElementById('name');
+  const nameError = document.getElementById('nameError');
+  const name = nameInput.value;
+
+  if (checkIfEmptyField(name, nameError)) {
+    return false;
+  }
+
+  return nameValidation(name, nameError);
 }
 
 export function validateEmail() {
