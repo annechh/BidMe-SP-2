@@ -1,9 +1,10 @@
+import { auctionTimeLeft, formatDate } from '../../utilities/formatDate';
 import { createHtmlElement } from './createElement';
 
 export function buildListingCards(data) {
   const listingCard = createHtmlElement({
     element: 'div',
-    className: ['listing-card', 'grid'],
+    className: ['listing-card', 'p-5', 'border', 'rounded'],
     id: data.id,
   });
 
@@ -45,8 +46,14 @@ export function buildListingCards(data) {
   const startDate = createHtmlElement({
     element: 'p',
     className: ['start-date'],
-    textContent: data.created,
+    textContent: ' ',
   });
+  const dateSpanElement = createHtmlElement({
+    element: 'span',
+    textContent: formatDate(data.created),
+  });
+
+  startDate.appendChild(dateSpanElement);
 
   const listingImageContainer = createHtmlElement({
     element: 'div',
@@ -83,72 +90,66 @@ export function buildListingCards(data) {
     textContent: data.description,
   });
 
-  const timeLeftContainer = createHtmlElement({
+  const auctionEndsContainer = createHtmlElement({
     element: 'p',
+    // className: ['flex', 'flex-col'],
+    className: ['grid', 'grid-row-2'],
   });
 
   const endingTitle = createHtmlElement({
     element: 'h3',
     textContent: 'Auction Ends',
-    className: ['font-semibold', 'text-lg'],
+    className: ['font-semibold', 'bg-red-200', 'text-lg'],
+  });
+
+  const dateCountdownContainer = createHtmlElement({
+    element: 'div',
+    className: ['flex', 'justify-between'],
   });
 
   const endDate = createHtmlElement({
     element: 'p',
-    textContent: data.endsAt,
+    textContent: formatDate(data.endsAt),
   });
 
-  const timeLeft = createHtmlElement({
-    element: 'p',
-  });
+  const countdownTimer = auctionTimeLeft(data.endsAt);
 
   const bidContainer = createHtmlElement({
     element: 'div',
-    className: ['bid-container'],
+    className: ['bid-container', 'flex', 'items-center', 'gap-2'],
   });
 
   const currentBid = createHtmlElement({
     element: 'p',
     className: ['current-bid'],
+    textContent: 'Current bid: ',
   });
+
   const bids = data.bids?.[0] || {};
-  currentBid.textContent = 'Current bid: ' + bids.amount;
-
-  const placeBid = createHtmlElement({
-    element: 'input',
+  const currentBidAmount = createHtmlElement({
+    element: 'span',
+    className: ['font-semibold'],
+    textContent: bids.amount,
   });
 
-  const buttonContainer = createHtmlElement({
-    element: 'div',
-    className: ['flex', 'gap-5'],
+  const creditIcon = createHtmlElement({
+    element: 'i',
+    className: ['fa-solid', 'fa-coins'],
   });
 
-  const viewBidButton = createHtmlElement({
-    element: 'button',
-    textContent: 'View Bids',
-    className: ['button', 'bg-warmYellow'],
-  });
-  const bidButton = createHtmlElement({
-    element: 'button',
-    textContent: 'Bid Me',
-    className: ['button', 'bg-softGreen'],
-  });
-
-  buttonContainer.append(viewBidButton, bidButton);
-  bidContainer.append(currentBid, placeBid);
+  bidContainer.append(currentBid, currentBidAmount, creditIcon);
   listingImageContainer.appendChild(listingImage);
   sellerImageContainer.appendChild(sellerAvatar);
-
-  timeLeftContainer.append(endingTitle, endDate, timeLeft);
+  dateCountdownContainer.append(endDate, countdownTimer);
+  auctionEndsContainer.append(endingTitle, dateCountdownContainer);
   sellerContainer.append(sellerImageContainer, sellerName, startDate);
   listingCard.append(
     sellerContainer,
     listingImageContainer,
     listingTitle,
     description,
-    timeLeftContainer,
-    bidContainer,
-    buttonContainer
+    auctionEndsContainer,
+    bidContainer
   );
 
   return listingCard;
