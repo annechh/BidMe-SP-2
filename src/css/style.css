@@ -9,3 +9,7 @@
 .h1 {
   @apply text-base md:text-2xl lg:text-4xl font-bold tracking-[3.2px] hover:underline;
 }
+
+.button {
+  @apply bg-warmYellow h-[50px] max-w-[300px] w-full rounded-full text-base font-semibold;
+}
