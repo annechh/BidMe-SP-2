@@ -9,9 +9,12 @@ export function headers() {
     headers.append('X-Noroff-API-Key', API_KEY);
   }
 
-  // if (accessToken) {
-  //   headers.append('Authorization', `Bearer ${accessToken}`);
-  // }
+  const accessToken = localStorage.accessToken;
+  console.log(accessToken);
+
+  if (accessToken) {
+    headers.append('Authorization', `Bearer ${accessToken}`);
+  }
 
   return headers;
 }

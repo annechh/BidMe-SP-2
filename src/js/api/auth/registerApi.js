@@ -1,3 +1,4 @@
+import { HOME_PAGE } from '../../utilities/pagePaths';
 import { showSuccessMessage } from '../../utilities/validation';
 import { API_REGISTER } from '../endpoints';
 import { headers } from '../headers';
@@ -20,7 +21,7 @@ export async function register({ name, email, password }) {
       showSuccessMessage();
 
       setTimeout(() => {
-        window.location.href = '/';
+        window.location.href = HOME_PAGE;
       }, 2500);
       return data;
     }
