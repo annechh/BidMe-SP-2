@@ -1,4 +1,5 @@
 import { auctionTimeLeft, formatDate } from '../../../utilities/formatDate';
+import { LISTING_PAGE } from '../../../utilities/pagePaths';
 import { createHtmlElement } from '../createElement';
 
 export function buildListingCards(data) {
@@ -7,6 +8,11 @@ export function buildListingCards(data) {
     className: ['listing-card', 'border', 'rounded'],
     id: data.id,
   });
+
+  listingCard.addEventListener(
+    'click',
+    () => (window.location.href = LISTING_PAGE)
+  );
 
   const contentContainer = createHtmlElement({
     element: 'div',

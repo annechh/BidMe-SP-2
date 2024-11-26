@@ -1,4 +1,4 @@
-import { homePage } from '../../utilities/pagePaths';
+import { HOME_PAGE } from '../../utilities/pagePaths';
 import { createHtmlElement } from './createElement';
 
 export function buildFooter() {
@@ -29,7 +29,7 @@ export function buildFooter() {
     element: 'img',
     src: '/images/logo-lightMode.png',
   });
-  logo.addEventListener('click', () => (window.location.href = homePage));
+  logo.addEventListener('click', () => (window.location.href = HOME_PAGE));
 
   const copyright = createHtmlElement({
     element: 'p',

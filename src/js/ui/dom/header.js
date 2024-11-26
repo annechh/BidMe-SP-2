@@ -1,9 +1,9 @@
 import {
-  homePage,
-  loginPage,
-  newListingPage,
-  registerPage,
-  // searchPage,
+  HOME_PAGE,
+  LOGIN_PAGE,
+  NEW_LISTING_PAGE,
+  REGISTER_PAGE,
+  // SEARCH_PAGE,
 } from '../../utilities/pagePaths';
 import { createHtmlElement } from './createElement';
 
@@ -44,7 +44,7 @@ export function buildHeader() {
     src: '/images/logo-lightMode.png',
     alt: 'BidMe logo',
   });
-  logo.addEventListener('click', () => (window.location.href = homePage));
+  logo.addEventListener('click', () => (window.location.href = HOME_PAGE));
 
   const menuButton = createHtmlElement({
     element: 'button',
@@ -178,7 +178,7 @@ export function buildHeader() {
   });
   loginContainer.style.display = DISPLAY_LOGGED_OUT;
   loginContainer.addEventListener('click', () => {
-    window.location.href = loginPage;
+    window.location.href = LOGIN_PAGE;
   });
 
   const logoutContainer = createHtmlElement({
@@ -194,7 +194,7 @@ export function buildHeader() {
   });
   registerContainer.style.display = DISPLAY_LOGGED_OUT;
   registerContainer.addEventListener('click', () => {
-    window.location.href = registerPage;
+    window.location.href = REGISTER_PAGE;
   });
 
   const searchContainer = createHtmlElement({
@@ -210,14 +210,14 @@ export function buildHeader() {
   const homeLink = createHtmlElement({
     element: 'a',
     textContent: 'Home',
-    href: homePage,
+    href: HOME_PAGE,
     className: [],
   });
 
   const createLink = createHtmlElement({
     element: 'a',
     textContent: 'Create New BidMe',
-    href: newListingPage,
+    href: NEW_LISTING_PAGE,
     className: [],
   });
 
@@ -241,7 +241,7 @@ export function buildHeader() {
   const searchLink = createHtmlElement({
     element: 'a',
     textContent: 'Search BidMe´s',
-    // href: searchPage,
+    // href: SEARCH_PAGE,
     className: [],
   });
 

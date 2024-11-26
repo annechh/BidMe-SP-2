@@ -1,4 +1,5 @@
 import { setLocalStorage } from '../../utilities/localStorage';
+import { HOME_PAGE } from '../../utilities/pagePaths';
 import { showSuccessMessage } from '../../utilities/validation';
 import { API_LOGIN } from '../endpoints';
 import { headers } from '../headers';
@@ -23,7 +24,7 @@ export async function login({ email, password }) {
       showSuccessMessage();
 
       setTimeout(() => {
-        window.location.href = '/';
+        window.location.href = HOME_PAGE;
       }, 2500);
       return data;
     }
