@@ -1,17 +1,17 @@
-export const homePage = '/';
+export const HOME_PAGE = '/';
 
-export const authPage = '/pages/auth/';
+export const AUTH_PAGE = '/pages/auth/';
 
-export const loginPage = '/pages/auth/login/';
+export const LOGIN_PAGE = '/pages/auth/login/';
 
-export const registerPage = '/pages/auth/register/';
+export const REGISTER_PAGE = '/pages/auth/register/';
 
-export const listingPage = '/pages/listing/';
+export const LISTING_PAGE = '/pages/listing/';
 
-export const newListingPage = '/pages/listing/create/';
+export const NEW_LISTING_PAGE = '/pages/listing/create/';
 
-export const editListingPage = '/pages/listing/create/';
+export const EDIT_LISTING_PAGE = '/pages/listing/create/';
 
-export const profilePage = '/pages/profile/';
+export const PROFILE_PAGE = '/pages/profile/';
 
-export const searchPage = '/pages/search/';
+export const SEARCH_PAGE = '/pages/search/';
