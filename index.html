@@ -27,15 +27,12 @@
     <header></header>
 
     <main>
-      <div>
-        <h1>Hello</h1>
-
-        <a href="/"></a>
-        <a href="/pages/auth/">Auth page</a>
-        <a href="/pages/auth/login/">Login</a>
-        <a href="/pages/auth/register/">Register</a>
-        <a href="/pages/profile/">Profile</a>
-        <a href="/pages/listing/">Specific BidMe</a>
+      <div
+        class="flex flex-col items-center gap-5 pt-[50px] max-w-[700px] px-5"
+      >
+        <h1 id="welcomeUser"></h1>
+        <p id="signUpMessage"></p>
+        <button id="becomeUserButton"></button>
       </div>
 
       <div id="listingsCards"></div>
