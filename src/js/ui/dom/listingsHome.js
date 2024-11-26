@@ -4,30 +4,53 @@ import { createHtmlElement } from './createElement';
 export function buildListingCards(data) {
   const listingCard = createHtmlElement({
     element: 'div',
-    className: ['listing-card', 'p-5', 'border', 'rounded'],
+    className: ['listing-card', 'border', 'rounded'],
     id: data.id,
   });
 
-  const sellerContainer = createHtmlElement({
-    element: 'div',
-    className: ['seller-container'],
-  });
-
-  const sellerImageContainer = createHtmlElement({
+  const contentContainer = createHtmlElement({
     element: 'div',
     className: [
-      'seller-image-container',
+      'content-container',
+      'p-5',
+      'flex',
+      'flex-col',
+      'sm:h-full',
+      'sm:w-full',
+      'gap-2',
+    ],
+  });
+
+  const sellerDateContainer = createHtmlElement({
+    element: 'div',
+    className: [
+      'seller-date-container',
+      'flex',
+      'items-center',
+      'justify-between',
+    ],
+  });
+
+  const avatarNameContainer = createHtmlElement({
+    element: 'div',
+    className: ['seller-container', 'flex', 'items-center', 'gap-[10px]'],
+  });
+
+  const sellerAvatarContainer = createHtmlElement({
+    element: 'div',
+    className: [
+      'seller-avatar-container',
       'w-[25px]',
       'h-[25px]',
-      'md:w-[100px]',
-      'md:h-[100px]',
-      // 'w-full',
+      'md:w-[40px]',
+      'md:h-[40px]',
       'h-full',
       'overflow-hidden',
       'rounded-full',
       'flex',
       'justify-center',
       'items-center',
+      'aspect-square',
     ],
   });
 
@@ -41,33 +64,28 @@ export function buildListingCards(data) {
   const sellerName = createHtmlElement({
     element: 'p',
     className: ['seller-name'],
+    textContent: data.seller.name,
   });
 
   const startDate = createHtmlElement({
     element: 'p',
     className: ['start-date'],
-    textContent: ' ',
-  });
-  const dateSpanElement = createHtmlElement({
-    element: 'span',
     textContent: formatDate(data.created),
   });
-
-  startDate.appendChild(dateSpanElement);
 
   const listingImageContainer = createHtmlElement({
     element: 'div',
     className: [
-      'max-w-[260px]',
-      // 'md:w-[100px]',
-      'max-h-[200px]',
-      'md:h-[240px]',
-      'w-full',
-      'h-full',
-      'overflow-hidden',
       'flex',
-      'justify-center',
       'items-center',
+      'justify-center',
+      'w-full',
+      'max-h-[200px]',
+      'sm:max-[240px]',
+      'h-full',
+      'cursor-pointer',
+      'overflow-hidden',
+      'drop-shadow-darkFaded',
     ],
   });
 
@@ -88,18 +106,18 @@ export function buildListingCards(data) {
   const description = createHtmlElement({
     element: 'p',
     textContent: data.description,
+    className: ['break-words', 'line-clamp-1', 'border-b', 'border-darkFaded'],
   });
 
   const auctionEndsContainer = createHtmlElement({
     element: 'p',
-    // className: ['flex', 'flex-col'],
-    className: ['grid', 'grid-row-2'],
+    className: ['grid', 'grid-row-2', 'border-b', 'border-darkFaded'],
   });
 
   const endingTitle = createHtmlElement({
     element: 'h3',
     textContent: 'Auction Ends',
-    className: ['font-semibold', 'bg-red-200', 'text-lg'],
+    className: ['font-semibold', 'text-lg'],
   });
 
   const dateCountdownContainer = createHtmlElement({
@@ -139,18 +157,21 @@ export function buildListingCards(data) {
 
   bidContainer.append(currentBid, currentBidAmount, creditIcon);
   listingImageContainer.appendChild(listingImage);
-  sellerImageContainer.appendChild(sellerAvatar);
+  sellerAvatarContainer.appendChild(sellerAvatar);
   dateCountdownContainer.append(endDate, countdownTimer);
   auctionEndsContainer.append(endingTitle, dateCountdownContainer);
-  sellerContainer.append(sellerImageContainer, sellerName, startDate);
-  listingCard.append(
-    sellerContainer,
+
+  avatarNameContainer.append(sellerAvatarContainer, sellerName);
+  sellerDateContainer.append(avatarNameContainer, startDate);
+  contentContainer.append(
+    sellerDateContainer,
     listingImageContainer,
     listingTitle,
     description,
     auctionEndsContainer,
     bidContainer
   );
+  listingCard.append(contentContainer);
 
   return listingCard;
 }
@@ -165,7 +186,9 @@ export function renderListingCards(allListings) {
     'lg:grid-cols-3',
     'gap-[10px]',
     'mx-4',
-    'md:mx-8'
+    'md:mx-8',
+    'my-[50px]',
+    'lg:my-[100px]'
   );
   console.log('render', renderListings);
 
