@@ -84,6 +84,7 @@ export function buildHeader() {
       'transform-origin-right',
       'bg-white',
       'drop-shadow-darkFaded',
+      'z-10',
     ],
   });
 
