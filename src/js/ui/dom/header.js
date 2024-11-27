@@ -117,7 +117,7 @@ export async function buildHeader() {
     className: ['flex', 'flex-col', 'items-center', 'gap-5'],
   });
 
-  const profileImageContainer = createHtmlElement({
+  const profileAvatarContainer = createHtmlElement({
     element: 'div',
     className: [
       'max-w-[50px]',
@@ -134,7 +134,7 @@ export async function buildHeader() {
     ],
   });
 
-  const profileImage = createHtmlElement({
+  const profileAvatar = createHtmlElement({
     element: 'img',
     src: userData.profile.avatar.url,
     alt: userData.profile.avatar.alt,
@@ -157,9 +157,9 @@ export async function buildHeader() {
     className: ['fa-solid', 'fa-coins'],
   });
 
-  profileImageContainer.appendChild(profileImage);
+  profileAvatarContainer.appendChild(profileAvatar);
   creditsContainer.append(credits, creditsIcon);
-  imageCreditsWrapper.append(profileImageContainer, creditsContainer);
+  imageCreditsWrapper.append(profileAvatarContainer, creditsContainer);
 
   const navigationWrapper = createHtmlElement({
     element: 'div',
