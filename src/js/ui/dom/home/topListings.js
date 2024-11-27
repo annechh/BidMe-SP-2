@@ -1,3 +1,4 @@
+import { auctionTimeLeft } from '../../../utilities/formatDate';
 import { createHtmlElement } from '../createElement';
 
 export function buildTopListings(allListings) {
@@ -30,7 +31,17 @@ export function buildTopListings(allListings) {
       className: ['object-cover', 'w-full', 'h-full'],
     });
 
-    imageContainer.append(image);
+    const dateContainer = createHtmlElement({
+      element: 'div',
+      textContent: 'Ending soon: ',
+      className: ['absolute', 'text-blue-500', 'z-50'],
+    });
+
+    const endDate = auctionTimeLeft(listing.endsAt);
+    endDate.classList.add();
+
+    dateContainer.appendChild(endDate);
+    imageContainer.append(image, dateContainer);
     container.append(imageContainer);
   });
 
