@@ -1,6 +1,19 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script type="module" src="/src/app.js"></script>
@@ -10,7 +23,69 @@
     <header></header>
 
     <main>
-      <h1>Profile</h1>
+      <div
+        class="max-w-[1920px] w-full flex flex-col border-b border-fadedDark mb-[100px] gap-[50px]"
+      >
+        <div>
+          <div
+            class="banner max-w-[1920px] h-[250px] md:h-[400px] lg:h-[500px] flex items-center justify-center overflow-hidden"
+          >
+            <img
+              id="profileBanner"
+              class="banner-image object-cover w-full h-full"
+              src="https://images.unsplash.com/photo-1618336753974-aae8e04506aa?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt=""
+            />
+          </div>
+
+          <div class="content flex w-full">
+            <div
+              class="avatar flex items-center justify-center overflow-hidden rounded-full w-full h-[100px] max-w-[100px] md:h-[170px] md:max-w-[170px] lg:h-[250px] lg:max-w-[250px] mt-[-50px] md:mt-[-85px] lg:mt-[-125px] ml-[20px] md:ml-[40px] lg:ml-[75px]"
+            >
+              <img
+                id="profileAvatar"
+                class="avatar-image object-cover w-full h-full"
+                src="https://images.unsplash.com/photo-1599272771314-f3ec16bda3f2?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt=""
+              />
+            </div>
+
+            <div
+              class="flex flex-col justify-between w-full pt-2 lg:pt-5 mr-[20px] md:mr-[40px] lg:mr-[75px]"
+            >
+              <div
+                class="flex flex-row-reverse font-semibold text-xs lg:text-lg"
+              >
+                <p id="profileCredits" class="flex items-center gap-2">
+                  1000<i class="fa-solid fa-coins"></i>
+                </p>
+              </div>
+              <div
+                class="flex justify-between items-center text-sm md:text-2xl lg:text-4xl"
+              >
+                <i id="profileEdit" class="fa-solid fa-user-pen"></i>
+                <h1
+                  id="profileName"
+                  class="font-poppins font-bold tracking-widest"
+                >
+                  Hello C3PO
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center">
+          <p
+            class="text-xs md:text-base lg:text-2xl text-center px-5 md:px-[40px] lg:px-[75px] max-w-[1240px]"
+          >
+            Im a robot that likes to be like a human, so im bidding on items and
+            placing auctions for you to bid on. So find my items and BidMe
+          </p>
+        </div>
+
+        <div id="profileWins"></div>
+      </div>
     </main>
 
     <footer></footer>
