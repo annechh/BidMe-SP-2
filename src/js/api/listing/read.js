@@ -59,7 +59,7 @@ export async function readListings(
     });
 
     if (!response.ok) {
-      alert('Could not get social posts');
+      alert('Could not get auction listings');
     } else {
       const data = await response.json();
       const listings = data.data;
@@ -71,6 +71,6 @@ export async function readListings(
       return { listings, meta };
     }
   } catch (error) {
-    alert(error, 'Error loading social posts');
+    alert(error, 'Error loading auction listings');
   }
 }
