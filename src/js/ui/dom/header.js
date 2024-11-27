@@ -1,3 +1,5 @@
+import { readProfileName } from '../../api/profile/read';
+import { getLocalStorage } from '../../utilities/localStorage';
 import {
   HOME_PAGE,
   LOGIN_PAGE,
@@ -10,7 +12,10 @@ import { createHtmlElement } from './createElement';
 export const DISPLAY_LOGGED_IN = localStorage.accessToken ? 'flex' : 'none';
 export const DISPLAY_LOGGED_OUT = localStorage.accessToken ? 'none' : 'flex';
 
-export function buildHeader() {
+export async function buildHeader() {
+  const userData = await readProfileName(getLocalStorage().name);
+  console.log('User data', userData);
+
   const header = document.querySelector('header');
   header.classList.add('flex', 'justify-center', 'w-screen');
 
@@ -131,8 +136,8 @@ export function buildHeader() {
 
   const profileImage = createHtmlElement({
     element: 'img',
-    src: 'https://images.unsplash.com/photo-1592007694563-dc0a128d6c69?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'dino',
+    src: userData.profile.avatar.url,
+    alt: userData.profile.avatar.alt,
   });
 
   const creditsContainer = createHtmlElement({
@@ -143,7 +148,7 @@ export function buildHeader() {
 
   const credits = createHtmlElement({
     element: 'p',
-    textContent: '1000',
+    textContent: userData.profile.credits,
     className: [],
   });
 
