@@ -11,3 +11,12 @@ export function setLocalStorage({ accessToken, userData, darkMode }) {
     localStorage.setItem('darkMode', darkMode);
   }
 }
+
+export function getLocalStorage() {
+  const userData = localStorage.getItem('userData');
+
+  if (userData) {
+    const userName = JSON.parse(localStorage.getItem('userData'));
+    return userName;
+  }
+}
