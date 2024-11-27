@@ -196,7 +196,6 @@ export function renderListingCards(allListings) {
     'my-[50px]',
     'lg:my-[100px]'
   );
-  console.log('render', renderListings);
 
   if (!renderListings) {
     console.error('Listings container not found');
