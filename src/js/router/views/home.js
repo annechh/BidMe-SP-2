@@ -1,5 +1,5 @@
 import { readListings } from '../../api/listing/read';
-import { renderListingCards } from '../../ui/dom/home/listingsHome';
+import { renderListingCards } from '../../ui/dom/home/listingsCardsHome';
 import { welcomeUser } from '../../ui/dom/home/welcomeMessage';
 
 async function loadHomePage() {
