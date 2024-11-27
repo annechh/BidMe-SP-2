@@ -49,7 +49,7 @@ export async function readListings(
     );
 
     const url = `${API_LISTINGS}?${queryParam}`;
-    console.log(url);
+    // console.log(url);
 
     const response = await fetch(url, {
       method: 'GET',
@@ -63,7 +63,7 @@ export async function readListings(
       const listings = data.data;
       const meta = data.meta;
 
-      console.log('Listings Data: ', data.data);
+      // console.log('Listings Data: ', data.data);
       // console.log('Listings Meta: ', meta);
 
       return { listings, meta };
