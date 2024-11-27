@@ -21,6 +21,10 @@ export default {
       dropShadow: {
         darkFaded: '0 5px 10px rgba(0, 0, 0, 0.25)',
       },
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+        roboto: ['Roboto', 'sans-serif'],
+      },
     },
   },
   plugins: [],

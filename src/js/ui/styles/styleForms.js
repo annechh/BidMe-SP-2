@@ -1,6 +1,12 @@
 export function styleBody() {
   const body = document.querySelector('body');
-  body.classList.add('flex', 'flex-col', 'items-center', 'min-h-screen');
+  body.classList.add(
+    'flex',
+    'flex-col',
+    'items-center',
+    'min-h-screen',
+    'font-roboto'
+  );
 }
 
 export function styleMain() {

@@ -1,20 +1,24 @@
 import { API_LISTINGS } from '../endpoints';
 import { headers } from '../headers';
 
-function buildQueryParams(
+function buildQueryParams({
   limit = 12,
   page = 1,
   tag,
   _seller = true,
   _bids = true,
-  _active = true
-) {
+  _active = true,
+  sort = 'created',
+  sortOrder = 'desc',
+}) {
   const queryParams = new URLSearchParams({
     limit,
     page,
     _seller,
     _bids: _bids.toString(),
     _active,
+    sort,
+    sortOrder,
   });
   if (tag) {
     queryParams.append('tag', tag);
@@ -22,11 +26,34 @@ function buildQueryParams(
   return queryParams.toString();
 }
 
-export async function readListings(sort, limit, _seller, _bids, _active) {
-  try {
-    const queryParam = buildQueryParams(sort, limit, _seller, _bids, _active);
+// ------------------------
 
-    const response = await fetch(`${API_LISTINGS}?${queryParam}`, {
+export async function readListings(
+  limit,
+  page,
+  tag,
+  _seller,
+  _bids,
+  _active,
+  sort = 'created',
+  sortOrder = 'desc'
+) {
+  try {
+    const queryParam = buildQueryParams(
+      limit,
+      page,
+      tag,
+      _seller,
+      _bids,
+      _active,
+      sort,
+      sortOrder
+    );
+
+    const url = `${API_LISTINGS}?${queryParam}`;
+    console.log(url);
+
+    const response = await fetch(url, {
       method: 'GET',
       headers: headers(),
     });
