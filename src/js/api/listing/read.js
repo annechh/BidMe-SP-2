@@ -26,8 +26,6 @@ function buildQueryParams({
   return queryParams.toString();
 }
 
-// ------------------------
-
 export async function readListings(
   limit,
   page,
