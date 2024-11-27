@@ -4,6 +4,7 @@ import {
   HOME_PAGE,
   LOGIN_PAGE,
   NEW_LISTING_PAGE,
+  PROFILE_PAGE,
   REGISTER_PAGE,
   // SEARCH_PAGE,
 } from '../../utilities/pagePaths';
@@ -132,6 +133,9 @@ export async function buildHeader() {
       'justify-center',
       'items-center',
     ],
+  });
+  profileAvatarContainer.addEventListener('click', () => {
+    window.location.href = PROFILE_PAGE;
   });
 
   const profileAvatar = createHtmlElement({
