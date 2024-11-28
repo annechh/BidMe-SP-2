@@ -9,11 +9,6 @@ export function buildListingCards(data) {
     id: data.id,
   });
 
-  listingCard.addEventListener(
-    'click',
-    () => (window.location.href = LISTING_PAGE)
-  );
-
   const contentContainer = createHtmlElement({
     element: 'div',
     className: [
@@ -39,7 +34,19 @@ export function buildListingCards(data) {
 
   const avatarNameContainer = createHtmlElement({
     element: 'div',
-    className: ['seller-container', 'flex', 'items-center', 'gap-[10px]'],
+    id: 'sellerName',
+    className: [
+      'seller-container',
+      'flex',
+      'items-center',
+      'gap-[10px]',
+      'cursor-pointer',
+    ],
+  });
+  // const avatarNameContainer = document.getElementById('sellerName');
+
+  avatarNameContainer.addEventListener('click', () => {
+    console.log('clicked', data.seller);
   });
 
   const sellerAvatarContainer = createHtmlElement({
@@ -94,12 +101,15 @@ export function buildListingCards(data) {
       'drop-shadow-darkFaded',
     ],
   });
+  listingImageContainer.addEventListener(
+    'click',
+    () => (window.location.href = LISTING_PAGE)
+  );
 
-  const media = data.media?.[0] || {};
   const listingImage = createHtmlElement({
     element: 'img',
-    src: media.url,
-    alt: media.alt,
+    src: data.media && data.media.length > 0 ? data.media[0].url : '',
+    alt: data.media && data.media.length > 0 ? data.media[0].alt : '',
     className: ['object-cover', 'w-full', 'h-full'],
   });
 
@@ -149,11 +159,13 @@ export function buildListingCards(data) {
     textContent: 'Current bid: ',
   });
 
-  const bids = data.bids?.[0] || {};
   const currentBidAmount = createHtmlElement({
     element: 'span',
     className: ['font-semibold'],
-    textContent: bids.amount,
+    textContent:
+      data.bids && data.bids.length > 0
+        ? data.bids[data.bids.length - 1].amount
+        : '',
   });
 
   const creditIcon = createHtmlElement({
