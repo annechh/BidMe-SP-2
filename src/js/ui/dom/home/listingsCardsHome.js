@@ -1,5 +1,5 @@
 import { auctionTimeLeft, formatDate } from '../../../utilities/formatDate';
-import { LISTING_PAGE } from '../../../utilities/pagePaths';
+import { LISTING_PAGE, PROFILE_PAGE } from '../../../utilities/pagePaths';
 import { createHtmlElement } from '../createElement';
 
 export function buildListingCards(data) {
@@ -43,10 +43,8 @@ export function buildListingCards(data) {
       'cursor-pointer',
     ],
   });
-  // const avatarNameContainer = document.getElementById('sellerName');
-
   avatarNameContainer.addEventListener('click', () => {
-    console.log('clicked', data.seller);
+    window.location.href = `${PROFILE_PAGE}?name=${data.seller.name}`;
   });
 
   const sellerAvatarContainer = createHtmlElement({
@@ -102,9 +100,7 @@ export function buildListingCards(data) {
     ],
   });
   listingImageContainer.addEventListener('click', () => {
-    console.log(`${LISTING_PAGE}?id=${data.id}`);
-
-    window.location.href = `${LISTING_PAGE}?id=${data.id}`;
+    window.location.href = `${LISTING_PAGE}?title=${data.title}&id=${data.id}`;
   });
 
   const listingImage = createHtmlElement({
