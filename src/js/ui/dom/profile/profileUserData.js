@@ -3,8 +3,15 @@ import { getLocalStorage } from '../../../utilities/localStorage';
 import { createHtmlElement } from '../createElement';
 
 export async function profileData() {
-  const userData = await readProfileName(getLocalStorage().name);
-  // console.log('profileData: ', userData);
+  const profileName = new URLSearchParams(window.location.search).get('name');
+  const loggedInName = getLocalStorage().name;
+
+  const targetProfileName =
+    !profileName || profileName === loggedInName ? loggedInName : profileName;
+
+  const userData = await readProfileName(targetProfileName);
+
+  const IS_OWN_PROFILE = targetProfileName === loggedInName;
 
   const banner = document.getElementById('profileBanner');
   banner.src = userData.profile.banner.url;
@@ -29,8 +36,13 @@ export async function profileData() {
   });
 
   const name = document.getElementById('profileName');
-  name.textContent = 'Hello ' + userData.profile.name;
+  name.textContent = IS_OWN_PROFILE
+    ? 'Hello ' + userData.profile.name
+    : '' + userData.profile.name;
 
   const bio = document.getElementById('profileBio');
-  bio.textContent = 'Bio text' + userData.profile.bio;
+  bio.textContent = userData.profile.bio;
+
+  credits.style.display = IS_OWN_PROFILE ? 'flex' : 'none';
+  editProfile.style.display = IS_OWN_PROFILE ? 'flex' : 'none';
 }
