@@ -71,6 +71,48 @@
           </div>
         </div>
 
+        <div class="edit-form-container form-div-wrapper">
+          <form class="form" name="editProfile" id="editProfile">
+            <div class="label-input-wrapper">
+              <label class="label" for="banner">Banner</label>
+              <input
+                class="input placeholder:text-xs placeholder:italic"
+                type="url"
+                name="banner"
+                id="banner"
+                placeholder="Banner url"
+              />
+            </div>
+
+            <div class="label-input-wrapper">
+              <label class="label" for="avatar">Avatar</label>
+              <input
+                class="input placeholder:text-xs placeholder:italic"
+                type="url"
+                name="avatar"
+                id="avatar"
+                placeholder="Avatar url"
+              />
+            </div>
+
+            <div class="label-input-wrapper">
+              <label class="label" for="avatar">Bio</label>
+              <input
+                class="input placeholder:text-xs placeholder:italic"
+                type="text"
+                name="avatar"
+                id="avatar"
+                placeholder="Bio"
+              />
+            </div>
+
+            <div class="flex flex-col items-center gap-5">
+              <button class="buttonGreen" id="saveButton">Save</button>
+              <button class="buttonDelete" id="cancelButton">Cancel</button>
+            </div>
+          </form>
+        </div>
+
         <div class="flex flex-col items-center">
           <p
             id="profileBio"
