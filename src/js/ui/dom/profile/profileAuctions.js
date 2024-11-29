@@ -29,8 +29,8 @@ export async function buildListingCardsProfile() {
     'gap-[10px]',
     'mx-4',
     'md:mx-8',
-    'my-[50px]',
-    'lg:my-[100px]'
+    'mb-[50px]',
+    'lg:mb-[100px]'
   );
 
   userData.profile.forEach((data) => {
@@ -96,13 +96,13 @@ export async function buildListingCardsProfile() {
 
     const sellerName = createHtmlElement({
       element: 'p',
-      className: ['seller-name'],
+      className: ['card-p-text', 'seller-name'],
       textContent: sellerData.profile.name,
     });
 
     const startDate = createHtmlElement({
       element: 'p',
-      className: ['start-date'],
+      className: ['card-p-text', 'start-date'],
       textContent: formatDate(data.created),
     });
 
@@ -127,21 +127,22 @@ export async function buildListingCardsProfile() {
 
     const listingImage = createHtmlElement({
       element: 'img',
-      src: data.media[0].url,
-      alt: data.media[0].alt,
+      src: data.media && data.media.length > 0 ? data.media[0].url : '',
+      alt: data.media && data.media.length > 0 ? data.media[0].alt : '',
       className: ['object-cover', 'w-full', 'h-full'],
     });
 
     const listingTitle = createHtmlElement({
       element: 'h2',
       textContent: data.title ?? '',
-      className: ['font-semibold', 'text-lg'],
+      className: [],
     });
 
     const description = createHtmlElement({
       element: 'p',
       textContent: data.description ?? '',
       className: [
+        'card-p-text',
         'break-words',
         'line-clamp-1',
         'border-b',
@@ -150,14 +151,13 @@ export async function buildListingCardsProfile() {
     });
 
     const auctionEndsContainer = createHtmlElement({
-      element: 'p',
+      element: 'div',
       className: ['grid', 'grid-row-2', 'border-b', 'border-darkFaded'],
     });
 
     const endingTitle = createHtmlElement({
       element: 'h3',
       textContent: 'Auction Ends',
-      className: ['font-semibold', 'text-lg'],
     });
 
     const dateCountdownContainer = createHtmlElement({
@@ -168,6 +168,7 @@ export async function buildListingCardsProfile() {
     const endDate = createHtmlElement({
       element: 'p',
       textContent: formatDate(data.endsAt),
+      className: ['card-p-text'],
     });
 
     const countdownTimer = auctionTimeLeft(data.endsAt);
@@ -179,7 +180,7 @@ export async function buildListingCardsProfile() {
 
     const currentBid = createHtmlElement({
       element: 'p',
-      className: ['current-bid'],
+      className: ['card-p-text', 'current-bid'],
       textContent: 'Current bid: ',
     });
 
