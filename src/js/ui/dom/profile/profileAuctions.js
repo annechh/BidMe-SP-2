@@ -8,10 +8,16 @@ import { LISTING_PAGE } from '../../../utilities/pagePaths';
 import { createHtmlElement } from '../createElement';
 
 export async function buildListingCardsProfile() {
-  const userData = await readProfileListings(getLocalStorage().name);
-  const sellerData = await readProfileName(getLocalStorage().name);
-  console.log('user data: ', userData);
-  console.log('seller data', sellerData);
+  const profileName = new URLSearchParams(window.location.search).get('name');
+  const loggedInName = getLocalStorage().name;
+
+  const targetProfileName =
+    !profileName || profileName === loggedInName ? loggedInName : profileName;
+
+  const userData = await readProfileListings(targetProfileName);
+  const sellerData = await readProfileName(targetProfileName);
+
+  const IS_OWN_PROFILE = targetProfileName === loggedInName;
 
   const profileAuctions = document.getElementById('profileAuctions');
   profileAuctions.classList.add(
@@ -26,7 +32,6 @@ export async function buildListingCardsProfile() {
     'my-[50px]',
     'lg:my-[100px]'
   );
-  // console.log(profileAuctions);
 
   userData.profile.forEach((data) => {
     const listingCard = createHtmlElement({
@@ -61,19 +66,7 @@ export async function buildListingCardsProfile() {
     const avatarNameContainer = createHtmlElement({
       element: 'div',
       id: 'sellerName',
-      className: [
-        'seller-container',
-        'flex',
-        'items-center',
-        'gap-[10px]',
-        'cursor-pointer',
-      ],
-    });
-
-    // const avatarNameContainer = document.getElementById('sellerName');
-
-    avatarNameContainer.addEventListener('click', () => {
-      console.log('clicked', data);
+      className: ['seller-container', 'flex', 'items-center', 'gap-[10px]'],
     });
 
     const sellerAvatarContainer = createHtmlElement({
@@ -129,9 +122,7 @@ export async function buildListingCardsProfile() {
       ],
     });
     listingImageContainer.addEventListener('click', () => {
-      console.log(`${LISTING_PAGE}?id=${data.id}`);
-
-      window.location.href = `${LISTING_PAGE}?id=${data.id}`;
+      window.location.href = `${LISTING_PAGE}?title=${data.title}&id=${data.id}`;
     });
 
     const listingImage = createHtmlElement({
@@ -207,6 +198,7 @@ export async function buildListingCardsProfile() {
       element: 'div',
       className: ['flex', 'justify-between', 'gap-5'],
     });
+    buttonContainer.style.display = IS_OWN_PROFILE ? 'flex' : 'none';
 
     const editButton = createHtmlElement({
       element: 'button',
