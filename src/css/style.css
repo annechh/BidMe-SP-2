@@ -25,3 +25,16 @@
 .buttonDelete {
   @apply bg-delete h-[50px] max-w-[300px] w-full rounded-full text-base font-semibold;
 }
+
+h1 {
+  @apply font-poppins font-bold
+}
+
+h2, h3 {
+  @apply font-poppins font-semibold text-sm md:text-base lg:text-lg
+}
+
+.card-p-text, .fa-solid {
+  @apply text-xs md:text-base lg:text-lg
+}
+
