@@ -101,10 +101,11 @@ export function buildListingCards(data) {
       'drop-shadow-darkFaded',
     ],
   });
-  listingImageContainer.addEventListener(
-    'click',
-    () => (window.location.href = LISTING_PAGE)
-  );
+  listingImageContainer.addEventListener('click', () => {
+    console.log(`${LISTING_PAGE}?id=${data.id}`);
+
+    window.location.href = `${LISTING_PAGE}?id=${data.id}`;
+  });
 
   const listingImage = createHtmlElement({
     element: 'img',
