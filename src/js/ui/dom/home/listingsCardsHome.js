@@ -74,13 +74,13 @@ export function buildListingCards(data) {
 
   const sellerName = createHtmlElement({
     element: 'p',
-    className: ['seller-name'],
+    className: ['card-p-text', 'seller-name'],
     textContent: data.seller.name,
   });
 
   const startDate = createHtmlElement({
     element: 'p',
-    className: ['start-date'],
+    className: ['card-p-text', 'start-date'],
     textContent: formatDate(data.created),
   });
 
@@ -113,24 +113,29 @@ export function buildListingCards(data) {
   const listingTitle = createHtmlElement({
     element: 'h2',
     textContent: data.title,
-    className: ['font-semibold', 'text-lg'],
+    className: ['mb-auto'],
   });
 
   const description = createHtmlElement({
     element: 'p',
     textContent: data.description,
-    className: ['break-words', 'line-clamp-1', 'border-b', 'border-darkFaded'],
+    className: [
+      'card-p-text',
+      'break-words',
+      'line-clamp-1',
+      'border-b',
+      'border-darkFaded',
+    ],
   });
 
   const auctionEndsContainer = createHtmlElement({
-    element: 'p',
+    element: 'div',
     className: ['grid', 'grid-row-2', 'border-b', 'border-darkFaded'],
   });
 
   const endingTitle = createHtmlElement({
     element: 'h3',
     textContent: 'Auction Ends',
-    className: ['font-semibold', 'text-lg'],
   });
 
   const dateCountdownContainer = createHtmlElement({
@@ -141,6 +146,7 @@ export function buildListingCards(data) {
   const endDate = createHtmlElement({
     element: 'p',
     textContent: formatDate(data.endsAt),
+    className: ['card-p-text'],
   });
 
   const countdownTimer = auctionTimeLeft(data.endsAt);
@@ -152,17 +158,14 @@ export function buildListingCards(data) {
 
   const currentBid = createHtmlElement({
     element: 'p',
-    className: ['current-bid'],
+    className: ['card-p-text', 'current-bid'],
     textContent: 'Current bid: ',
   });
 
   const currentBidAmount = createHtmlElement({
     element: 'span',
     className: ['font-semibold'],
-    textContent:
-      data.bids && data.bids.length > 0
-        ? data.bids[data.bids.length - 1].amount
-        : '',
+    textContent: data.bids[data.bids.length - 1]?.amount,
   });
 
   const creditIcon = createHtmlElement({
