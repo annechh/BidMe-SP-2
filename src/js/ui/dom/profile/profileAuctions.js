@@ -13,9 +13,9 @@ export async function buildListingCardsProfile() {
   console.log('user data: ', userData);
   console.log('seller data', sellerData);
 
-  const myAuctions = document.getElementById('profileAuctions');
-  myAuctions.classList.add(
-    'max-w-7xl',
+  const profileAuctions = document.getElementById('profileAuctions');
+  profileAuctions.classList.add(
+    'max-w-[1920px]',
     'grid',
     'grid-cols-1',
     'sm:grid-cols-2',
@@ -26,7 +26,7 @@ export async function buildListingCardsProfile() {
     'my-[50px]',
     'lg:my-[100px]'
   );
-  console.log(myAuctions);
+  // console.log(profileAuctions);
 
   userData.profile.forEach((data) => {
     const listingCard = createHtmlElement({
@@ -128,10 +128,11 @@ export async function buildListingCardsProfile() {
         'drop-shadow-darkFaded',
       ],
     });
-    listingImageContainer.addEventListener(
-      'click',
-      () => (window.location.href = LISTING_PAGE)
-    );
+    listingImageContainer.addEventListener('click', () => {
+      console.log(`${LISTING_PAGE}?id=${data.id}`);
+
+      window.location.href = `${LISTING_PAGE}?id=${data.id}`;
+    });
 
     const listingImage = createHtmlElement({
       element: 'img',
@@ -202,6 +203,24 @@ export async function buildListingCardsProfile() {
       className: ['fa-solid', 'fa-coins'],
     });
 
+    const buttonContainer = createHtmlElement({
+      element: 'div',
+      className: ['flex', 'justify-between', 'gap-5'],
+    });
+
+    const editButton = createHtmlElement({
+      element: 'button',
+      className: ['buttonGreen'],
+      textContent: 'Edit',
+    });
+
+    const deleteButton = createHtmlElement({
+      element: 'button',
+      className: ['buttonDelete'],
+      textContent: 'Delete',
+    });
+
+    buttonContainer.append(editButton, deleteButton);
     bidContainer.append(currentBid, currentBidAmount, creditIcon);
     listingImageContainer.appendChild(listingImage);
     sellerAvatarContainer.appendChild(sellerAvatar);
@@ -216,10 +235,11 @@ export async function buildListingCardsProfile() {
       listingTitle,
       description,
       auctionEndsContainer,
-      bidContainer
+      bidContainer,
+      buttonContainer
     );
     listingCard.append(contentContainer);
-    myAuctions.append(listingCard);
+    profileAuctions.append(listingCard);
   });
-  return myAuctions;
+  return profileAuctions;
 }
