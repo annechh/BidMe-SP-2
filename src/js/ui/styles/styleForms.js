@@ -24,8 +24,6 @@ export function styleMain() {
 export function styleFormDivWrapper() {
   const formDiv = document.querySelector('.form-div-wrapper');
   formDiv.classList.add(
-    'bg-red-200',
-    'dark:bg-red-200',
     'py-10',
     'md:py-20',
     'w-full',
@@ -63,7 +61,7 @@ export function styleLabel() {
   console.log(targetLabel);
 
   targetLabel.forEach((input) => {
-    input.classList.add('text-white', 'text-xs', 'md:text-base');
+    input.classList.add('text-xs', 'md:text-base');
   });
 }
 
@@ -83,4 +81,12 @@ export function styleInput() {
       'border-darkFaded'
     );
   });
+}
+
+export function formStyle() {
+  styleFormDivWrapper();
+  styleForm();
+  styleLabelInputWrapper();
+  styleLabel();
+  styleInput();
 }
