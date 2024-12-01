@@ -14,8 +14,13 @@ export const DISPLAY_LOGGED_IN = localStorage.accessToken ? 'flex' : 'none';
 export const DISPLAY_LOGGED_OUT = localStorage.accessToken ? 'none' : 'flex';
 
 export async function buildHeader() {
-  const userData = await readProfileName(getLocalStorage().name);
-  console.log('User data', userData);
+  const userData = getLocalStorage();
+  let profileData;
+
+  if (userData) {
+    profileData = await readProfileName(userData.name);
+    // console.log('profileData', profileData);
+  }
 
   const header = document.querySelector('header');
   header.classList.add('flex', 'justify-center', 'w-screen');
@@ -140,9 +145,14 @@ export async function buildHeader() {
 
   const profileAvatar = createHtmlElement({
     element: 'img',
-    src: userData.profile.avatar.url,
-    alt: userData.profile.avatar.alt,
+    id: 'avatarHeader',
   });
+  if (profileData) {
+    profileAvatar.src = profileData.profile.avatar.url;
+    profileAvatar.alt = profileData.profile.avatar.alt;
+  } else {
+    profileAvatar.src = '/images/logo-lightMode.png';
+  }
 
   const creditsContainer = createHtmlElement({
     element: 'div',
@@ -152,9 +162,11 @@ export async function buildHeader() {
 
   const credits = createHtmlElement({
     element: 'p',
-    textContent: userData.profile.credits,
     className: [],
   });
+  if (profileData) {
+    credits.textContent = profileData.profile.credits;
+  }
 
   const creditsIcon = createHtmlElement({
     element: 'i',
