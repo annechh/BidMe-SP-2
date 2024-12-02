@@ -1,4 +1,4 @@
-import { getLocalStorage, setLocalStorage } from '../../utilities/localStorage';
+import { getLocalStorage } from '../../utilities/localStorage';
 import { API_PROFILES } from '../endpoints';
 import { headers } from '../headers';
 import { readProfileName } from './read';
@@ -10,7 +10,6 @@ export async function updateProfile() {
   if (getData) {
     getData = await readProfileName(name.name);
   }
-  // console.log('Get Data : ', getData);
 
   const body = {
     banner: {
@@ -21,12 +20,9 @@ export async function updateProfile() {
     },
     bio: document.getElementById('bio').value,
   };
-  // console.log('Body edit profile: ', body);
 
   try {
     const url = `${API_PROFILES}/${name}`;
-    // console.log(url);
-
     const response = await fetch(url, {
       method: 'PUT',
       headers: headers(),
@@ -37,12 +33,22 @@ export async function updateProfile() {
       alert('Could not update profile');
     } else {
       const data = await response.json();
-      // const profile = data.data;
-      const userData = setLocalStorage(data.data);
+      location.reload(true);
 
       console.log('Successfully updated profile: ', data);
 
-      return { userData };
+      const currentStoredData = getLocalStorage();
+      const updatedData = {
+        ...currentStoredData,
+        banner: document.getElementById('banner').value,
+        avatar: document.getElementById('avatar').value,
+        bio: document.getElementById('bio').value,
+      };
+      localStorage.setItem('userData', JSON.stringify(updatedData));
+
+      console.log('updated storage: ', updatedData);
+
+      return { data };
     }
   } catch (error) {
     alert(error, 'Error loading profile');
