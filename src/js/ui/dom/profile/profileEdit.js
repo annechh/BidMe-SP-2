@@ -9,9 +9,11 @@ const clearBannerButton = document.getElementById('clearBannerField');
 const clearAvatarButton = document.getElementById('clearAvatarField');
 const clearBioButton = document.getElementById('clearBioField');
 
-export async function viewProfileData() {
+const previewBanner = document.getElementById('profileBanner');
+const previewAvatar = document.getElementById('profileAvatar');
+
+export async function viewProfileData(profileData) {
   const userData = getLocalStorage();
-  let profileData;
 
   if (userData) {
     profileData = await readProfileName(userData.name);
@@ -20,20 +22,25 @@ export async function viewProfileData() {
 
   if (profileData) {
     bannerInput.value = profileData.profile.banner?.url || '';
-    avatarInput.value = profileData.profile.banner?.url || '';
+    avatarInput.value = profileData.profile.avatar?.url || '';
     bioInput.value = profileData.profile.bio || '';
 
     clearBannerButton.style.display = bannerInput.value ? 'block' : 'none';
     clearAvatarButton.style.display = avatarInput.value ? 'block' : 'none';
     clearBioButton.style.display = bioInput.value ? 'block' : 'none';
+
+    previewBanner.src = profileData.profile.banner?.url || '';
+    previewAvatar.src = profileData.profile.avatar?.url || '';
   }
 }
 
 bannerInput.addEventListener('input', () => {
   clearBannerButton.style.display = bannerInput.value ? 'block' : 'none';
+  previewBanner.src = bannerInput.value;
 });
 avatarInput.addEventListener('input', () => {
   clearAvatarButton.style.display = avatarInput.value ? 'block' : 'none';
+  previewAvatar.src = avatarInput.value;
 });
 bioInput.addEventListener('input', () => {
   clearBioButton.style.display = bioInput.value ? 'block' : 'none';
@@ -64,3 +71,10 @@ editProfile.addEventListener('click', () => {
     getForm.classList.add('hidden');
   }
 });
+
+// const cancelButton = document.getElementById('cancelButton');
+// if (cancelButton) {
+//   cancelButton.addEventListener('click', () => {
+//     console.log('clicked');
+//   });
+// }
