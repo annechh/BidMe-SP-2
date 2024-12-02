@@ -42,8 +42,8 @@ export async function viewProfileData() {
     bioInput.value = profileData.profile.bio || '';
 
     clearBannerButton.style.display = bannerInput.value ? 'block' : 'none';
-    clearAvatarButton.style.display = bannerInput.value ? 'block' : 'none';
-    clearBioButton.style.display = bannerInput.value ? 'block' : 'none';
+    clearAvatarButton.style.display = avatarInput.value ? 'block' : 'none';
+    clearBioButton.style.display = bioInput.value ? 'block' : 'none';
   }
 }
 
