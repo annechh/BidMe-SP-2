@@ -1,4 +1,7 @@
+import { readProfileName } from '../../../api/profile/read';
 import { updateProfile } from '../../../api/profile/update';
+import { getLocalStorage } from '../../../utilities/localStorage';
+
 export async function onUpdateProfile(event) {
   event.preventDefault();
 
@@ -14,4 +17,22 @@ export async function onUpdateProfile(event) {
   };
 
   await updateProfile(getForms);
+}
+
+export async function viewProfileData() {
+  const userData = getLocalStorage();
+  let profileData;
+
+  if (userData) {
+    profileData = await readProfileName(userData.name);
+    console.log('profileData', profileData);
+  }
+
+  if (profileData) {
+    document.getElementById('banner').value =
+      profileData.profile.banner?.url || '';
+    document.getElementById('avatar').value =
+      profileData.profile.avatar?.url || '';
+    document.getElementById('bio').value = profileData.profile.bio || '';
+  }
 }
