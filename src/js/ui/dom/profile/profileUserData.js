@@ -4,14 +4,10 @@ import { createHtmlElement } from '../createElement';
 
 export async function profileData() {
   const profileName = new URLSearchParams(window.location.search).get('name');
-  const loggedInName = getLocalStorage().name;
 
-  const targetProfileName =
-    !profileName || profileName === loggedInName ? loggedInName : profileName;
+  const userData = await readProfileName(profileName);
 
-  const userData = await readProfileName(targetProfileName);
-
-  const IS_OWN_PROFILE = targetProfileName === loggedInName;
+  const IS_OWN_PROFILE = profileName === getLocalStorage().name;
 
   const banner = document.getElementById('profileBanner');
   banner.src = userData.profile.banner.url;
