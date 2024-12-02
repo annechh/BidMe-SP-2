@@ -9,15 +9,11 @@ import { createHtmlElement } from '../createElement';
 
 export async function buildListingCardsProfile() {
   const profileName = new URLSearchParams(window.location.search).get('name');
-  const loggedInName = getLocalStorage().name;
 
-  const targetProfileName =
-    !profileName || profileName === loggedInName ? loggedInName : profileName;
+  const userData = await readProfileListings(profileName);
+  const sellerData = await readProfileName(profileName);
 
-  const userData = await readProfileListings(targetProfileName);
-  const sellerData = await readProfileName(targetProfileName);
-
-  const IS_OWN_PROFILE = targetProfileName === loggedInName;
+  const IS_OWN_PROFILE = profileName === getLocalStorage().name;
 
   const profileAuctions = document.getElementById('profileAuctions');
   profileAuctions.classList.add(
