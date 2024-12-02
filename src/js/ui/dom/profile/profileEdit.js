@@ -1,23 +1,5 @@
 import { readProfileName } from '../../../api/profile/read';
-import { updateProfile } from '../../../api/profile/update';
 import { getLocalStorage } from '../../../utilities/localStorage';
-
-export async function onUpdateProfile(event) {
-  event.preventDefault();
-
-  const form = new FormData(event.target);
-
-  const banner = form.get('banner');
-  const avatar = form.get('avatar');
-
-  const getForms = {
-    banner: banner ? { url: banner } : null,
-    avatar: avatar ? { url: avatar } : null,
-    bio: form.get('bio'),
-  };
-
-  await updateProfile(getForms);
-}
 
 const bannerInput = document.getElementById('banner');
 const avatarInput = document.getElementById('avatar');
