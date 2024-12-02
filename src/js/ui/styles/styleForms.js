@@ -58,7 +58,6 @@ export function styleLabelInputWrapper() {
 
 export function styleLabel() {
   const targetLabel = document.querySelectorAll('.label');
-  console.log(targetLabel);
 
   targetLabel.forEach((input) => {
     input.classList.add('text-xs', 'md:text-base');
@@ -67,7 +66,6 @@ export function styleLabel() {
 
 export function styleInput() {
   const targetInput = document.querySelectorAll('.input');
-  console.log(targetInput);
 
   targetInput.forEach((input) => {
     input.classList.add(
