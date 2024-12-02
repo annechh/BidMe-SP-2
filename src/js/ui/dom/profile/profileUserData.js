@@ -31,9 +31,6 @@ export async function profileData() {
   credits.appendChild(creditsIcon);
 
   const editProfile = document.getElementById('profileEdit');
-  editProfile.addEventListener('click', () => {
-    console.log('edit profile icon clicked');
-  });
 
   const name = document.getElementById('profileName');
   name.textContent = IS_OWN_PROFILE
