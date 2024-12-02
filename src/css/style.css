@@ -38,3 +38,6 @@ h2, h3 {
   @apply text-xs md:text-base lg:text-lg
 }
 
+.clear-field-button {
+  @apply absolute right-0 bottom-0 bg-skyBlue border-none h-[50px] max-w-[50px] w-full rounded-e 
+}
