@@ -126,17 +126,18 @@ export async function buildHeader() {
   const profileAvatarContainer = createHtmlElement({
     element: 'div',
     className: [
-      'max-w-[50px]',
-      'max-h-[50px]',
-      'md:max-w-[75px]',
-      'md:max-h-[75px]',
-      'lg:max-w-[100px]',
-      'lg:max-h-[100px]',
-      'overflow-hidden',
-      'rounded-full',
       'flex',
       'justify-center',
       'items-center',
+      'overflow-hidden',
+      'w-full',
+      'rounded-full',
+      'h-[50px]',
+      'max-w-[50px]',
+      'md:h-[75px]',
+      'md:max-w-[75px]',
+      'lg:h-[100px]',
+      'lg:max-w-[100px]',
     ],
   });
   profileAvatarContainer.addEventListener('click', () => {
@@ -146,6 +147,7 @@ export async function buildHeader() {
   const profileAvatar = createHtmlElement({
     element: 'img',
     id: 'avatarHeader',
+    className: ['object-cover', 'w-full', 'h-full'],
   });
   if (profileData) {
     profileAvatar.src = profileData.profile.avatar.url;
