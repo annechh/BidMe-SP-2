@@ -11,10 +11,9 @@ async function loadProfile() {
   await profileData();
   await buildListingCardsProfile();
   await buildListingsWins();
+  await viewProfileData();
 
   formStyle();
-
-  await viewProfileData();
 
   const form = document.forms.editProfile;
   form.addEventListener('submit', onUpdateProfile);
