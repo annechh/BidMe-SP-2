@@ -141,7 +141,7 @@ export async function buildHeader() {
     ],
   });
   profileAvatarContainer.addEventListener('click', () => {
-    window.location.href = PROFILE_PAGE;
+    window.location.href = `${PROFILE_PAGE}?name=${userData.name}`;
   });
 
   const profileAvatar = createHtmlElement({
