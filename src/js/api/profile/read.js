@@ -42,7 +42,7 @@ export async function readProfileListings(name) {
       const data = await response.json();
       const profile = data.data;
 
-      console.log('Read profile listings: ', data.data);
+      // console.log('Read profile listings: ', data.data);
 
       return { profile };
     }
@@ -54,7 +54,7 @@ export async function readProfileListings(name) {
 export async function readListingsWins(name) {
   try {
     const url = `${API_PROFILES}/${name}/wins?&_wins=true&_bids=true&sort=created&sortOrder=desc`;
-    console.log(url);
+    // console.log(url);
 
     const response = await fetch(url, {
       method: 'GET',
@@ -67,7 +67,7 @@ export async function readListingsWins(name) {
       const data = await response.json();
       const profile = data.data;
 
-      console.log('Read profile wins: ', data.data);
+      // console.log('Read profile wins: ', data.data);
 
       return { profile };
     }

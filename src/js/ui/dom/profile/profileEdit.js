@@ -21,13 +21,13 @@ let initialAvatarValue = '';
 let initialBioValue = '';
 
 export async function viewProfileData(profileData) {
+  const profileName = new URLSearchParams(window.location.search).get('name');
   const userData = getLocalStorage();
+  const IS_OWN_PROFILE = userData && profileName === userData.name;
 
-  if (userData) {
+  if (IS_OWN_PROFILE) {
     profileData = await readProfileName(userData.name);
-  }
 
-  if (profileData) {
     const banner = profileData.profile.banner?.url || '';
     const avatar = profileData.profile.avatar?.url || '';
     const bio = profileData.profile.bio || '';

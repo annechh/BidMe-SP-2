@@ -11,6 +11,89 @@
 
     <main>
       <h1>Create Listing</h1>
+
+      <div class="form-div-wrapper">
+        <form class="form" name="create">
+          <div class="label-input-wrapper">
+            <label for="title">Title</label>
+            <input
+              class="input"
+              id="title"
+              type="text"
+              name="title"
+              placeholder="Title"
+            />
+            <!-- <label class="hidden" id="titleError" for="title"></label> -->
+          </div>
+
+          <div class="textarea-wrapper">
+            <label for="description">Description</label>
+            <textarea
+              class="input"
+              type="text"
+              name="description"
+              id="description"
+              placeholder="Description"
+            ></textarea>
+            <!-- <label class="hidden" id="descriptionError" for="description"></label> -->
+          </div>
+
+          <div class="label-input-wrapper">
+            <label for="tags">Tags</label>
+            <input
+              class="input"
+              type="text"
+              name="tags"
+              id="tags"
+              placeholder="Separate tags with comma"
+            />
+            <!-- <label class="hidden" id="tagsError" for="tags"></label> -->
+          </div>
+
+          <div class="label-input-wrapper">
+            <label for="date">Date</label>
+            <input class="input" type="date" name="date" id="date" />
+            <!-- <label class="hidden" id="dateError" for=""></label> -->
+          </div>
+
+          <div class="label-input-wrapper">
+            <label for="image">Image</label>
+            <input
+              class="input"
+              type="url"
+              name="image"
+              id="image"
+              placeholder="Image url"
+            />
+            <!-- <label class="hidden" id="imageError" for="image"></label> -->
+          </div>
+
+          <button
+            type="button"
+            id="addImageButton"
+            class="buttonBlue mx-4 mt-4"
+          >
+            Add Image
+          </button>
+          <div id="previewImage">Image preview</div>
+          <button type="submit" class="buttonGreen mx-4 mt-4">
+            Create BidMe
+          </button>
+        </form>
+
+        <div id="createSuccess" class="hidden">
+          <div class="flex flex-col items-center justify-center">
+            <h2>Create Successful</h2>
+            <p>Redirecting you to the homepage</p>
+          </div>
+        </div>
+        <div id="createFailed" class="hidden">
+          <div class="flex flex-col items-center justify-center">
+            <h2>Create new listing Failed</h2>
+            <p>Please try again</p>
+          </div>
+        </div>
+      </div>
     </main>
 
     <footer></footer>
