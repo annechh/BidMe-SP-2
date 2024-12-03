@@ -8,29 +8,44 @@ const bioInput = document.getElementById('bio');
 const clearBannerButton = document.getElementById('clearBannerField');
 const clearAvatarButton = document.getElementById('clearAvatarField');
 const clearBioButton = document.getElementById('clearBioField');
+const cancelButton = document.getElementById('cancelButton');
 
 const previewBanner = document.getElementById('profileBanner');
 const previewAvatar = document.getElementById('profileAvatar');
+
+const getForm = document.getElementById('formDivWrapper');
+const editProfile = document.getElementById('profileEdit');
+
+let initialBannerValue = '';
+let initialAvatarValue = '';
+let initialBioValue = '';
 
 export async function viewProfileData(profileData) {
   const userData = getLocalStorage();
 
   if (userData) {
     profileData = await readProfileName(userData.name);
-    console.log('profileData', profileData);
   }
 
   if (profileData) {
-    bannerInput.value = profileData.profile.banner?.url || '';
-    avatarInput.value = profileData.profile.avatar?.url || '';
-    bioInput.value = profileData.profile.bio || '';
+    const banner = profileData.profile.banner?.url || '';
+    const avatar = profileData.profile.avatar?.url || '';
+    const bio = profileData.profile.bio || '';
+
+    bannerInput.value = banner;
+    avatarInput.value = avatar;
+    bioInput.value = bio;
+
+    previewBanner.src = banner;
+    previewAvatar.src = avatar;
+
+    initialBannerValue = banner;
+    initialAvatarValue = avatar;
+    initialBioValue = bio;
 
     clearBannerButton.style.display = bannerInput.value ? 'block' : 'none';
     clearAvatarButton.style.display = avatarInput.value ? 'block' : 'none';
     clearBioButton.style.display = bioInput.value ? 'block' : 'none';
-
-    previewBanner.src = profileData.profile.banner?.url || '';
-    previewAvatar.src = profileData.profile.avatar?.url || '';
   }
 }
 
@@ -46,35 +61,52 @@ bioInput.addEventListener('input', () => {
   clearBioButton.style.display = bioInput.value ? 'block' : 'none';
 });
 
+function addClearButtonDisplay(inputElement, clearButtonElement) {
+  inputElement.value = '';
+  clearButtonElement.style.display = 'none';
+}
+
 clearBannerButton.addEventListener('click', () => {
-  bannerInput.value = '';
-  clearBannerButton.style.display = 'none';
+  addClearButtonDisplay(bannerInput, clearBannerButton);
 });
 clearAvatarButton.addEventListener('click', () => {
-  avatarInput.value = '';
-  clearAvatarButton.style.display = 'none';
+  addClearButtonDisplay(avatarInput, clearAvatarButton);
 });
 clearBioButton.addEventListener('click', () => {
-  bioInput.value = '';
-  clearBioButton.style.display = 'none';
+  addClearButtonDisplay(bioInput, clearBioButton);
 });
-
-const getForm = document.getElementById('formDivWrapper');
-const editProfile = document.getElementById('profileEdit');
 
 editProfile.addEventListener('click', () => {
   if (getForm.classList.contains('hidden')) {
     getForm.classList.remove('hidden');
     getForm.classList.add('flex');
   } else {
+    initialValue();
+    displayClearButton();
+
     getForm.classList.remove('flex');
     getForm.classList.add('hidden');
   }
 });
 
-// const cancelButton = document.getElementById('cancelButton');
-// if (cancelButton) {
-//   cancelButton.addEventListener('click', () => {
-//     console.log('clicked');
-//   });
-// }
+if (cancelButton) {
+  cancelButton.addEventListener('click', () => {
+    initialValue();
+    displayClearButton();
+
+    getForm.classList.remove('flex');
+    getForm.classList.add('hidden');
+  });
+}
+
+function displayClearButton() {
+  clearBannerButton.style.display = initialBannerValue ? 'block' : 'none';
+  clearAvatarButton.style.display = initialAvatarValue ? 'block' : 'none';
+  clearBioButton.style.display = initialBioValue ? 'block' : 'none';
+}
+
+function initialValue() {
+  bannerInput.value = initialBannerValue;
+  avatarInput.value = initialAvatarValue;
+  bioInput.value = initialBioValue;
+}
