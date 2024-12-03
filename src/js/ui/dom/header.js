@@ -193,6 +193,9 @@ export async function buildHeader() {
     element: 'div',
     className: ['flex', 'gap-2', 'items-center'],
   });
+  createContainer.addEventListener('click', () => {
+    window.location.href = NEW_LISTING_PAGE;
+  });
   createContainer.style.display = DISPLAY_LOGGED_IN;
 
   const loginContainer = createHtmlElement({
