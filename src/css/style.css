@@ -10,6 +10,34 @@
   @apply text-base md:text-2xl lg:text-4xl font-bold tracking-[3.2px] hover:underline;
 }
 
-.button {
+.buttonYellow {
   @apply bg-warmYellow h-[50px] max-w-[300px] w-full rounded-full text-base font-semibold;
+}
+
+.buttonBlue {
+  @apply bg-skyBlue h-[50px] max-w-[300px] w-full rounded-full text-base font-semibold;
+}
+
+.buttonGreen {
+  @apply bg-softGreen h-[50px] max-w-[300px] w-full rounded-full text-base font-semibold;
+}
+
+.buttonDelete {
+  @apply bg-delete h-[50px] max-w-[300px] w-full rounded-full text-base font-semibold;
+}
+
+h1 {
+  @apply font-poppins font-bold
+}
+
+h2, h3 {
+  @apply font-poppins font-semibold text-sm md:text-base lg:text-lg
+}
+
+.card-p-text, .fa-solid {
+  @apply text-xs md:text-base lg:text-lg
+}
+
+.clear-field-button {
+  @apply absolute right-0 bottom-0 bg-skyBlue border-none h-[50px] max-w-[50px] w-full rounded-e 
 }

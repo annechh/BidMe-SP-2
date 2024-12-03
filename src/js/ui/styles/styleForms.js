@@ -24,8 +24,6 @@ export function styleMain() {
 export function styleFormDivWrapper() {
   const formDiv = document.querySelector('.form-div-wrapper');
   formDiv.classList.add(
-    'bg-red-200',
-    'dark:bg-red-200',
     'py-10',
     'md:py-20',
     'w-full',
@@ -54,22 +52,20 @@ export function styleLabelInputWrapper() {
   const targetDiv = document.querySelectorAll('.label-input-wrapper');
 
   targetDiv.forEach((div) => {
-    div.classList.add('flex', 'flex-col', 'gap-2', 'mx-4');
+    div.classList.add('flex', 'flex-col', 'gap-2', 'mx-4', 'relative');
   });
 }
 
 export function styleLabel() {
   const targetLabel = document.querySelectorAll('.label');
-  console.log(targetLabel);
 
   targetLabel.forEach((input) => {
-    input.classList.add('text-white', 'text-xs', 'md:text-base');
+    input.classList.add('text-xs', 'md:text-base');
   });
 }
 
 export function styleInput() {
   const targetInput = document.querySelectorAll('.input');
-  console.log(targetInput);
 
   targetInput.forEach((input) => {
     input.classList.add(
@@ -83,4 +79,12 @@ export function styleInput() {
       'border-darkFaded'
     );
   });
+}
+
+export function formStyle() {
+  styleFormDivWrapper();
+  styleForm();
+  styleLabelInputWrapper();
+  styleLabel();
+  styleInput();
 }

@@ -1,5 +1,5 @@
 import { auctionTimeLeft, formatDate } from '../../../utilities/formatDate';
-import { LISTING_PAGE } from '../../../utilities/pagePaths';
+import { LISTING_PAGE, PROFILE_PAGE } from '../../../utilities/pagePaths';
 import { createHtmlElement } from '../createElement';
 
 export function buildListingCards(data) {
@@ -8,11 +8,6 @@ export function buildListingCards(data) {
     className: ['listing-card', 'border', 'rounded'],
     id: data.id,
   });
-
-  listingCard.addEventListener(
-    'click',
-    () => (window.location.href = LISTING_PAGE)
-  );
 
   const contentContainer = createHtmlElement({
     element: 'div',
@@ -39,7 +34,17 @@ export function buildListingCards(data) {
 
   const avatarNameContainer = createHtmlElement({
     element: 'div',
-    className: ['seller-container', 'flex', 'items-center', 'gap-[10px]'],
+    id: 'sellerName',
+    className: [
+      'seller-container',
+      'flex',
+      'items-center',
+      'gap-[10px]',
+      'cursor-pointer',
+    ],
+  });
+  avatarNameContainer.addEventListener('click', () => {
+    window.location.href = `${PROFILE_PAGE}?name=${data.seller.name}`;
   });
 
   const sellerAvatarContainer = createHtmlElement({
@@ -69,13 +74,13 @@ export function buildListingCards(data) {
 
   const sellerName = createHtmlElement({
     element: 'p',
-    className: ['seller-name'],
+    className: ['card-p-text', 'seller-name'],
     textContent: data.seller.name,
   });
 
   const startDate = createHtmlElement({
     element: 'p',
-    className: ['start-date'],
+    className: ['card-p-text', 'start-date'],
     textContent: formatDate(data.created),
   });
 
@@ -94,36 +99,43 @@ export function buildListingCards(data) {
       'drop-shadow-darkFaded',
     ],
   });
+  listingImageContainer.addEventListener('click', () => {
+    window.location.href = `${LISTING_PAGE}?title=${data.title}&id=${data.id}`;
+  });
 
-  const media = data.media?.[0] || {};
   const listingImage = createHtmlElement({
     element: 'img',
-    src: media.url,
-    alt: media.alt,
+    src: data.media && data.media.length > 0 ? data.media[0].url : '',
+    alt: data.media && data.media.length > 0 ? data.media[0].alt : '',
     className: ['object-cover', 'w-full', 'h-full'],
   });
 
   const listingTitle = createHtmlElement({
     element: 'h2',
     textContent: data.title,
-    className: ['font-semibold', 'text-lg'],
+    className: ['mb-auto'],
   });
 
   const description = createHtmlElement({
     element: 'p',
     textContent: data.description,
-    className: ['break-words', 'line-clamp-1', 'border-b', 'border-darkFaded'],
+    className: [
+      'card-p-text',
+      'break-words',
+      'line-clamp-1',
+      'border-b',
+      'border-darkFaded',
+    ],
   });
 
   const auctionEndsContainer = createHtmlElement({
-    element: 'p',
+    element: 'div',
     className: ['grid', 'grid-row-2', 'border-b', 'border-darkFaded'],
   });
 
   const endingTitle = createHtmlElement({
     element: 'h3',
     textContent: 'Auction Ends',
-    className: ['font-semibold', 'text-lg'],
   });
 
   const dateCountdownContainer = createHtmlElement({
@@ -134,6 +146,7 @@ export function buildListingCards(data) {
   const endDate = createHtmlElement({
     element: 'p',
     textContent: formatDate(data.endsAt),
+    className: ['card-p-text'],
   });
 
   const countdownTimer = auctionTimeLeft(data.endsAt);
@@ -145,15 +158,14 @@ export function buildListingCards(data) {
 
   const currentBid = createHtmlElement({
     element: 'p',
-    className: ['current-bid'],
+    className: ['card-p-text', 'current-bid'],
     textContent: 'Current bid: ',
   });
 
-  const bids = data.bids?.[0] || {};
   const currentBidAmount = createHtmlElement({
     element: 'span',
     className: ['font-semibold'],
-    textContent: bids.amount,
+    textContent: data.bids[data.bids.length - 1]?.amount,
   });
 
   const creditIcon = createHtmlElement({
@@ -196,7 +208,6 @@ export function renderListingCards(allListings) {
     'my-[50px]',
     'lg:my-[100px]'
   );
-  console.log('render', renderListings);
 
   if (!renderListings) {
     console.error('Listings container not found');

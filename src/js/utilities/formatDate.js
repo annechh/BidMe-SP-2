@@ -23,7 +23,7 @@ export function formatDate(data) {
 
 export function auctionTimeLeft(endTime) {
   const timerElement = document.createElement('span');
-  timerElement.className = 'countdown-timer';
+  timerElement.classList.add('countdown-timer');
 
   function updateCountdown() {
     const now = new Date();
@@ -32,6 +32,11 @@ export function auctionTimeLeft(endTime) {
 
     if (timeLeft <= 0) {
       timerElement.textContent = 'Auction Ended';
+      timerElement.classList.add(
+        'card-p-text',
+        'text-red-400',
+        'font-semibold'
+      );
       clearInterval(timerInterval);
       return;
     }
@@ -44,6 +49,11 @@ export function auctionTimeLeft(endTime) {
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
     timerElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    timerElement.classList.add(
+      'card-p-text',
+      'text-green-600',
+      'font-semibold'
+    );
   }
 
   const timerInterval = setInterval(updateCountdown, 1000);

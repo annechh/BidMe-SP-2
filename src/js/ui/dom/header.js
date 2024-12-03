@@ -1,7 +1,10 @@
+import { readProfileName } from '../../api/profile/read';
+import { getLocalStorage } from '../../utilities/localStorage';
 import {
   HOME_PAGE,
   LOGIN_PAGE,
   NEW_LISTING_PAGE,
+  PROFILE_PAGE,
   REGISTER_PAGE,
   // SEARCH_PAGE,
 } from '../../utilities/pagePaths';
@@ -10,7 +13,15 @@ import { createHtmlElement } from './createElement';
 export const DISPLAY_LOGGED_IN = localStorage.accessToken ? 'flex' : 'none';
 export const DISPLAY_LOGGED_OUT = localStorage.accessToken ? 'none' : 'flex';
 
-export function buildHeader() {
+export async function buildHeader() {
+  const userData = getLocalStorage();
+  let profileData;
+
+  if (userData) {
+    profileData = await readProfileName(userData.name);
+    // console.log('profileData', profileData);
+  }
+
   const header = document.querySelector('header');
   header.classList.add('flex', 'justify-center', 'w-screen');
 
@@ -112,28 +123,38 @@ export function buildHeader() {
     className: ['flex', 'flex-col', 'items-center', 'gap-5'],
   });
 
-  const profileImageContainer = createHtmlElement({
+  const profileAvatarContainer = createHtmlElement({
     element: 'div',
     className: [
-      'max-w-[50px]',
-      'max-h-[50px]',
-      'md:max-w-[75px]',
-      'md:max-h-[75px]',
-      'lg:max-w-[100px]',
-      'lg:max-h-[100px]',
-      'overflow-hidden',
-      'rounded-full',
       'flex',
       'justify-center',
       'items-center',
+      'overflow-hidden',
+      'w-full',
+      'rounded-full',
+      'h-[50px]',
+      'max-w-[50px]',
+      'md:h-[75px]',
+      'md:max-w-[75px]',
+      'lg:h-[100px]',
+      'lg:max-w-[100px]',
     ],
   });
-
-  const profileImage = createHtmlElement({
-    element: 'img',
-    src: 'https://images.unsplash.com/photo-1592007694563-dc0a128d6c69?q=80&w=1287&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    alt: 'dino',
+  profileAvatarContainer.addEventListener('click', () => {
+    window.location.href = `${PROFILE_PAGE}?name=${userData.name}`;
   });
+
+  const profileAvatar = createHtmlElement({
+    element: 'img',
+    id: 'avatarHeader',
+    className: ['object-cover', 'w-full', 'h-full'],
+  });
+  if (profileData) {
+    profileAvatar.src = profileData.profile.avatar.url;
+    profileAvatar.alt = profileData.profile.avatar.alt;
+  } else {
+    profileAvatar.src = '/images/logo-lightMode.png';
+  }
 
   const creditsContainer = createHtmlElement({
     element: 'div',
@@ -143,18 +164,20 @@ export function buildHeader() {
 
   const credits = createHtmlElement({
     element: 'p',
-    textContent: '1000',
     className: [],
   });
+  if (profileData) {
+    credits.textContent = profileData.profile.credits;
+  }
 
   const creditsIcon = createHtmlElement({
     element: 'i',
     className: ['fa-solid', 'fa-coins'],
   });
 
-  profileImageContainer.appendChild(profileImage);
+  profileAvatarContainer.appendChild(profileAvatar);
   creditsContainer.append(credits, creditsIcon);
-  imageCreditsWrapper.append(profileImageContainer, creditsContainer);
+  imageCreditsWrapper.append(profileAvatarContainer, creditsContainer);
 
   const navigationWrapper = createHtmlElement({
     element: 'div',

@@ -12,7 +12,7 @@ async function app() {
   styleBody();
   styleMain();
 
-  buildHeader();
+  await buildHeader();
   fontawsomeScript();
   clickMenu();
   buildFooter();
