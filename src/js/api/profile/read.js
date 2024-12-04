@@ -75,28 +75,3 @@ export async function readListingsWins(name) {
     alert(error, 'Error loading profile');
   }
 }
-
-// export async function readAllProfiles() {
-//   try {
-//     const url = `${API_PROFILES}?&_wins=true&_&_listings=true&sort=created&sortOrder=desc`;
-//     console.log(url);
-
-//     const response = await fetch(url, {
-//       method: 'GET',
-//       headers: headers(),
-//     });
-
-//     if (!response.ok) {
-//       alert('Could not get profiles');
-//     } else {
-//       const data = await response.json();
-//       const profile = data.data;
-
-//       console.log('Fetched Profiles Data: ', data.data);
-
-//       return { profile };
-//     }
-//   } catch (error) {
-//     alert(error, 'Error loading profiles');
-//   }
-// }
