@@ -6,7 +6,7 @@
   @apply text-center px-4 py-2 md:px-8 md:py-4 hover:underline;
 }
 
-.h1 {
+h1 {
   @apply text-base md:text-2xl lg:text-4xl font-bold tracking-[3.2px] hover:underline;
 }
 
@@ -27,17 +27,30 @@
 }
 
 h1 {
-  @apply font-poppins font-bold
+  @apply font-poppins font-bold;
 }
 
-h2, h3 {
-  @apply font-poppins font-semibold text-sm md:text-base lg:text-lg
+h2,
+h3 {
+  @apply font-poppins font-semibold text-sm md:text-base lg:text-lg;
 }
 
-.card-p-text, .fa-solid {
-  @apply text-xs md:text-base lg:text-lg
+p,
+span,
+.fa-solid {
+  @apply text-xs md:text-base lg:text-lg;
 }
 
 .clear-field-button {
-  @apply absolute right-0 bottom-0 bg-skyBlue border-none h-[50px] max-w-[50px] w-full rounded-e 
+  @apply absolute right-0 bottom-0 bg-skyBlue border-none h-[50px] max-w-[50px] w-full rounded-e;
 }
+
+/* @layer components {
+  .avatar-container {
+    @apply flex justify-center items-center rounded-full overflow-hidden h-[50px] max-w-[50px];
+  }
+
+  .avatar-container img {
+    @apply w-full;
+  }
+} */
