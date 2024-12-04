@@ -92,7 +92,7 @@ export async function readListing() {
 
       console.log('Listing Data: ', data.data);
 
-      return { listing };
+      return listing;
     }
   } catch (error) {
     alert(error, 'Error loading auction listing');
