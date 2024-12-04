@@ -72,3 +72,29 @@ export async function readListings(
     alert(error, 'Error loading auction listings');
   }
 }
+
+export async function readListing() {
+  const id = new URLSearchParams(window.location.search).get('id');
+  try {
+    const url = `${API_LISTINGS}/${id}?_seller=true&_bids=true`;
+    console.log('Read listing url: ', url);
+
+    const response = await fetch(url, {
+      method: 'GET',
+      headers: headers(),
+    });
+
+    if (!response.ok) {
+      alert('Could not get auction listing');
+    } else {
+      const data = await response.json();
+      const listing = data.data;
+
+      console.log('Listing Data: ', data.data);
+
+      return { listing };
+    }
+  } catch (error) {
+    alert(error, 'Error loading auction listing');
+  }
+}
