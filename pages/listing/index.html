@@ -51,47 +51,47 @@
             </div>
           </div>
 
-          <div class="flex gap-2 md:gap-5">
-            <div
-              class="flex gap-2 items-center w-full border-r"
-              id="currentBidContainer"
-            >
-              <p class="whitespace-nowrap">Current bid:</p>
-              <div class="flex gap-2 items-center">
-                <p class="font-semibold" id="currentBidAmount"></p>
-                <i class="fa-solid fa-coins"></i>
+          <form class="flex flex-col gap-2 md:gap-5" id="placeBidForm">
+            <div class="flex">
+              <div
+                class="flex gap-2 items-center w-full border-r"
+                id="currentBidContainer"
+              >
+                <p class="whitespace-nowrap">Current bid:</p>
+                <div class="flex gap-2 items-center">
+                  <p class="font-semibold" id="currentBidAmount"></p>
+                  <i class="fa-solid fa-coins"></i>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-2 w-full border-l pl-2">
+                <label class="whitespace-nowrap" for="bid">Bid Me</label>
+                <div class="relative w-full">
+                  <input
+                    class="border rounded h-[40px] w-full text-end"
+                    id="bid"
+                    name="bid"
+                    type="number"
+                    placeholder=""
+                  />
+                  <label
+                    class="absolute left-2 md:left-5 top-1/2 transform -translate-y-1/2"
+                    for="bid"
+                  >
+                    <i class="fa-solid fa-coins"></i>
+                  </label>
+                </div>
               </div>
             </div>
-
-            <form
-              class="flex items-center gap-2 w-full border-l pl-2"
-              id="placeBidForm"
-            >
-              <label class="whitespace-nowrap" for="bid">Bid Me</label>
-              <div class="relative w-full">
-                <input
-                  class="border rounded h-[40px] w-full text-end"
-                  id="bid"
-                  name="bid"
-                  type="number"
-                  placeholder=""
-                />
-                <label
-                  class="absolute left-2 md:left-5 top-1/2 transform -translate-y-1/2"
-                  for="bid"
-                  ><i class="fa-solid fa-coins"></i
-                ></label>
-              </div>
-            </form>
-          </div>
-          <div class="buttons flex gap-2 md:gap-5 justify-between">
-            <button id="viewBids" class="buttonYellow" type="button">
-              View Bids
-            </button>
-            <button id="placeBid" class="buttonGreen" type="submit">
-              Bid Me
-            </button>
-          </div>
+            <div class="buttons flex gap-2 md:gap-5 justify-between">
+              <button id="viewBids" class="buttonYellow" type="button">
+                View Bids
+              </button>
+              <button id="placeBid" class="buttonGreen" type="submit">
+                Bid Me
+              </button>
+            </div>
+          </form>
         </div>
       </section>
 
