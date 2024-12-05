@@ -1,14 +1,17 @@
 import { readListing } from '../../api/listing/read';
+import { carousel } from '../../ui/dom/listing/carousel';
 import { renderListingInfo } from '../../ui/dom/listing/listing';
 import { buildViewBids } from '../../ui/dom/listing/viewBids';
 import { onPlaceBid } from '../../ui/listing/placeBid';
 
 async function loadListingPage() {
   const listing = await readListing();
-  console.log(listing);
+  console.log('Listing data from view: ', listing);
 
   renderListingInfo(listing);
   listing.bids.reverse();
+
+  carousel(listing);
 
   const viewBidsButton = document.getElementById('viewBids');
   const closeModalButton = document.getElementById('closeModal');
