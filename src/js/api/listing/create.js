@@ -1,4 +1,4 @@
-import { LISTING_PAGE } from '../../utilities/pagePaths';
+import { HOME_PAGE } from '../../utilities/pagePaths';
 import { showSuccessMessage } from '../../utilities/validation';
 import { API_LISTINGS } from '../endpoints';
 import { headers } from '../headers';
@@ -27,7 +27,7 @@ export async function createListing({
       showSuccessMessage();
 
       setTimeout(() => {
-        window.location.href = `${LISTING_PAGE}/?id=${data.data.id}`;
+        window.location.href = HOME_PAGE;
       }, 2500);
       return data.data;
     }
