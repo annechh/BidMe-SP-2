@@ -90,7 +90,7 @@ export async function readListing() {
       const data = await response.json();
       const listing = data.data;
 
-      console.log('Listing Data: ', data.data);
+      // console.log('Listing Data from fetch: ', data.data.media[0]?.url);
 
       return listing;
     }
