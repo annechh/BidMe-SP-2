@@ -6,7 +6,11 @@ export async function carousel(data) {
   const MAX_SLIDES = 6;
 
   const listingMedia = data.media.slice(0, MAX_SLIDES);
-  const media = listingMedia;
+  // const media = listingMedia;
+  const media =
+    listingMedia.length > 0
+      ? listingMedia
+      : [{ url: '/images/placeholder-image.png' }];
 
   console.log('MEDIA in carousel', listingMedia);
 
