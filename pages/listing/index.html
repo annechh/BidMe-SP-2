@@ -10,7 +10,7 @@
     <header></header>
 
     <main>
-      <section class="carousel-section" id="carousel">
+      <section class="carousel-section mt-0 md:mt-[50px]" id="carousel">
         <div class="carousel carousel-img-container" id="carouselWrapper">
           <ul id="carouselItems"></ul>
           <div class="arrow-buttons">
@@ -39,12 +39,12 @@
           </div>
         </div>
       </section>
-      <div class="carousel-nav" id="carouselNav"></div>
+      <div class="carousel-nav mb-[20px] md:mb-[50px]" id="carouselNav"></div>
 
-      <section class="max-w-[800px] w-full mb-[50px]">
+      <section class="max-w-[800px] w-full mb-5 md:mb-[50px]">
         <div class="flex flex-col gap-5 md:gap-12 mx-5">
           <div
-            class="avatar-name-date-container flex items-center justify-between"
+            class="avatar-name-date-container flex items-center justify-between mb-[20px] md:mb-[50px]"
           >
             <div class="avatar-name-container flex items-center gap-2">
               <div
@@ -78,8 +78,8 @@
             </div>
           </div>
 
-          <form class="flex flex-col gap-2 md:gap-5" id="placeBidForm">
-            <div class="flex">
+          <form class="flex flex-col gap-5" id="placeBidForm">
+            <div class="flex gap-2 md:gap-5">
               <div
                 class="flex gap-2 items-center w-full border-r"
                 id="currentBidContainer"
@@ -95,7 +95,7 @@
                 <label class="whitespace-nowrap" for="bid">Bid Me</label>
                 <div class="relative w-full">
                   <input
-                    class="border rounded h-[40px] w-full text-end"
+                    class="border rounded h-[40px] w-full text-end px-5"
                     id="bid"
                     name="bid"
                     type="number"
