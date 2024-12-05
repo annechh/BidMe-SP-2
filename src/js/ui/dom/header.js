@@ -95,7 +95,7 @@ export async function buildHeader() {
       'transform-origin-right',
       'bg-white',
       'drop-shadow-darkFaded',
-      'z-10',
+      'z-40',
     ],
   });
 
