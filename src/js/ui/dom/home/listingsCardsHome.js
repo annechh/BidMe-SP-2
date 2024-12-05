@@ -105,7 +105,10 @@ export function buildListingCards(data) {
 
   const listingImage = createHtmlElement({
     element: 'img',
-    src: data.media && data.media.length > 0 ? data.media[0].url : '',
+    src:
+      data.media && data.media.length > 0
+        ? data.media[0].url
+        : '/images/placeholder-image.png',
     alt: data.media && data.media.length > 0 ? data.media[0].alt : '',
     className: ['object-cover', 'w-full', 'h-full'],
   });

@@ -1,12 +1,21 @@
 import { auctionTimeLeft } from '../../../utilities/formatDate';
 import { createHtmlElement } from '../createElement';
 
-export function buildTopListings(allListings) {
+export function buildLastChanceListings(allListings) {
   const main = document.querySelector('main');
+  console.log(allListings);
 
   const container = createHtmlElement({
     element: 'div',
-    className: ['max-w-[1920px]', 'w-full', 'grid', 'grid-col-2', 'md:flex'],
+    className: [
+      'max-w-7xl',
+      'w-full',
+      'grid',
+      'grid-col-2',
+      'md:flex',
+      'my-[20px]',
+      'md:my-[50px]',
+    ],
   });
 
   allListings.forEach((listing) => {
@@ -22,7 +31,10 @@ export function buildTopListings(allListings) {
       ],
     });
 
-    const media = listing.media?.[0] || {};
+    const media = listing.media?.[0] || {
+      url: '/images/placeholder-image.png',
+    };
+
     const image = createHtmlElement({
       element: 'img',
       id: listing.id,

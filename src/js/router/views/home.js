@@ -1,6 +1,7 @@
 import { readListings } from '../../api/listing/read';
+import { buildLastChanceListings } from '../../ui/dom/home/lastChanceListings';
 import { renderListingCards } from '../../ui/dom/home/listingsCardsHome';
-import { buildTopListings } from '../../ui/dom/home/topListings';
+
 import { welcomeUser } from '../../ui/dom/home/welcomeMessage';
 
 async function loadHomePage() {
@@ -12,7 +13,7 @@ async function loadHomePage() {
   });
 
   renderListingCards(allListings);
-  buildTopListings(topListings);
+  buildLastChanceListings(topListings);
   welcomeUser();
 }
 loadHomePage();
