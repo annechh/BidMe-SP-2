@@ -1,6 +1,7 @@
 import { readListing } from '../../api/listing/read';
 import { renderListingInfo } from '../../ui/dom/listing/listing';
 import { buildViewBids } from '../../ui/dom/listing/viewBids';
+import { onPlaceBid } from '../../ui/listing/placeBid';
 
 async function loadListingPage() {
   const listing = await readListing();
@@ -31,6 +32,9 @@ async function loadListingPage() {
       modal.classList.remove('flex');
     }
   });
+
+  const form = document.forms.placeBidForm;
+  form.addEventListener('submit', onPlaceBid);
 }
 
 loadListingPage();
