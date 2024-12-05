@@ -50,7 +50,7 @@ span,
     @apply w-full flex justify-center;
   }
   .carousel {
-    @apply flex max-w-[1000px] w-full h-[500px] relative;
+    @apply flex max-w-[1000px] w-full h-[300px] md:h-[500px] relative;
   }
   .carousel ul {
     @apply list-none m-0 p-0;
