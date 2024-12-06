@@ -15,7 +15,7 @@ export default defineConfig({
         listing: resolve(__dirname, './pages/listing/index.html'),
         editListing: resolve(__dirname, './pages/listing/edit/index.html'),
         createListing: resolve(__dirname, './pages/listing/create/index.html'),
-        searchListing: resolve(__dirname, './pages/listing/search/index.html'),
+        searchListing: resolve(__dirname, './pages/search/index.html'),
       },
     },
   },
