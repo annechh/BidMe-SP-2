@@ -1,7 +1,7 @@
 import { API_LISTINGS_SEARCH } from '../endpoints';
 import { headers } from '../headers';
 
-export async function searchListings(search = '', limit = 12, page = 1) {
+export async function searchListings(search = '', limit = 50, page = 1) {
   try {
     const queryParam = `&limit=${limit}&page=${page}&_seller=true&_bids=true&_active=true&sort=created&sortOrder=desc&q=${search}`;
 
@@ -22,8 +22,8 @@ export async function searchListings(search = '', limit = 12, page = 1) {
       const listings = data.data;
       const meta = data.meta;
 
-      console.log('Listings Data: ', data.data);
-      console.log('Listings Meta: ', meta);
+      // console.log('Listings Data: ', data.data);
+      // console.log('Listings Meta: ', meta);
 
       return { listings, meta };
     }
