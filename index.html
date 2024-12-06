@@ -35,6 +35,34 @@
         <button id="becomeUserButton"></button>
       </div>
 
+      <section class="w-full">
+        <div class="flex flex-col items-center justify-center gap-5 mx-5">
+          <form class="flex gap-5 max-w-[1000px] w-full" name="searchForm">
+            <label class="w-full" for="search">
+              <input
+                class="border w-full h-[50px] rounded px-5"
+                type="search"
+                id="search"
+                name="search"
+                placeholder="Search listings"
+              />
+            </label>
+            <button
+              id="searchButton"
+              class="bg-skyBlue h-[50px] border px-5 rounded"
+            >
+              Search
+            </button>
+          </form>
+          <div id="searchWords" class="hidden border px-5">
+            <p id="searchFor" class="px-2">
+              You searched for <span class="underline"> test</span>
+            </p>
+            <button id="resetSearch">X</button>
+          </div>
+        </div>
+      </section>
+
       <div id="listingsCards"></div>
     </main>
 

@@ -6,7 +6,7 @@ import {
   NEW_LISTING_PAGE,
   PROFILE_PAGE,
   REGISTER_PAGE,
-  // SEARCH_PAGE,
+  SEARCH_PAGE,
 } from '../../utilities/pagePaths';
 import { createHtmlElement } from './createElement';
 
@@ -226,7 +226,10 @@ export async function buildHeader() {
 
   const searchContainer = createHtmlElement({
     element: 'div',
-    className: ['flex', 'gap-2', 'items-center'],
+    className: ['flex', 'gap-2', 'items-center', 'cursor-pointer'],
+  });
+  searchContainer.addEventListener('click', () => {
+    window.location.href = SEARCH_PAGE;
   });
 
   const lightModeContainer = createHtmlElement({
