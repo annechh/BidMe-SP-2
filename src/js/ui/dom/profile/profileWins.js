@@ -42,7 +42,12 @@ export async function buildListingsWins() {
         'md:flex-row',
         'gap-2',
         'md:gap-5',
+        'hover:cursor-pointer',
       ],
+    });
+
+    contentContainer.addEventListener('click', () => {
+      window.location.href = `${LISTING_PAGE}?title=${data.title}&id=${data.id}`;
     });
 
     const listingImageContainer = createHtmlElement({
@@ -57,13 +62,9 @@ export async function buildListingsWins() {
         'max-h-[200px]',
         'sm:max-h[240px]',
         'h-full',
-        'cursor-pointer',
         'overflow-hidden',
         'drop-shadow-darkFaded',
       ],
-    });
-    listingImageContainer.addEventListener('click', () => {
-      window.location.href = `${LISTING_PAGE}?title=${data.title}&id=${data.id}`;
     });
 
     const listingImage = createHtmlElement({
