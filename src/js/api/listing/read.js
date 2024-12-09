@@ -77,7 +77,7 @@ export async function readListing() {
   const id = new URLSearchParams(window.location.search).get('id');
   try {
     const url = `${API_LISTINGS}/${id}?_seller=true&_bids=true`;
-    console.log('Read listing url: ', url);
+    // console.log('Read listing url: ', url);
 
     const response = await fetch(url, {
       method: 'GET',
