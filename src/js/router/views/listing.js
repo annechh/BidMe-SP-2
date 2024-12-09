@@ -4,6 +4,7 @@ import { renderListingInfo } from '../../ui/dom/listing/listing';
 import { buildViewBids } from '../../ui/dom/listing/viewBids';
 import { onDeleteListing } from '../../ui/listing/delete';
 import { onPlaceBid } from '../../ui/listing/placeBid';
+import { PROFILE_PAGE } from '../../utilities/pagePaths';
 
 async function loadListingPage() {
   const listing = await readListing();
@@ -14,11 +15,16 @@ async function loadListingPage() {
 
   carousel(listing);
 
+  const avatarNameContainer = document.getElementById('avatarNameContainer');
   const viewBidsButton = document.getElementById('viewBidsButton');
   const closeModalButton = document.getElementById('closeModal');
   const deleteButton = document.getElementById('deleteButton');
 
   const modal = document.getElementById('viewBidsModal');
+
+  avatarNameContainer.addEventListener('click', () => {
+    window.location.href = `${PROFILE_PAGE}?name=${listing.seller.name}`;
+  });
 
   viewBidsButton.addEventListener('click', () => {
     console.log('click');
