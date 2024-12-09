@@ -7,7 +7,7 @@
 }
 
 h1 {
-  @apply text-base md:text-2xl lg:text-4xl font-bold tracking-[3.2px] hover:underline;
+  @apply text-base md:text-2xl lg:text-4xl font-bold tracking-[3.2px];
 }
 
 .buttonYellow {
@@ -36,7 +36,7 @@ h3 {
 }
 
 p,
-span,
+/* span, */
 .fa-solid {
   @apply text-xs md:text-base lg:text-lg;
 }
