@@ -5,6 +5,7 @@ import {
 import { auctionTimeLeft, formatDate } from '../../../utilities/formatDate';
 import { getLocalStorage } from '../../../utilities/localStorage';
 import { LISTING_PAGE } from '../../../utilities/pagePaths';
+import { onDeleteListing } from '../../listing/delete';
 import { createHtmlElement } from '../createElement';
 
 export async function buildListingCardsProfile() {
@@ -208,8 +209,12 @@ export async function buildListingCardsProfile() {
 
     const deleteButton = createHtmlElement({
       element: 'button',
+      id: 'deleteButton',
       className: ['buttonDelete'],
       textContent: 'Delete',
+    });
+    deleteButton.addEventListener('click', async () => {
+      await onDeleteListing(data.id);
     });
 
     buttonContainer.append(editButton, deleteButton);

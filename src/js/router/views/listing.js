@@ -2,6 +2,7 @@ import { readListing } from '../../api/listing/read';
 import { carousel } from '../../ui/dom/listing/carousel';
 import { renderListingInfo } from '../../ui/dom/listing/listing';
 import { buildViewBids } from '../../ui/dom/listing/viewBids';
+import { onDeleteListing } from '../../ui/listing/delete';
 import { onPlaceBid } from '../../ui/listing/placeBid';
 
 async function loadListingPage() {
@@ -13,8 +14,10 @@ async function loadListingPage() {
 
   carousel(listing);
 
-  const viewBidsButton = document.getElementById('viewBids');
+  const viewBidsButton = document.getElementById('viewBidsButton');
   const closeModalButton = document.getElementById('closeModal');
+  const deleteButton = document.getElementById('deleteButton');
+
   const modal = document.getElementById('viewBidsModal');
 
   viewBidsButton.addEventListener('click', () => {
@@ -34,6 +37,10 @@ async function loadListingPage() {
       modal.classList.add('hidden');
       modal.classList.remove('flex');
     }
+  });
+
+  deleteButton.addEventListener('click', async () => {
+    await onDeleteListing(listing.id);
   });
 
   const form = document.forms.placeBidForm;

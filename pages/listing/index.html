@@ -84,14 +84,17 @@
                 class="flex gap-2 items-center w-full border-r"
                 id="currentBidContainer"
               >
-                <p class="whitespace-nowrap">Current bid:</p>
+                <p class="whitespace-nowrap" id="currentBid">Current bid:</p>
                 <div class="flex gap-2 items-center">
                   <p class="font-semibold" id="currentBidAmount"></p>
                   <i class="fa-solid fa-coins"></i>
                 </div>
               </div>
 
-              <div class="flex items-center gap-2 w-full border-l pl-2">
+              <div
+                class="flex items-center gap-2 w-full border-l pl-2"
+                id="bidWrapper"
+              >
                 <label class="whitespace-nowrap" for="bid">Bid Me</label>
                 <div class="relative w-full">
                   <input
@@ -111,11 +114,18 @@
               </div>
             </div>
             <div class="buttons flex gap-2 md:gap-5 justify-between">
-              <button id="viewBids" class="buttonYellow" type="button">
+              <button id="viewBidsButton" class="buttonYellow" type="button">
                 View Bids
               </button>
-              <button id="placeBid" class="buttonGreen" type="submit">
+              <button id="bidButton" class="buttonGreen" type="submit">
                 Bid Me
+              </button>
+              <button
+                id="deleteButton"
+                class="buttonDelete hidden"
+                type="button"
+              >
+                Delete
               </button>
             </div>
           </form>
