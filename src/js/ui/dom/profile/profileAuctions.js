@@ -213,8 +213,8 @@ export async function buildListingCardsProfile() {
       className: ['buttonDelete'],
       textContent: 'Delete',
     });
-    deleteButton.addEventListener('click', () => {
-      onDeleteListing(data.id);
+    deleteButton.addEventListener('click', async () => {
+      await onDeleteListing(data.id);
     });
 
     buttonContainer.append(editButton, deleteButton);
