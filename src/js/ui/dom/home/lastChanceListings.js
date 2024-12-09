@@ -8,15 +8,7 @@ export function buildLastChanceListings(allListings) {
 
   const container = createHtmlElement({
     element: 'div',
-    className: [
-      'max-w-7xl',
-      'w-full',
-      'grid',
-      'grid-col-2',
-      'md:flex',
-      'my-[20px]',
-      'md:my-[50px]',
-    ],
+    className: ['max-w-7xl', 'w-full', 'grid', 'grid-col-2', 'md:flex'],
   });
 
   allListings.forEach((listing) => {
@@ -27,13 +19,13 @@ export function buildLastChanceListings(allListings) {
         'sm:h-[200px]',
         'lg:h-[300px]',
         'w-full',
-        'overflow-hidden',
         'grid-1',
+        'relative',
+        'cursor-pointer',
       ],
     });
     imageContainer.addEventListener('click', () => {
       window.location.href = `${LISTING_PAGE}?title=${listing.title}&id=${listing.id}`;
-      console.log('click', listing);
     });
 
     const media = listing.media?.[0] || {
@@ -50,12 +42,26 @@ export function buildLastChanceListings(allListings) {
 
     const dateContainer = createHtmlElement({
       element: 'div',
-      textContent: 'Ending soon: ',
-      className: ['absolute', 'text-blue-500', 'z-50'],
+      textContent: 'Ends soon: ',
+      className: [
+        'absolute',
+        'bottom-0',
+        'flex',
+        'justify-center',
+        'items-end',
+        'w-full',
+        'h-full',
+        'gap-2',
+        'left-1/2',
+        '-translate-x-1/2',
+        'hover:bg-white',
+        'hover:bg-opacity-75',
+        'p-2',
+        'text-sm',
+      ],
     });
 
     const endDate = auctionTimeLeft(listing.endsAt);
-    endDate.classList.add();
 
     dateContainer.appendChild(endDate);
     imageContainer.append(image, dateContainer);
