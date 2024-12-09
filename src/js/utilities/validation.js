@@ -115,3 +115,9 @@ export function showSuccessMessage() {
     createListingForm.style.display = 'none';
   }
 }
+
+export function isAuctionEnded(date) {
+  const todaysDate = new Date();
+  const endDate = new Date(date);
+  return todaysDate > endDate;
+}
