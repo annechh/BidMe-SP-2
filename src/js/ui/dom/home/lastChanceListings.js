@@ -1,4 +1,5 @@
 import { auctionTimeLeft } from '../../../utilities/formatDate';
+import { LISTING_PAGE } from '../../../utilities/pagePaths';
 import { createHtmlElement } from '../createElement';
 
 export function buildLastChanceListings(allListings) {
@@ -29,6 +30,10 @@ export function buildLastChanceListings(allListings) {
         'overflow-hidden',
         'grid-1',
       ],
+    });
+    imageContainer.addEventListener('click', () => {
+      window.location.href = `${LISTING_PAGE}?title=${listing.title}&id=${listing.id}`;
+      console.log('click', listing);
     });
 
     const media = listing.media?.[0] || {
