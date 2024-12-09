@@ -15,6 +15,7 @@ const displaySearchWord = document.getElementById('searchWords');
 const resetButton = document.getElementById('resetSearch');
 const searchInput = document.getElementById('search');
 const searchButton = document.getElementById('searchButton');
+const searchedFor = document.getElementById('searchedFor');
 
 export async function handleSearch(listings) {
   toggleButtonState();
@@ -29,15 +30,16 @@ export async function handleSearch(listings) {
 
     if (searchListing) {
       displaySearchWord.classList.remove('hidden');
-      displaySearchWord.classList.add('flex');
+      displaySearchWord.classList.add('flex', 'justify-center');
     } else {
-      renderListingCards([]);
+      renderListingCards();
       displaySearchWord.classList.remove('flex');
       displaySearchWord.classList.add('hidden');
     }
 
     renderListingCards(searchListing.listings);
-    console.log('render listing cards on search', searchListing.listings);
+
+    searchedFor.textContent = searchInput.value;
   });
 
   searchInput.addEventListener('input', () => {

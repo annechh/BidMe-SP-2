@@ -199,8 +199,10 @@ export function buildListingCards(data) {
 
 export function renderListingCards(allListings) {
   let renderListings = document.getElementById('listingsCards');
+
   renderListings.classList.add(
     'max-w-7xl',
+    'w-full',
     'grid',
     'grid-cols-1',
     'sm:grid-cols-2',

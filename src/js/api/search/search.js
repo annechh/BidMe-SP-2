@@ -3,7 +3,7 @@ import { headers } from '../headers';
 
 export async function searchListings(search = '', limit = 50, page = 1) {
   try {
-    const queryParam = `&limit=${limit}&page=${page}&_seller=true&_bids=true&_active=true&sort=created&sortOrder=desc&q=${search}`;
+    const queryParam = `&limit=${limit}&page=${page}&_seller=true&_bids=true&sort=created&sortOrder=desc&q=${search}`;
 
     const url = `${API_LISTINGS_SEARCH}?${queryParam}`;
     console.log(url);
