@@ -119,7 +119,7 @@ export function buildListingCards(data) {
   const listingTitle = createHtmlElement({
     element: 'h2',
     textContent: data.title,
-    className: ['line-clamp-1'],
+    className: ['line-clamp-1', 'mb-auto'],
   });
   applyBreakWordClass(listingTitle);
 
