@@ -1,4 +1,5 @@
 import { readListingsWins } from '../../../api/profile/read';
+import { applyBreakWordClass } from '../../../utilities/breakLongWords';
 import { formatDate } from '../../../utilities/formatDate';
 import { getLocalStorage } from '../../../utilities/localStorage';
 import { LISTING_PAGE } from '../../../utilities/pagePaths';
@@ -21,8 +22,7 @@ export async function buildListingsWins() {
     'grid-cols-1',
     'lg:grid-cols-2',
     'gap-[10px]',
-    'mx-4',
-    'md:mx-8'
+    'mx-4'
   );
 
   userData.profile.forEach((data) => {
@@ -86,8 +86,9 @@ export async function buildListingsWins() {
     const listingTitle = createHtmlElement({
       element: 'h2',
       textContent: data.title ?? '',
-      className: ['mb-auto'],
+      className: ['mb-auto', 'line-clamp-1'],
     });
+    applyBreakWordClass(listingTitle);
 
     const dateCreditsContainer = createHtmlElement({
       element: 'div',

@@ -1,3 +1,4 @@
+import { applyBreakWordClass } from '../../../utilities/breakLongWords';
 import { auctionTimeLeft, formatDate } from '../../../utilities/formatDate';
 import { getLocalStorage } from '../../../utilities/localStorage';
 import { AUTH_PAGE } from '../../../utilities/pagePaths';
@@ -15,9 +16,11 @@ export function renderListingInfo(data) {
 
   const title = document.getElementById('title');
   title.textContent = data.title;
+  applyBreakWordClass(title);
 
   const description = document.getElementById('description');
   description.textContent = data.description;
+  applyBreakWordClass(description);
 
   const endDate = document.getElementById('endDate');
   endDate.textContent = formatDate(data.endsAt);
