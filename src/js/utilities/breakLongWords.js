@@ -5,10 +5,6 @@ export function applyBreakWordClass(element) {
   if (hasLongWord) {
     element.classList.add('break-all');
   } else {
-    element.classList.add(
-      'break-words',
-      'overflow-wrap-anywhere',
-      'hyphens-auto'
-    );
+    element.classList.add('break-words');
   }
 }
