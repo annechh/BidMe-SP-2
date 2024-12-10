@@ -2,6 +2,7 @@ import {
   readProfileListings,
   readProfileName,
 } from '../../../api/profile/read';
+import { applyBreakWordClass } from '../../../utilities/breakLongWords';
 import { auctionTimeLeft, formatDate } from '../../../utilities/formatDate';
 import { getLocalStorage } from '../../../utilities/localStorage';
 import { LISTING_PAGE } from '../../../utilities/pagePaths';
@@ -25,7 +26,6 @@ export async function buildListingCardsProfile() {
     'lg:grid-cols-3',
     'gap-[10px]',
     'mx-4',
-    'md:mx-8',
     'mb-[50px]',
     'lg:mb-[100px]'
   );
@@ -44,8 +44,10 @@ export async function buildListingCardsProfile() {
         'p-5',
         'flex',
         'flex-col',
-        'sm:h-full',
-        'sm:w-full',
+        'min-h-[410px]',
+        'md:min-h-[450px]',
+        'h-full',
+        'w-full',
         'gap-2',
       ],
     });
@@ -135,20 +137,21 @@ export async function buildListingCardsProfile() {
     const listingTitle = createHtmlElement({
       element: 'h2',
       textContent: data.title ?? '',
-      className: [],
+      className: ['line-clamp-1'],
     });
+    applyBreakWordClass(listingTitle);
 
     const description = createHtmlElement({
       element: 'p',
       textContent: data.description ?? '',
       className: [
         'card-p-text',
-        'break-words',
         'line-clamp-1',
         'border-b',
         'border-darkFaded',
       ],
     });
+    applyBreakWordClass(description);
 
     const auctionEndsContainer = createHtmlElement({
       element: 'div',

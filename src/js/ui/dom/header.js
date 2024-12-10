@@ -23,7 +23,14 @@ export async function buildHeader() {
   }
 
   const header = document.querySelector('header');
-  header.classList.add('flex', 'justify-center', 'w-screen');
+  header.classList.add(
+    'flex',
+    'justify-center',
+    'w-screen',
+    'fixed',
+    'z-30',
+    'bg-white'
+  );
 
   const nav = createHtmlElement({
     element: 'nav',
@@ -366,7 +373,7 @@ export function clickMenu() {
   }
 
   function openMenu() {
-    toggleClasses(dropDownWrapper, ['w-48', 'md:w-72', 'lg:w-96'], ['w-0']);
+    toggleClasses(dropDownWrapper, ['w-56', 'md:w-72', 'lg:w-96'], ['w-0']);
     toggleClasses(menuButton, ['z-50']);
     toggleClasses(menuIcon, ['fa-xmark', 'rotate-180'], ['fa-bars']);
   }
@@ -374,7 +381,7 @@ export function clickMenu() {
   function closeMenu() {
     if (dropDownWrapper.classList.contains('w-0')) return;
 
-    toggleClasses(dropDownWrapper, ['w-0'], ['w-48', 'md:w-72', 'lg:w-96']);
+    toggleClasses(dropDownWrapper, ['w-0'], ['w-56', 'md:w-72', 'lg:w-96']);
     toggleClasses(menuButton, [], ['z-50']);
     toggleClasses(menuIcon, ['opacity-0'], ['rotate-180', 'opacity-100']);
 

@@ -17,7 +17,10 @@ export function styleMain() {
     'w-full',
     'flex-col',
     'items-center',
-    'justify-center'
+    'justify-center',
+    'mt-[50px]',
+    'md:mt-[60px]',
+    'lg:mt-[75px]'
   );
 }
 

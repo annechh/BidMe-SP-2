@@ -51,7 +51,7 @@ export function auctionTimeLeft(endTime) {
     timerElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     timerElement.classList.add(
       'card-p-text',
-      'text-green-600',
+      // 'text-green-600',
       'font-semibold'
     );
   }

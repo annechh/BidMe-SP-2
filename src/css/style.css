@@ -7,7 +7,7 @@
 }
 
 h1 {
-  @apply text-base md:text-2xl lg:text-4xl font-bold tracking-[3.2px] hover:underline;
+  @apply text-base md:text-2xl lg:text-4xl font-bold tracking-[3.2px];
 }
 
 .buttonYellow {
@@ -36,7 +36,7 @@ h3 {
 }
 
 p,
-span,
+/* span, */
 .fa-solid {
   @apply text-xs md:text-base lg:text-lg;
 }
@@ -56,13 +56,13 @@ span,
     @apply list-none m-0 p-0;
   }
   .slide {
-    @apply absolute inset-0 opacity-100 transition-opacity duration-300 ease-in-out delay-300;
+    @apply absolute list-none inset-0 opacity-100 transition-opacity duration-300 ease-in-out delay-300;
   }
   .slide img {
-    @apply block w-full h-full object-cover object-center;
+    @apply block w-full h-full object-cover object-center rounded;
   }
   .slide[data-active] {
-    @apply opacity-[1] z-10 delay-0;
+    @apply opacity-100 z-10 delay-0;
   }
   .arrow-buttons {
     @apply w-full flex justify-between items-center;
