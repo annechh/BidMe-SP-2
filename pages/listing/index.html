@@ -25,10 +25,16 @@
     <header></header>
 
     <main>
-      <section class="carousel-section mt-0 md:mt-[50px]" id="carousel">
+      <section
+        class="carousel-section mt-0 md:mt-[50px] animate-pulse loader"
+        id="carousel"
+      >
         <div class="carousel carousel-img-container" id="carouselWrapper">
           <ul id="carouselItems"></ul>
           <div class="arrow-buttons">
+            <li class="slide carousel-image">
+              <img src="/images/loading-image.png" alt="placeholder" />
+            </li>
             <div
               class="carousel-slide-btn left"
               id="prevBtn"
