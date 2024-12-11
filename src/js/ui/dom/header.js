@@ -35,7 +35,7 @@ export async function buildHeader() {
   const nav = createHtmlElement({
     element: 'nav',
     id: 'nav',
-    className: ['flex', 'w-full', 'max-w-[1920px]'],
+    className: ['flex', 'w-full'],
   });
 
   const navWrapper = createHtmlElement({
