@@ -29,7 +29,7 @@ export async function carousel(endingSoon) {
 
     const media = listing.media?.[0] || {
       url: '/images/placeholder-image.png',
-      alt: 'Placeholder Image',
+      alt: 'Placeholder',
     };
 
     const image = createHtmlElement({
