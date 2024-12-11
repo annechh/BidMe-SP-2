@@ -200,15 +200,15 @@ export async function buildListingCardsProfile() {
 
     const buttonContainer = createHtmlElement({
       element: 'div',
-      className: ['flex', 'justify-between', 'gap-5'],
+      className: ['flex', 'justify-center', 'gap-5'],
     });
     buttonContainer.style.display = IS_OWN_PROFILE ? 'flex' : 'none';
 
-    const editButton = createHtmlElement({
-      element: 'button',
-      className: ['buttonGreen'],
-      textContent: 'Edit',
-    });
+    // const editButton = createHtmlElement({
+    //   element: 'button',
+    //   className: ['buttonGreen'],
+    //   textContent: 'Edit',
+    // });
 
     const deleteButton = createHtmlElement({
       element: 'button',
@@ -220,7 +220,7 @@ export async function buildListingCardsProfile() {
       await onDeleteListing(data.id);
     });
 
-    buttonContainer.append(editButton, deleteButton);
+    buttonContainer.append(deleteButton);
     bidContainer.append(currentBid, currentBidAmount, creditIcon);
     listingImageContainer.appendChild(listingImage);
     sellerAvatarContainer.appendChild(sellerAvatar);
