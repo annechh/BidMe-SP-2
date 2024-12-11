@@ -48,12 +48,17 @@ export function auctionTimeLeft(endTime) {
     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
-    timerElement.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    timerElement.classList.add(
-      'card-p-text',
-      // 'text-green-600',
-      'font-semibold'
-    );
+    let timeString = '';
+    if (days > 0) {
+      timeString += `${days}d `;
+    }
+    if (hours > 0 || days > 0) {
+      timeString += `${hours}h `;
+    }
+    timeString += `${minutes}m ${seconds}s`;
+
+    timerElement.textContent = timeString.trim();
+    timerElement.classList.add('card-p-text', 'font-semibold');
   }
 
   const timerInterval = setInterval(updateCountdown, 1000);
