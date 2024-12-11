@@ -1,7 +1,7 @@
 import { API_LISTINGS_SEARCH } from '../endpoints';
 import { headers } from '../headers';
 
-export async function searchListings(search = '', limit = 50, page = 1) {
+export async function searchListings(search = '', limit = 51, page = 1) {
   try {
     const queryParam = `&limit=${limit}&page=${page}&_seller=true&_bids=true&sort=created&sortOrder=desc&q=${search}`;
 
