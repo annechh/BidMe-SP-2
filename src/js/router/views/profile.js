@@ -4,8 +4,10 @@ import { buildListingsWins } from '../../ui/dom/profile/profileWins';
 import { formStyle } from '../../ui/styles/styleForms';
 import { viewProfileData } from '../../ui/dom/profile/profileEdit';
 import { onUpdateProfile } from '../../ui/profile/update';
+import { authGuard } from '../../utilities/authGuard';
 
 async function loadProfile() {
+  authGuard();
   await profileData();
   await buildListingCardsProfile();
   await buildListingsWins();
