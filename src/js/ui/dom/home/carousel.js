@@ -1,4 +1,5 @@
 import { auctionTimeLeft } from '../../../utilities/formatDate';
+import { LISTING_PAGE } from '../../../utilities/pagePaths';
 import { createHtmlElement } from '../createElement';
 
 export async function carousel(endingSoon) {
@@ -21,6 +22,10 @@ export async function carousel(endingSoon) {
     if (index === 0) {
       createLi.setAttribute('data-active', '');
     }
+    createLi.addEventListener('click', () => {
+      console.log(listing);
+      window.location.href = `${LISTING_PAGE}?name=${listing.seller.name}&id=${listing.id}`;
+    });
 
     const media = listing.media?.[0] || {
       url: '/images/placeholder-image.png',
@@ -36,7 +41,7 @@ export async function carousel(endingSoon) {
 
     const date = createHtmlElement({
       element: 'p',
-      textContent: 'Time left | ',
+      textContent: 'Ending soon | ',
       className: [
         'absolute',
         'bottom-0',
@@ -44,18 +49,22 @@ export async function carousel(endingSoon) {
         'justify-center',
         'items-end',
         'w-full',
+        // 'rounded-full',
         'h-[40px]',
-        'lg:h-full',
+        // 'lg:h-full',
         'gap-2',
         'left-1/2',
         '-translate-x-1/2',
-        'bg-white',
+        'bg-warmYellow',
+        // 'bg-opacity-75',
+        // 'lg:bg-transparent',
+        // 'lg:hover:bg-white',
         'bg-opacity-75',
-        'lg:bg-transparent',
-        'lg:hover:bg-white',
-        'lg:hover:bg-opacity-75',
-        'p-2',
+        'py-2',
+        'px-5',
+        // 'mb-2',
         'text-sm',
+        'font-semibold',
       ],
     });
 
