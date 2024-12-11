@@ -10,12 +10,11 @@ import {
 } from '../../utilities/pagePaths';
 import { createHtmlElement } from './createElement';
 
-export const DISPLAY_LOGGED_IN = localStorage.accessToken ? 'flex' : 'none';
-export const DISPLAY_LOGGED_OUT = localStorage.accessToken ? 'none' : 'flex';
+export const IS_LOGGED_IN = localStorage.accessToken ? 'flex' : 'none';
+export const IS_LOGGED_OUT = localStorage.accessToken ? 'none' : 'flex';
 
-export async function buildHeader() {
+export async function buildHeader(profileData) {
   const userData = getLocalStorage();
-  let profileData;
 
   if (userData) {
     profileData = await readProfileName(userData.name);
@@ -161,13 +160,14 @@ export async function buildHeader() {
     profileAvatar.alt = profileData.profile.avatar.alt;
   } else {
     profileAvatar.src = '/images/logo-lightMode.png';
+    profileAvatar.alt = 'Logo';
   }
 
   const creditsContainer = createHtmlElement({
     element: 'div',
     className: ['flex', 'items-center', 'gap-2'],
   });
-  creditsContainer.style.display = DISPLAY_LOGGED_IN;
+  creditsContainer.style.display = IS_LOGGED_IN;
 
   const credits = createHtmlElement({
     element: 'p',
@@ -203,14 +203,14 @@ export async function buildHeader() {
   createContainer.addEventListener('click', () => {
     window.location.href = NEW_LISTING_PAGE;
   });
-  createContainer.style.display = DISPLAY_LOGGED_IN;
+  createContainer.style.display = IS_LOGGED_IN;
 
   const loginContainer = createHtmlElement({
     element: 'div',
     id: 'loginButton',
     className: ['flex', 'gap-2', 'items-center', 'cursor-pointer'],
   });
-  loginContainer.style.display = DISPLAY_LOGGED_OUT;
+  loginContainer.style.display = IS_LOGGED_OUT;
   loginContainer.addEventListener('click', () => {
     window.location.href = LOGIN_PAGE;
   });
@@ -220,13 +220,13 @@ export async function buildHeader() {
     id: 'logoutButton',
     className: ['flex', 'gap-2', 'items-center', 'cursor-pointer'],
   });
-  logoutContainer.style.display = DISPLAY_LOGGED_IN;
+  logoutContainer.style.display = IS_LOGGED_IN;
 
   const registerContainer = createHtmlElement({
     element: 'div',
     className: ['flex', 'gap-2', 'items-center', 'cursor-pointer'],
   });
-  registerContainer.style.display = DISPLAY_LOGGED_OUT;
+  registerContainer.style.display = IS_LOGGED_OUT;
   registerContainer.addEventListener('click', () => {
     window.location.href = REGISTER_PAGE;
   });
