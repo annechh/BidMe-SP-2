@@ -1,10 +1,12 @@
-import { REGISTER_PAGE } from '../../../utilities/pagePaths';
+import { NEW_LISTING_PAGE, REGISTER_PAGE } from '../../../utilities/pagePaths';
+import { createHtmlElement } from '../createElement';
 
-const targetH1 = document.getElementById('welcomeUser');
 const storedUserData = localStorage.getItem('userData');
 
-const targetParagraph = document.getElementById('signUpMessage');
+const targetH1 = document.getElementById('headingMessage');
+const targetParagraph = document.getElementById('paragraphMessage');
 const targetButton = document.getElementById('becomeUserButton');
+const targetLoginLink = document.getElementById('loginLink');
 
 export function welcomeUser() {
   if (storedUserData) {
@@ -12,16 +14,28 @@ export function welcomeUser() {
     const userName = user.name;
 
     targetH1.textContent = `Welcome back ${userName}`;
-    targetParagraph.style.display = 'none';
+    targetParagraph.textContent = 'Explore BidMe´s or ';
     targetButton.style.display = 'none';
+    targetLoginLink.style.display = 'none';
+
+    const link = createHtmlElement({
+      element: 'a',
+      textContent: 'create new BidMe',
+      className: ['underline', 'cursor-pointer'],
+    });
+    link.addEventListener('click', () => {
+      window.location.href = NEW_LISTING_PAGE;
+    });
+
+    targetParagraph.appendChild(link);
   } else {
     targetH1.textContent = `Welcome to BidMe`;
 
     targetParagraph.textContent =
-      'Sign up to to start bidding and place your BidMe’s';
+      'Sign up to to start bidding and create your BidMe’s';
     targetParagraph.style.display = 'block';
 
-    targetButton.textContent = 'Become a BidMe user';
+    targetButton.textContent = 'Sign up to get started';
     targetButton.style.display = 'block';
     targetButton.addEventListener(
       'click',
@@ -43,7 +57,7 @@ targetH1.classList.add(
 targetParagraph.classList.add(
   'text-sm',
   'md:text-xl',
-  'lg:text-[32px]',
+  'lg:text-2xl',
   'text-center',
   'lg:pb-5'
 );
