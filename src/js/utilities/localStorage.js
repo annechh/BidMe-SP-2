@@ -16,7 +16,7 @@ export function getLocalStorage() {
   const userData = localStorage.getItem('userData');
 
   if (userData) {
-    const userName = JSON.parse(localStorage.getItem('userData'));
-    return userName;
+    const parsedData = JSON.parse(localStorage.getItem('userData'));
+    return parsedData;
   }
 }
