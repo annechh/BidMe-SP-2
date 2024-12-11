@@ -52,6 +52,8 @@ export function passwordValidation(password, passwordError) {
 export function validateName() {
   const nameInput = document.getElementById('name');
   const nameError = document.getElementById('nameError');
+  nameError.classList.add('py-2', 'px-5', 'bg-delete');
+
   const name = nameInput.value;
 
   if (checkIfEmptyField(name, nameError)) {
@@ -64,6 +66,7 @@ export function validateName() {
 export function validateEmail() {
   const emailInput = document.getElementById('email');
   const emailError = document.getElementById('emailError');
+  emailError.classList.add('py-2', 'px-5', 'bg-delete');
   const email = emailInput.value;
 
   if (checkIfEmptyField(email, emailError)) {
@@ -76,6 +79,8 @@ export function validateEmail() {
 export function validatePassword() {
   const passwordInput = document.getElementById('password');
   const passwordError = document.getElementById('passwordError');
+  passwordError.classList.add('py-2', 'px-5', 'bg-delete');
+
   const password = passwordInput.value;
 
   if (checkIfEmptyField(password, passwordError)) {
@@ -86,6 +91,8 @@ export function validatePassword() {
 }
 
 export function showSuccessMessage() {
+  const heading = document.querySelector('h1');
+
   const loginForm = document.forms.login;
   const loginSuccess = document.getElementById('loginSuccess');
 
@@ -107,12 +114,15 @@ export function showSuccessMessage() {
 
   if (loginForm) {
     loginForm.style.display = 'none';
+    heading.style.display = 'none';
   }
   if (registerForm) {
     registerForm.style.display = 'none';
+    heading.style.display = 'none';
   }
   if (createListingForm) {
     createListingForm.style.display = 'none';
+    heading.style.display = 'none';
   }
 }
 
