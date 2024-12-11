@@ -1,22 +1,23 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&display=swap"
-      rel="stylesheet"
-    />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&display=swap"
-      rel="stylesheet"
-    />
-
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+
     <script type="module" src="/src/app.js"></script>
 
     <link rel="icon" href="/favicon-bidMe.png" />
@@ -27,55 +28,68 @@
     <header></header>
 
     <main>
-      <section
-        class="flex flex-col items-center gap-5 py-[50px] max-w-[700px] px-5 border-b"
-      >
-        <h1 id="welcomeUser"></h1>
-        <p id="signUpMessage"></p>
-        <button id="becomeUserButton" class="buttonYellow"></button>
-      </section>
-
-      <section
-        class="carousel-section mt-0 md:mt-[50px] flex-col items-center animate-pulse"
-        id="carousel"
-      >
-        <h2 class="text-base md:text-lg lg:text-2xl py-5">
-          BidMe's ending soon
-        </h2>
-        <div class="carousel carousel-img-container" id="carouselWrapper">
-          <ul id="carouselItems"></ul>
-          <li class="slide carousel-image">
-            <img src="/images/placeholder-image.png" alt="placeholder" />
-          </li>
-          <div class="arrow-buttons">
+      <section class="w-full bg-warmYellow flex justify-center">
+        <div
+          class="flex flex-col-reverse lg:flex-row-reverse max-w-[1920px] w-full items-center lg:justify-between mx-5 gap-5"
+        >
+          <div class="flex flex-col max-w-[800px] w-full">
             <div
-              class="carousel-slide-btn left"
-              id="prevBtn"
-              data-carousel-btn="prev"
+              class="carousel-section mt-0 lg:mt-[50px] flex-col items-center animate-pulse loader"
+              id="carousel"
             >
-              <i
-                class="fa-solid fa-chevron-left"
-                id="prevBtn"
-                data-carousel-btn="prev"
-              ></i>
+              <div class="carousel max-w-[800px] w-full" id="carouselWrapper">
+                <ul id="carouselItems"></ul>
+                <li class="slide carousel-image">
+                  <img src="/images/loading-image.png" alt="placeholder" />
+                </li>
+                <div class="arrow-buttons">
+                  <div
+                    class="carousel-slide-btn left"
+                    id="prevBtn"
+                    data-carousel-btn="prev"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-left"
+                      id="prevBtn"
+                      data-carousel-btn="prev"
+                    ></i>
+                  </div>
+                  <div
+                    class="carousel-slide-btn right"
+                    id="nextBtn"
+                    data-carousel-btn="next"
+                  >
+                    <i
+                      class="fa-solid fa-chevron-right"
+                      id="nextBtn"
+                      data-carousel-btn="next"
+                    ></i>
+                  </div>
+                </div>
+              </div>
             </div>
             <div
-              class="carousel-slide-btn right"
-              id="nextBtn"
-              data-carousel-btn="next"
-            >
-              <i
-                class="fa-solid fa-chevron-right"
-                id="nextBtn"
-                data-carousel-btn="next"
-              ></i>
-            </div>
+              class="carousel-nav mb-[20px] md:mb-[50px]"
+              id="carouselNav"
+            ></div>
           </div>
+
+          <section
+            class="flex flex-col items-center justify-center gap-5 max-w-[800px] w-full mt-[50px]"
+          >
+            <h1 id="headingMessage"></h1>
+            <p id="paragraphMessage"></p>
+            <div class="w-full flex flex-col items-center">
+              <button id="becomeUserButton" class="buttonBlue"></button>
+              <a id="loginLink" class="py-2 px-5" href="/pages/auth/login/"
+                >Log in</a
+              >
+            </div>
+          </section>
         </div>
       </section>
-      <div class="carousel-nav mb-[20px] md:mb-[50px]" id="carouselNav"></div>
 
-      <section class="w-full py-[50px]">
+      <div class="w-full py-[50px]">
         <div class="flex flex-col items-center justify-center gap-5 mx-5">
           <form
             class="flex gap-2 md:gap-5 max-w-[1280px] w-full"
@@ -116,7 +130,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       <section class="w-full flex flex-col items-center">
         <div id="listingsCards"></div>
