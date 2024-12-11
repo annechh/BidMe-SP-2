@@ -3,7 +3,6 @@ import { carousel } from '../../ui/dom/home/carousel';
 import { renderListingCards } from '../../ui/dom/home/listingsCardsHome';
 import { welcomeUser } from '../../ui/dom/home/welcomeMessage';
 import { handleSearch } from '../../ui/search/search';
-import { styleMain } from '../../ui/styles/styleForms';
 
 async function loadHomePage() {
   const { listings: allListings } = await readListings({ limit: 51 });
@@ -24,7 +23,6 @@ async function loadHomePage() {
 
   renderListingCards(allListings);
   welcomeUser();
-  styleMain();
 }
 
 await loadHomePage();
