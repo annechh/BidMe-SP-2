@@ -58,6 +58,26 @@ export function styleInput() {
   });
 }
 
+export function styleTextAreaWrapper() {
+  const targetDiv = document.querySelector('.textarea-wrapper');
+
+  targetDiv.classList.add('flex', 'flex-col', 'gap-2', 'mx-4', 'relative');
+}
+
+export function styleTextArea() {
+  const targetTextArea = document.querySelector('.textarea');
+  targetTextArea.classList.add(
+    'rounded',
+    'h-[150px]',
+    'px-4',
+    'text-black',
+    'font-semibold',
+    'bg-white',
+    'border',
+    'border-darkFaded'
+  );
+}
+
 export function formStyle() {
   styleFormDivWrapper();
   styleForm();
