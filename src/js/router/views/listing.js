@@ -13,7 +13,14 @@ async function loadListingPage() {
   renderListingInfo(listing);
   listing.bids.reverse();
 
-  carousel(listing);
+  // carousel(listing);
+  try {
+    const animatePulseLoader = document.querySelector('.loader');
+    animatePulseLoader.classList.remove('animate-pulse');
+    await carousel(listing);
+  } catch (error) {
+    throw new error();
+  }
 
   const avatarNameContainer = document.getElementById('avatarNameContainer');
   const viewBidsButton = document.getElementById('viewBidsButton');
