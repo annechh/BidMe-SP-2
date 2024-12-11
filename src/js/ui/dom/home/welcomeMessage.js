@@ -1,4 +1,8 @@
-import { NEW_LISTING_PAGE, REGISTER_PAGE } from '../../../utilities/pagePaths';
+import {
+  NEW_LISTING_PAGE,
+  PROFILE_PAGE,
+  REGISTER_PAGE,
+} from '../../../utilities/pagePaths';
 import { createHtmlElement } from '../createElement';
 
 const storedUserData = localStorage.getItem('userData');
@@ -7,6 +11,8 @@ const targetH1 = document.getElementById('headingMessage');
 const targetParagraph = document.getElementById('paragraphMessage');
 const targetButton = document.getElementById('becomeUserButton');
 const targetLoginLink = document.getElementById('loginLink');
+const avatarContainer = document.getElementById('avatarContainer');
+const avatar = document.getElementById('avatarWelcome');
 
 export function welcomeUser() {
   if (storedUserData) {
@@ -14,9 +20,19 @@ export function welcomeUser() {
     const userName = user.name;
 
     targetH1.textContent = `Welcome back ${userName}`;
+    avatarContainer.style.display = 'block';
+    avatarContainer.classList.add('animate-bounce');
     targetParagraph.textContent = 'Explore BidMe´s or ';
     targetButton.style.display = 'none';
     targetLoginLink.style.display = 'none';
+
+    console.log(user);
+    avatar.src = user.avatar.url;
+    avatar.alt = user.avatar.alt;
+    avatar.classList.add('cursor-pointer');
+    avatar.addEventListener('click', () => {
+      window.location.href = `${PROFILE_PAGE}?name=${user.name}`;
+    });
 
     const link = createHtmlElement({
       element: 'a',
@@ -30,7 +46,7 @@ export function welcomeUser() {
     targetParagraph.appendChild(link);
   } else {
     targetH1.textContent = `Welcome to BidMe`;
-
+    avatarContainer.style.display = 'none';
     targetParagraph.textContent =
       'Sign up to to start bidding and create your BidMe’s';
     targetParagraph.style.display = 'block';
