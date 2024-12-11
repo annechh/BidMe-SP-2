@@ -1,13 +1,12 @@
 import { readListings } from '../../api/listing/read';
 import { carousel } from '../../ui/dom/home/carousel';
-// import { buildLastChanceListings } from '../../ui/dom/home/lastChanceListings';
 import { renderListingCards } from '../../ui/dom/home/listingsCardsHome';
 import { welcomeUser } from '../../ui/dom/home/welcomeMessage';
 import { handleSearch } from '../../ui/search/search';
 import { styleMain } from '../../ui/styles/styleForms';
 
 async function loadHomePage() {
-  const { listings: allListings } = await readListings({ limit: 50 });
+  const { listings: allListings } = await readListings({ limit: 51 });
   const { listings: endsSoonListings } = await readListings({
     limit: 6,
     sort: 'endsAt',
@@ -24,9 +23,8 @@ async function loadHomePage() {
   }
 
   renderListingCards(allListings);
-  // buildLastChanceListings(endsSoonListings);
   welcomeUser();
   styleMain();
 }
 
-loadHomePage();
+await loadHomePage();
