@@ -214,8 +214,8 @@ export function renderListingCards(allListings) {
     'lg:grid-cols-3',
     'gap-[10px]',
     'mx-5',
-    'my-[50px]',
-    'lg:my-[100px]'
+    'mb-[50px]',
+    'lg:mb-[100px]'
   );
 
   if (!renderListings) {
