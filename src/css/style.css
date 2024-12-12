@@ -4,28 +4,23 @@
 @tailwind components;
 @tailwind utilities;
 
-.auth-link {
-  @apply text-center px-4 py-2 md:px-8 md:py-4 hover:underline;
+
+@layer base{
+  .auth-link {
+    @apply text-center px-4 py-2 md:px-8 md:py-4 hover:underline;
+  }
+  h1 {
+    @apply font-poppins text-base md:text-2xl lg:text-4xl font-bold tracking-[3.2px];
+  }
+  h2,
+  h3 {
+    @apply font-poppins font-semibold text-sm md:text-base lg:text-lg;
+  }
+  .iconSmaller {
+    @apply text-sm md:text-base lg:text-xl;
+  }
 }
 
-h1 {
-  @apply font-poppins text-base md:text-2xl lg:text-4xl font-bold tracking-[3.2px];
-}
-
-h2,
-h3 {
-  @apply font-poppins font-semibold text-sm md:text-base lg:text-lg;
-}
-
-
-/* span, */
-/* .fa-solid {
-  @apply text-sm md:text-base lg:text-2xl;
-} */
-
-.iconSmaller {
-  @apply text-sm md:text-base lg:text-xl;
-}
 
 @layer components {
   .buttonYellow {
@@ -41,7 +36,6 @@ h3 {
     @apply bg-delete h-[50px] max-w-[300px] w-full rounded-full text-base font-semibold;
   }
 }
-
 
 @layer components {
   .clear-field-button {
@@ -75,10 +69,10 @@ h3 {
     @apply opacity-100 z-10 delay-0;
   }
   .arrow-buttons {
-    @apply w-full flex justify-between items-center;
+    @apply w-full flex justify-between items-center mx-5;
   }
   .carousel-slide-btn {
-    @apply flex items-center justify-center w-[50px] h-full z-20 hover:bg-whiteFaded cursor-pointer;
+    @apply flex items-center justify-center text-white w-[50px] h-[50px] rounded-full z-20 hover:bg-darkFaded cursor-pointer;
   }
   .carousel-nav {
     @apply flex justify-center items-center gap-5 mt-5 w-full;
