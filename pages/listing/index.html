@@ -7,51 +7,41 @@
       name="description"
       content="Specific BidMe auction listing, place your bid to win it"
     />
-
     <script type="module" src="/src/app.js"></script>
     <link rel="icon" href="/favicon-bidMe.png" />
-
     <title>BidMe Listing page</title>
   </head>
   <body>
     <header></header>
 
     <main>
-      <section
+      <div
         class="carousel-section mt-0 md:mt-[50px] animate-pulse loader"
         id="carousel"
       >
         <div class="carousel carousel-img-container" id="carouselWrapper">
           <ul id="carouselItems"></ul>
+          <div class="slide carousel-image">
+            <img src="/images/loading-image.png" alt="placeholder" />
+          </div>
           <div class="arrow-buttons">
-            <li class="slide carousel-image">
-              <img src="/images/loading-image.png" alt="placeholder" />
-            </li>
             <div
               class="carousel-slide-btn left"
               id="prevBtn"
               data-carousel-btn="prev"
             >
-              <i
-                class="fa-solid fa-chevron-left"
-                id="prevBtn"
-                data-carousel-btn="prev"
-              ></i>
+              <i class="fa-solid fa-chevron-left"></i>
             </div>
             <div
               class="carousel-slide-btn right"
               id="nextBtn"
               data-carousel-btn="next"
             >
-              <i
-                class="fa-solid fa-chevron-right"
-                id="nextBtn"
-                data-carousel-btn="next"
-              ></i>
+              <i class="fa-solid fa-chevron-right"></i>
             </div>
           </div>
         </div>
-      </section>
+      </div>
       <div class="carousel-nav mb-[20px] md:mb-[50px]" id="carouselNav"></div>
 
       <section class="max-w-[800px] w-full mb-5 md:mb-[50px]">
@@ -70,8 +60,8 @@
                 <img
                   class="w-full h-full object-cover"
                   id="avatar"
-                  src=""
-                  alt=""
+                  src="/images/loading-image.png"
+                  alt="placeholder"
                 />
               </div>
               <p id="name"></p>
@@ -80,7 +70,7 @@
               <p id="startDate"></p>
             </div>
           </div>
-          <h1 class="" id="title"></h1>
+          <h1 class="" id="title">Title</h1>
           <div class="description-container border-b">
             <p id="description"></p>
           </div>
