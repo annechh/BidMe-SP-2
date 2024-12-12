@@ -28,8 +28,13 @@
     <header></header>
 
     <main>
-      <h1 class="h1">Login</h1>
-      <p>Check your bids and BidMe’s</p>
+      <div
+        id="hideTitleBox"
+        class="flex flex-col items-center justify-center gap-2 mt-[50px]"
+      >
+        <h1 class="h1">Login</h1>
+        <p>Check your bids and BidMe’s</p>
+      </div>
       <div class="form-div-wrapper">
         <form class="form" name="login">
           <div class="label-input-wrapper">
@@ -61,13 +66,13 @@
           <a class="auth-link" href="/pages/auth/register/">Go to Register</a>
         </form>
         <div id="loginSuccess" class="hidden">
-          <div class="">
+          <div class="flex flex-col items-center justify-center">
             <h2>Login Successful</h2>
             <p>Redirecting you to the homepage</p>
           </div>
         </div>
         <div id="loginFailed" class="hidden">
-          <div class="">
+          <div class="flex flex-col items-center justify-center">
             <h2>Login Failed</h2>
             <p>Please try again</p>
           </div>
