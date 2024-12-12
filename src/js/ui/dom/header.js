@@ -1,4 +1,5 @@
 import { readProfileName } from '../../api/profile/read';
+import { getPageClasses } from '../../utilities/currentPage';
 import { getLocalStorage } from '../../utilities/localStorage';
 import {
   HOME_PAGE,
@@ -193,12 +194,12 @@ export async function buildHeader(profileData) {
 
   const homeContainer = createHtmlElement({
     element: 'li',
-    className: ['nav-list'],
+    className: ['nav-list', ...getPageClasses(HOME_PAGE)],
   });
 
   const createContainer = createHtmlElement({
     element: 'li',
-    className: ['nav-list'],
+    className: ['nav-list', ...getPageClasses(NEW_LISTING_PAGE)],
   });
   createContainer.addEventListener('click', () => {
     window.location.href = NEW_LISTING_PAGE;
@@ -208,7 +209,7 @@ export async function buildHeader(profileData) {
   const loginContainer = createHtmlElement({
     element: 'li',
     id: 'loginButton',
-    className: ['nav-list'],
+    className: ['nav-list', ...getPageClasses(LOGIN_PAGE)],
   });
   loginContainer.style.display = IS_LOGGED_OUT;
   loginContainer.addEventListener('click', () => {
@@ -224,7 +225,7 @@ export async function buildHeader(profileData) {
 
   const registerContainer = createHtmlElement({
     element: 'li',
-    className: ['nav-list'],
+    className: ['nav-list', ...getPageClasses(REGISTER_PAGE)],
   });
   registerContainer.style.display = IS_LOGGED_OUT;
   registerContainer.addEventListener('click', () => {
