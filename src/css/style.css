@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&display=swap);
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,14 +37,22 @@ h3 {
   @apply font-poppins font-semibold text-sm md:text-base lg:text-lg;
 }
 
-p,
+
 /* span, */
 .fa-solid {
   @apply text-sm md:text-base lg:text-2xl;
 }
 
+@layer components {
 .clear-field-button {
-  @apply absolute right-0 bottom-0 bg-skyBlue border-none h-[50px] max-w-[50px] w-full rounded-e;
+  @apply absolute right-0 bottom-0 bg-delete border-none h-[50px] max-w-[50px] w-full rounded-e;
+}
+}
+
+@layer components {
+  .nav-list {
+    @apply flex items-center gap-2 lg:gap-5 cursor-pointer
+  }
 }
 
 @layer components {
