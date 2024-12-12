@@ -21,12 +21,12 @@ export function welcomeUser() {
 
     targetH1.textContent = `Welcome back ${userName}`;
     avatarContainer.style.display = 'block';
-    avatarContainer.classList.add('animate-bounce');
+    // avatarContainer.classList.add('animate-bounce');
     targetParagraph.textContent = 'Explore BidMe´s or ';
     targetButton.style.display = 'none';
     targetLoginLink.style.display = 'none';
 
-    console.log(user);
+    // console.log(user);
     avatar.src = user.avatar.url;
     avatar.alt = user.avatar.alt;
     avatar.classList.add('cursor-pointer');
@@ -67,14 +67,12 @@ targetH1.classList.add(
   'font-poppins',
   'font-bold',
   'text-center',
-  'tracking-widest',
-  'lg:pb-5'
+  'tracking-widest'
 );
 targetParagraph.classList.add(
   'text-sm',
   'md:text-xl',
   'lg:text-2xl',
-  'text-center',
-  'lg:pb-5'
+  'text-center'
 );
 targetButton.classList.add('button');
