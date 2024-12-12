@@ -29,8 +29,17 @@ export function renderListingInfo(data) {
   const timer = auctionTimeLeft(data.endsAt);
   countdownTimer.appendChild(timer);
 
+  const lastBid = data.bids[data.bids.length - 1]?.amount;
+
   const currentBid = document.getElementById('currentBidAmount');
-  currentBid.textContent = data.bids[data.bids.length - 1]?.amount;
+  currentBid.textContent = lastBid;
+
+  if (!lastBid) {
+    const noBid = document.getElementById('currentBid');
+    const coinIcon = document.getElementById('coinIcon');
+    noBid.textContent = 'No bids yet';
+    coinIcon.style.display = 'none';
+  }
 
   showHideElements(data);
   blockBidEndedAuction(data);
