@@ -164,16 +164,22 @@ export function buildListingCards(data) {
     textContent: 'Current bid: ',
   });
 
+  const lastBid = data.bids[data.bids.length - 1]?.amount;
   const currentBidAmount = createHtmlElement({
     element: 'span',
     className: ['font-semibold'],
-    textContent: data.bids[data.bids.length - 1]?.amount,
+    textContent: lastBid,
   });
 
   const creditIcon = createHtmlElement({
     element: 'i',
     className: ['fa-solid', 'fa-coins'],
   });
+
+  if (!lastBid) {
+    currentBid.textContent = 'No bids yet';
+    creditIcon.style.display = 'none';
+  }
 
   bidContainer.append(currentBid, currentBidAmount, creditIcon);
   listingImageContainer.appendChild(listingImage);

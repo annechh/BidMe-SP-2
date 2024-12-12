@@ -137,7 +137,7 @@ export async function buildListingCardsProfile() {
     const listingTitle = createHtmlElement({
       element: 'h2',
       textContent: data.title ?? '',
-      className: ['line-clamp-1'],
+      className: ['line-clamp-1', 'mb-auto'],
     });
     applyBreakWordClass(listingTitle);
 
@@ -187,16 +187,22 @@ export async function buildListingCardsProfile() {
       textContent: 'Current bid: ',
     });
 
+    const lastBid = data.bids[data.bids.length - 1]?.amount;
     const currentBidAmount = createHtmlElement({
       element: 'span',
       className: ['font-semibold'],
-      textContent: data.bids[data.bids.length - 1]?.amount,
+      textContent: lastBid,
     });
 
     const creditIcon = createHtmlElement({
       element: 'i',
       className: ['fa-solid', 'fa-coins'],
     });
+
+    if (!lastBid) {
+      currentBid.textContent = 'No bids yet';
+      creditIcon.style.display = 'none';
+    }
 
     const buttonContainer = createHtmlElement({
       element: 'div',
