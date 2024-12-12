@@ -74,7 +74,8 @@ export function styleTextArea() {
     'font-semibold',
     'bg-white',
     'border',
-    'border-darkFaded'
+    'border-darkFaded',
+    'placeholder:pt-2'
   );
 }
 
