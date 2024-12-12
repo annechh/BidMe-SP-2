@@ -91,7 +91,7 @@ export function validatePassword() {
 }
 
 export function showSuccessMessage() {
-  const heading = document.querySelector('h1');
+  const hideTitleBox = document.getElementById('hideTitleBox');
 
   const loginForm = document.forms.login;
   const loginSuccess = document.getElementById('loginSuccess');
@@ -114,15 +114,15 @@ export function showSuccessMessage() {
 
   if (loginForm) {
     loginForm.style.display = 'none';
-    heading.style.display = 'none';
+    hideTitleBox.style.display = 'none';
   }
   if (registerForm) {
     registerForm.style.display = 'none';
-    heading.style.display = 'none';
+    hideTitleBox.style.display = 'none';
   }
   if (createListingForm) {
     createListingForm.style.display = 'none';
-    heading.style.display = 'none';
+    hideTitleBox.style.display = 'none';
   }
 }
 
