@@ -14,27 +14,29 @@ export function buildFooter() {
   const footerWrapper = createHtmlElement({
     element: 'div',
     className: [
-      'h-[300px]',
+      'h-[150px]',
+      'lg:h-[300px]',
       'max-w-[1920px]',
       'w-full',
       'flex',
       'flex-col',
       'items-center',
       'justify-center',
-      'gap-5',
+      'gap-2',
     ],
   });
 
   const logo = createHtmlElement({
     element: 'img',
     src: '/images/logo-lightMode.png',
+    className: ['max-h-14', 'lg:max-h-24'],
   });
   logo.addEventListener('click', () => (window.location.href = HOME_PAGE));
 
   const copyright = createHtmlElement({
     element: 'p',
     textContent: '@ BidMe Auctions',
-    className: ['text-darkFaded'],
+    className: ['text-darkFaded', 'text-xs', 'lg:text-base'],
   });
 
   footerWrapper.append(logo, copyright);
