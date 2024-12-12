@@ -10,10 +10,10 @@ export async function carousel(endingSoon) {
   const listingData = endingSoon.slice(0, MAX_SLIDES);
   const listings = listingData;
 
-  console.log('MEDIA in carousel', listings);
+  // console.log('MEDIA in carousel', listings);
 
   listings.forEach((listing, index) => {
-    console.log(listing);
+    // console.log(listing);
 
     const createLi = createHtmlElement({
       element: 'li',
