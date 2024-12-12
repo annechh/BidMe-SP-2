@@ -187,18 +187,18 @@ export async function buildHeader(profileData) {
   imageCreditsWrapper.append(profileAvatarContainer, creditsContainer);
 
   const navigationWrapper = createHtmlElement({
-    element: 'div',
+    element: 'ul',
     className: ['flex', 'flex-col', 'gap-5'],
   });
 
   const homeContainer = createHtmlElement({
-    element: 'div',
-    className: ['flex', 'gap-2', 'items-center'],
+    element: 'li',
+    className: ['nav-list'],
   });
 
   const createContainer = createHtmlElement({
-    element: 'div',
-    className: ['flex', 'gap-2', 'items-center'],
+    element: 'li',
+    className: ['nav-list'],
   });
   createContainer.addEventListener('click', () => {
     window.location.href = NEW_LISTING_PAGE;
@@ -206,9 +206,9 @@ export async function buildHeader(profileData) {
   createContainer.style.display = IS_LOGGED_IN;
 
   const loginContainer = createHtmlElement({
-    element: 'div',
+    element: 'li',
     id: 'loginButton',
-    className: ['flex', 'gap-2', 'items-center', 'cursor-pointer'],
+    className: ['nav-list'],
   });
   loginContainer.style.display = IS_LOGGED_OUT;
   loginContainer.addEventListener('click', () => {
@@ -216,15 +216,15 @@ export async function buildHeader(profileData) {
   });
 
   const logoutContainer = createHtmlElement({
-    element: 'div',
+    element: 'li',
     id: 'logoutButton',
-    className: ['flex', 'gap-2', 'items-center', 'cursor-pointer'],
+    className: ['nav-list'],
   });
   logoutContainer.style.display = IS_LOGGED_IN;
 
   const registerContainer = createHtmlElement({
-    element: 'div',
-    className: ['flex', 'gap-2', 'items-center', 'cursor-pointer'],
+    element: 'li',
+    className: ['nav-list'],
   });
   registerContainer.style.display = IS_LOGGED_OUT;
   registerContainer.addEventListener('click', () => {
@@ -233,15 +233,15 @@ export async function buildHeader(profileData) {
 
   // const searchContainer = createHtmlElement({
   //   element: 'div',
-  //   className: ['flex', 'gap-2', 'items-center', 'cursor-pointer'],
+  //   className: ['nav-list'],
   // });
   // searchContainer.addEventListener('click', () => {
   //   window.location.href = SEARCH_PAGE;
   // });
 
   const lightModeContainer = createHtmlElement({
-    element: 'div',
-    className: ['flex', 'gap-2', 'items-center'],
+    element: 'li',
+    className: ['nav-list'],
   });
 
   const homeLink = createHtmlElement({
