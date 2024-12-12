@@ -77,6 +77,7 @@ export function previewImage() {
         'lg:h-[300px]',
         'w-full',
         'overflow-hidden',
+        'rounded-t',
       ],
     });
 
@@ -91,10 +92,12 @@ export function previewImage() {
       className: [
         'btn-x',
         'font-bold',
-        'text-2xl',
-        'text-delete',
         'fa-solid',
         'fa-xmark',
+        'h-[50px]',
+        'w-full',
+        'bg-delete',
+        'rounded-b',
       ],
     });
     removeButton.addEventListener('click', () => {
