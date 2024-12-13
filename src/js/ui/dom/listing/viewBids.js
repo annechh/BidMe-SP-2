@@ -1,3 +1,4 @@
+import { sortBidsByLatest } from '../../../utilities/sortBids';
 import { createHtmlElement } from '../createElement';
 
 export function buildViewBids(listing) {
@@ -7,7 +8,10 @@ export function buildViewBids(listing) {
   ul.innerHTML = '';
   console.log('all bids: ', listing.bids);
 
-  listing.bids.forEach((bidData) => {
+  const sortedBids = sortBidsByLatest(listing.bids);
+  console.log('sortedBids', sortedBids);
+
+  sortedBids.forEach((bidData) => {
     const li = createHtmlElement({
       element: 'li',
       className: [],

@@ -3,6 +3,7 @@ import { applyBreakWordClass } from '../../../utilities/breakLongWords';
 import { formatDate } from '../../../utilities/formatDate';
 import { getLocalStorage } from '../../../utilities/localStorage';
 import { LISTING_PAGE } from '../../../utilities/pagePaths';
+import { sortBidsByLatest } from '../../../utilities/sortBids';
 import { createHtmlElement } from '../createElement';
 
 export async function buildListingsWins() {
@@ -118,10 +119,13 @@ export async function buildListingsWins() {
       className: ['bid-container', 'flex', 'items-center', 'gap-2'],
     });
 
+    const sortedBids = sortBidsByLatest(data.bids);
+    const latestBidAmount = sortedBids[0]?.amount;
+
     const bidAmount = createHtmlElement({
       element: 'p',
       className: ['card-p-text', 'font-semibold'],
-      textContent: data.bids[data.bids.length - 1]?.amount,
+      textContent: latestBidAmount,
     });
 
     const creditIcon = createHtmlElement({

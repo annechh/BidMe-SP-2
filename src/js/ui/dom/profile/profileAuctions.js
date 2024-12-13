@@ -6,6 +6,7 @@ import { applyBreakWordClass } from '../../../utilities/breakLongWords';
 import { auctionTimeLeft, formatDate } from '../../../utilities/formatDate';
 import { getLocalStorage } from '../../../utilities/localStorage';
 import { LISTING_PAGE } from '../../../utilities/pagePaths';
+import { sortBidsByLatest } from '../../../utilities/sortBids';
 import { onDeleteListing } from '../../listing/delete';
 import { createHtmlElement } from '../createElement';
 
@@ -187,11 +188,13 @@ export async function buildListingCardsProfile() {
       textContent: 'Current bid: ',
     });
 
-    const lastBid = data.bids[data.bids.length - 1]?.amount;
+    const sortedBids = sortBidsByLatest(data.bids);
+    const latestBidAmount = sortedBids[0]?.amount;
+
     const currentBidAmount = createHtmlElement({
       element: 'span',
       className: ['font-semibold'],
-      textContent: lastBid,
+      textContent: latestBidAmount,
     });
 
     const creditIcon = createHtmlElement({
@@ -199,7 +202,7 @@ export async function buildListingCardsProfile() {
       className: ['fa-solid', 'fa-coins'],
     });
 
-    if (!lastBid) {
+    if (!latestBidAmount) {
       currentBid.textContent = 'No bids yet';
       creditIcon.style.display = 'none';
     }

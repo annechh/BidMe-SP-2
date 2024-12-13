@@ -2,6 +2,7 @@ import { applyBreakWordClass } from '../../../utilities/breakLongWords';
 import { auctionTimeLeft, formatDate } from '../../../utilities/formatDate';
 import { getLocalStorage } from '../../../utilities/localStorage';
 import { AUTH_PAGE } from '../../../utilities/pagePaths';
+import { sortBidsByLatest } from '../../../utilities/sortBids';
 import { isAuctionEnded } from '../../../utilities/validation';
 
 export function renderListingInfo(data) {
@@ -29,12 +30,13 @@ export function renderListingInfo(data) {
   const timer = auctionTimeLeft(data.endsAt);
   countdownTimer.appendChild(timer);
 
-  const lastBid = data.bids[data.bids.length - 1]?.amount;
+  const sortedBids = sortBidsByLatest(data.bids);
+  const latestBidAmount = sortedBids[0]?.amount;
 
   const currentBid = document.getElementById('currentBidAmount');
-  currentBid.textContent = lastBid;
+  currentBid.textContent = latestBidAmount;
 
-  if (!lastBid) {
+  if (!latestBidAmount) {
     const noBid = document.getElementById('currentBid');
     const coinIcon = document.getElementById('coinIcon');
     noBid.textContent = 'No bids yet';
