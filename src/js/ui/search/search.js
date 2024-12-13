@@ -20,7 +20,6 @@ const searchedFor = document.getElementById('searchedFor');
 export async function handleSearch(listings) {
   toggleButtonState();
   resetToAllListings(listings);
-  console.log('Listing in handleSearch', listings);
 
   searchInput.addEventListener('input', toggleButtonState);
 
