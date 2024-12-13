@@ -68,10 +68,18 @@
           </div>
         </div>
 
-        <div
+        <div class="flex flex-col items-center">
+          <p
+            id="profileBio"
+            class="text-xs md:text-base lg:text-2xl text-center px-5 md:px-[40px] lg:px-[75px] max-w-[1240px]"
+          ></p>
+        </div>
+
+        <section
           class="hidden edit-form-container form-div-wrapper"
           id="formDivWrapper"
         >
+          <h2>Edit profile</h2>
           <form class="form" name="editProfile" id="editProfile">
             <div class="label-input-wrapper">
               <label class="label" for="banner">Banner</label>
@@ -133,14 +141,7 @@
               </button>
             </div>
           </form>
-        </div>
-
-        <div class="flex flex-col items-center">
-          <p
-            id="profileBio"
-            class="text-xs md:text-base lg:text-2xl text-center px-5 md:px-[40px] lg:px-[75px] max-w-[1240px]"
-          ></p>
-        </div>
+        </section>
 
         <div
           class="max-w-[1920px] w-full flex flex-col gap-[30px] md:gap-[50px]"
