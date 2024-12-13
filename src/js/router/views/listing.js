@@ -11,9 +11,7 @@ async function loadListingPage() {
   console.log('Listing data from view: ', listing);
 
   renderListingInfo(listing);
-  listing.bids.reverse();
 
-  // carousel(listing);
   try {
     const animatePulseLoader = document.querySelector('.loader');
     animatePulseLoader.classList.remove('animate-pulse');
@@ -34,7 +32,6 @@ async function loadListingPage() {
   });
 
   viewBidsButton.addEventListener('click', () => {
-    console.log('click');
     buildViewBids(listing);
     modal.classList.add('flex');
     modal.classList.remove('hidden');
