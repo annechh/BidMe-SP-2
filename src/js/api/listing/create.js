@@ -1,5 +1,6 @@
 import { HOME_PAGE } from '../../utilities/pagePaths';
-import { showSuccessMessage } from '../../utilities/validation';
+import { showSuccessMessage } from '../../utilities/validation/displaySuccessMessage';
+import { displayMessage } from '../../utilities/validation/displayMessage';
 import { API_LISTINGS } from '../endpoints';
 import { headers } from '../headers';
 
@@ -16,22 +17,29 @@ export async function createListing({
       headers: headers(),
       body: JSON.stringify({ title, description, tags, endsAt, media }),
     });
+
+    const data = await response.json();
     console.log(response.body);
 
     if (!response.ok) {
-      alert('Failed to create listing');
+      console.log('hey', !response.ok);
+
+      throw new Error(data.errors?.[0]?.message || 'Create New listing failed');
     } else {
-      const data = await response.json();
       console.log('Response data: ', data.data);
 
-      showSuccessMessage();
+      displayMessage('#message', 'success', 'Success');
+
+      setTimeout(() => {
+        showSuccessMessage();
+      }, 1000);
 
       setTimeout(() => {
         window.location.href = HOME_PAGE;
-      }, 2500);
+      }, 3500);
       return data.data;
     }
   } catch (error) {
-    alert(error, 'Failed to create new listing');
+    displayMessage('#imageError', 'warning', error.message);
   }
 }
