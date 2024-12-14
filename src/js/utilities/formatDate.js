@@ -32,11 +32,7 @@ export function auctionTimeLeft(endTime) {
 
     if (timeLeft <= 0) {
       timerElement.textContent = 'Auction Ended';
-      timerElement.classList.add(
-        'card-p-text',
-        'text-red-400',
-        'font-semibold'
-      );
+      timerElement.classList.add('card-p-text', 'font-semibold');
       clearInterval(timerInterval);
       return;
     }
