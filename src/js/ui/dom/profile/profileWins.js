@@ -29,7 +29,13 @@ export async function buildListingsWins() {
   userData.profile.forEach((data) => {
     const listingCard = createHtmlElement({
       element: 'div',
-      className: ['listing-card', 'border', 'rounded'],
+      className: [
+        'listing-card',
+        'border',
+        'rounded',
+        'hover:cursor-pointer',
+        'hover:bg-warmYellow',
+      ],
       id: data.id,
     });
 
@@ -43,7 +49,6 @@ export async function buildListingsWins() {
         'md:flex-row',
         'gap-2',
         'md:gap-5',
-        'hover:cursor-pointer',
       ],
     });
 

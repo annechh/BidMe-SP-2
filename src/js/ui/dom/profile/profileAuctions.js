@@ -34,7 +34,14 @@ export async function buildListingCardsProfile() {
   userData.profile.forEach((data) => {
     const listingCard = createHtmlElement({
       element: 'div',
-      className: ['listing-card', 'border', 'rounded'],
+      className: [
+        'listing-card',
+        'border',
+        'rounded',
+        'bg-white',
+        'drop-shadow-darkFaded',
+        'hover:drop-shadow-yellow',
+      ],
       id: data.id,
     });
 
@@ -132,7 +139,14 @@ export async function buildListingCardsProfile() {
           ? data.media[0].url
           : '/images/placeholder-image.png',
       alt: data.media && data.media.length > 0 ? data.media[0].alt : '',
-      className: ['object-cover', 'w-full', 'h-full'],
+      className: [
+        'object-cover',
+        'w-full',
+        'h-full',
+        'hover:scale-110',
+        'transition-transform',
+        'duration-300',
+      ],
     });
 
     const listingTitle = createHtmlElement({
@@ -213,12 +227,6 @@ export async function buildListingCardsProfile() {
     });
     buttonContainer.style.display = IS_OWN_PROFILE ? 'flex' : 'none';
 
-    // const editButton = createHtmlElement({
-    //   element: 'button',
-    //   className: ['buttonGreen'],
-    //   textContent: 'Edit',
-    // });
-
     const deleteButton = createHtmlElement({
       element: 'button',
       id: 'deleteButton',
@@ -229,7 +237,7 @@ export async function buildListingCardsProfile() {
       await onDeleteListing(data.id);
     });
 
-    buttonContainer.append(deleteButton);
+    buttonContainer.appendChild(deleteButton);
     bidContainer.append(currentBid, currentBidAmount, creditIcon);
     listingImageContainer.appendChild(listingImage);
     sellerAvatarContainer.appendChild(sellerAvatar);
@@ -247,8 +255,8 @@ export async function buildListingCardsProfile() {
       bidContainer,
       buttonContainer
     );
-    listingCard.append(contentContainer);
-    profileAuctions.append(listingCard);
+    listingCard.appendChild(contentContainer);
+    profileAuctions.appendChild(listingCard);
   });
   return profileAuctions;
 }

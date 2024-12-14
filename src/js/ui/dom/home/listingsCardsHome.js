@@ -7,7 +7,14 @@ import { createHtmlElement } from '../createElement';
 export function buildListingCards(data) {
   const listingCard = createHtmlElement({
     element: 'div',
-    className: ['listing-card', 'border', 'rounded'],
+    className: [
+      'listing-card',
+      'border',
+      'rounded',
+      'bg-white',
+      'drop-shadow-darkFaded',
+      'hover:drop-shadow-yellow',
+    ],
     id: data.id,
   });
 
@@ -45,6 +52,9 @@ export function buildListingCards(data) {
       'items-center',
       'gap-[10px]',
       'cursor-pointer',
+      'hover:scale-110',
+      'transition-transform',
+      'duration-300',
     ],
   });
   avatarNameContainer.addEventListener('click', () => {
@@ -114,7 +124,14 @@ export function buildListingCards(data) {
         ? data.media[0].url
         : '/images/placeholder-image.png',
     alt: data.media && data.media.length > 0 ? data.media[0].alt : '',
-    className: ['object-cover', 'w-full', 'h-full'],
+    className: [
+      'object-cover',
+      'w-full',
+      'h-full',
+      'hover:scale-110',
+      'transition-transform',
+      'duration-300',
+    ],
   });
 
   const listingTitle = createHtmlElement({
@@ -200,7 +217,7 @@ export function buildListingCards(data) {
     auctionEndsContainer,
     bidContainer
   );
-  listingCard.append(contentContainer);
+  listingCard.appendChild(contentContainer);
 
   return listingCard;
 }
