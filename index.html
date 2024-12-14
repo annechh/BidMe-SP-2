@@ -67,7 +67,7 @@
               <h1 id="headingMessage">Title</h1>
               <div
                 id="avatarContainer"
-                class="h-[70px] w-[70px] rounded-full overflow-hidden"
+                class="h-[70px] w-[70px] rounded-full overflow-hidden hover:scale-110 transition-transform duration-300"
                 style="display: none"
               >
                 <img
@@ -94,7 +94,7 @@
       <div class="w-full py-[50px] md:py-[75px] lg:py-[100px]">
         <div class="flex flex-col items-center justify-center gap-5 mx-5">
           <form
-            class="flex gap-2 md:gap-5 max-w-[1280px] w-full"
+            class="flex gap-2 md:gap-5 max-w-[1280px] w-full drop-shadow-darkFaded"
             name="searchForm"
           >
             <label class="sr-only" for="search">Search BidMe's</label>
@@ -107,7 +107,7 @@
             />
             <button
               id="searchButton"
-              class="bg-softGreen h-[50px] max-w-[60px] md:max-w-[100px] w-full px-5 rounded"
+              class="bg-softGreen h-[50px] max-w-[60px] md:max-w-[100px] w-full px-5 rounded hover:scale-110 transition-transform duration-300"
             >
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
@@ -118,13 +118,11 @@
             >
               <p id="searchFor" class="pr-2">
                 You searched for
-                <span class="font-semibold animate-pulse" id="searchedFor">
-                  example</span
-                >
+                <span class="font-semibold" id="searchedFor"> example</span>
               </p>
               <button
                 id="resetSearch"
-                class="bg-delete h-[50px] max-w-[60px] md:max-w-[100px] w-full px-5 rounded"
+                class="bg-delete h-[50px] max-w-[60px] md:max-w-[100px] w-full px-5 rounded hover:scale-110 transition-transform duration-300"
               >
                 <i class="fa-solid fa-xmark"></i>
               </button>

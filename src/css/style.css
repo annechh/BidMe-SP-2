@@ -31,18 +31,25 @@
 }
 
 @layer components {
+  .buttonYellow,
+  .buttonDelete,
+  .buttonGreen,
+  .buttonBlue {
+    @apply  h-[50px] max-w-[300px] w-full rounded-full text-sm md:text-base font-semibold hover:scale-110 transition-transform duration-300;
+  }
   .buttonYellow {
-    @apply bg-warmYellow h-[50px] max-w-[300px] w-full rounded-full text-sm md:text-base font-semibold;
+    @apply bg-warmYellow 
   }
   .buttonBlue {
-    @apply bg-skyBlue h-[50px] max-w-[300px] w-full rounded-full text-sm md:text-base font-semibold;
+    @apply bg-skyBlue 
   }
   .buttonGreen {
-    @apply bg-softGreen h-[50px] max-w-[300px] w-full rounded-full text-sm md:text-base font-semibold;
+    @apply bg-softGreen 
   }
   .buttonDelete {
-    @apply bg-delete h-[50px] max-w-[300px] w-full rounded-full text-sm md:text-base font-semibold;
+    @apply bg-delete 
   }
+
 }
 
 @layer components {
@@ -53,7 +60,7 @@
 
 @layer components {
   .nav-list {
-    @apply flex items-center gap-2 lg:gap-5 cursor-pointer;
+    @apply flex items-center gap-2 lg:gap-5 cursor-pointer hover:scale-110 transition-transform duration-300;
   }
 }
 
@@ -68,7 +75,7 @@
     @apply list-none m-0 p-0;
   }
   .slide {
-    @apply absolute list-none inset-0 opacity-100 transition-opacity duration-300 ease-in-out delay-300;
+    @apply absolute list-none inset-0 opacity-100 rounded transition-opacity duration-300 ease-in-out delay-300 overflow-hidden drop-shadow-darkFaded;
   }
   .slide img {
     @apply block w-full h-full object-cover object-center rounded;
@@ -80,7 +87,7 @@
     @apply w-full flex justify-between items-center mx-5;
   }
   .carousel-slide-btn {
-    @apply flex items-center justify-center text-white w-[50px] h-[50px] rounded-full z-20 hover:bg-darkFaded cursor-pointer;
+    @apply flex items-center justify-center text-white w-[50px] h-[50px] rounded-full z-20 cursor-pointer bg-darkFaded hover:scale-125 transition-transform duration-300;
   }
   .carousel-nav {
     @apply flex justify-center items-center gap-5 mt-5 w-full;

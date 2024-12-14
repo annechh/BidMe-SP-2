@@ -58,6 +58,9 @@ export async function buildHeader(profileData) {
       'max-h-[50px]',
       'md:max-h-[60px]',
       'lg:max-h-[75px]',
+      'hover:scale-110',
+      'transition-transform',
+      'duration-300',
     ],
     src: '/images/logo-lightMode.png',
     alt: 'BidMe logo',
@@ -67,7 +70,15 @@ export async function buildHeader(profileData) {
   const menuButton = createHtmlElement({
     element: 'button',
     id: 'menuButton',
-    className: ['menuButton', 'cursor-pointer', 'mr-5', 'relative'],
+    className: [
+      'menuButton',
+      'cursor-pointer',
+      'mr-5',
+      'relative',
+      'hover:scale-110',
+      'transition-transform',
+      'duration-300',
+    ],
   });
 
   const menuIcon = createHtmlElement({
@@ -145,6 +156,10 @@ export async function buildHeader(profileData) {
       'md:max-w-[75px]',
       'lg:h-[100px]',
       'lg:max-w-[100px]',
+      'cursor-pointer',
+      'hover:scale-110',
+      'transition-transform',
+      'duration-300',
     ],
   });
   profileAvatarContainer.addEventListener('click', () => {
