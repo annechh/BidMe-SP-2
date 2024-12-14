@@ -21,8 +21,11 @@
       </div>
       <div class="form-div-wrapper">
         <form class="form" name="login">
+          <div class="flex flex-col gap-2 mx-5 py-2">
+            <div id="message"></div>
+          </div>
           <div class="label-input-wrapper">
-            <label for="email">Email</label>
+            <label class="sr-only" for="email">Email</label>
             <input
               class="input"
               id="email"
@@ -30,11 +33,11 @@
               name="email"
               placeholder="Email"
             />
-            <div class="hidden" id="emailError"></div>
+            <div class="hidden errorMessage" id="emailError"></div>
           </div>
 
           <div class="label-input-wrapper">
-            <label for="password">Password</label>
+            <label class="sr-only" for="password">Password</label>
             <input
               class="input"
               type="password"
@@ -42,7 +45,7 @@
               id="password"
               placeholder="Password"
             />
-            <div class="hidden" id="passwordError"></div>
+            <div class="hidden errorMessage" id="passwordError"></div>
           </div>
           <div class="w-full flex justify-center">
             <button class="buttonBlue mx-4 mt-4">Login</button>
@@ -53,12 +56,6 @@
           <div class="flex flex-col items-center justify-center">
             <h2>Login Successful</h2>
             <p>Redirecting you to the homepage</p>
-          </div>
-        </div>
-        <div id="loginFailed" class="hidden">
-          <div class="flex flex-col items-center justify-center">
-            <h2>Login Failed</h2>
-            <p>Please try again</p>
           </div>
         </div>
       </div>

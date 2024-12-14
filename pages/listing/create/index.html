@@ -23,8 +23,11 @@
 
       <div class="form-div-wrapper">
         <form class="form" name="create">
+          <div class="flex flex-col gap-2 mx-5 py-2">
+            <div id="message"></div>
+          </div>
           <div class="label-input-wrapper">
-            <label for="title">Title</label>
+            <label class="sr-only" for="title">Title</label>
             <input
               class="input"
               id="title"
@@ -32,40 +35,44 @@
               name="title"
               placeholder="Title"
             />
-            <div class="hidden" id="titleError" for="title"></div>
+            <div class="hidden errorMessage" id="titleError" for="title"></div>
           </div>
 
           <div class="textarea-wrapper">
-            <label for="description">Description</label>
+            <label class="sr-only" for="description">Description</label>
             <textarea
               class="textarea"
               name="description"
               id="description"
               placeholder="Description"
             ></textarea>
-            <div class="hidden" id="descriptionError" for="description"></div>
+            <div
+              class="hidden errorMessage"
+              id="descriptionError"
+              for="description"
+            ></div>
           </div>
 
           <div class="label-input-wrapper">
-            <label for="tags">Tags</label>
+            <label class="sr-only" for="tags">Tags</label>
             <input
               class="input"
               type="text"
               name="tags"
               id="tags"
-              placeholder="Separate tags with comma"
+              placeholder="Tags, separate with comma"
             />
-            <div class="hidden" id="tagsError" for="tags"></div>
+            <div class="hidden errorMessage" id="tagsError" for="tags"></div>
           </div>
 
           <div class="label-input-wrapper">
-            <label for="date">Date</label>
+            <label class="sr-only" for="date">Date</label>
             <input class="input" type="datetime-local" name="date" id="date" />
-            <div class="hidden" id="dateError" for=""></div>
+            <div class="hidden errorMessage" id="dateError" for=""></div>
           </div>
 
           <div class="label-input-wrapper">
-            <label for="image">Image</label>
+            <label class="sr-only" for="image">Image</label>
             <input
               class="input"
               type="url"
@@ -73,7 +80,7 @@
               id="image"
               placeholder="Image url"
             />
-            <div class="hidden" id="imageError" for="image"></div>
+            <div class="hidden errorMessage" id="imageError" for="image"></div>
           </div>
           <div class="flex flex-col items-center gap-5 mx-5">
             <button
@@ -83,10 +90,10 @@
             >
               Add Image
             </button>
-            <div id="previewImage">Image preview</div>
             <button type="submit" class="buttonGreen mx-4 mt-4">
               Create BidMe
             </button>
+            <div id="previewImage">Image preview</div>
           </div>
         </form>
 
