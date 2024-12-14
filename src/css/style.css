@@ -48,7 +48,7 @@
 
 @layer components {
   .clear-field-button {
-    @apply absolute right-0 bottom-0 bg-delete border-none h-[50px] max-w-[50px] w-full rounded-e;
+    @apply absolute right-0 top-0 bg-delete border-none h-[25px] max-w-[25px] w-full rounded;
   }
 }
 
