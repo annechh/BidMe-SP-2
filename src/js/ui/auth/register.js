@@ -3,7 +3,7 @@ import {
   validateEmail,
   validateName,
   validatePassword,
-} from '../../utilities/validation';
+} from '../../utilities/validation/validateUser';
 
 export async function onRegister(event) {
   event.preventDefault();

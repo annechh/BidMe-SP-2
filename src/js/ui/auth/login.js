@@ -1,5 +1,8 @@
 import { login } from '../../api/auth/loginApi';
-import { validateEmail, validatePassword } from '../../utilities/validation';
+import {
+  validateEmail,
+  validatePassword,
+} from '../../utilities/validation/validateUser';
 
 export async function onLogin(event) {
   event.preventDefault();
