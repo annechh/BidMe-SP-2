@@ -1,5 +1,5 @@
 {
-  "name": "vite-project",
+  "name": "bid-me-sp2",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky && husky install",
+    "format": "prettier -w .",
+    "lint": "eslint ."
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
@@ -26,7 +28,7 @@
   },
   "lint-staged": {
     "*.{js,html,md}": [
-      "eslint --fix",
+      "eslint --cache --fix",
       "prettier --write"
     ]
   }

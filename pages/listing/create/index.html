@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Create a new auction listing on BidMe's to sell your items"
+    />
+    <script type="module" src="/src/app.js"></script>
+    <link rel="icon" href="/favicon-bidMe.png" />
+    <title>BidMe Create Listing page</title>
+  </head>
+  <body>
+    <header></header>
+
+    <main>
+      <div id="hideTitleBox" class="mt-[50px]">
+        <h1 class="flex items-center justify-center gap-2">
+          List a new BidMe <i class="fa-solid fa-gavel"></i>
+        </h1>
+      </div>
+
+      <div class="form-div-wrapper">
+        <form class="form" name="create">
+          <div class="flex flex-col gap-2 mx-5 py-2">
+            <div id="message"></div>
+          </div>
+          <div class="label-input-wrapper">
+            <label class="sr-only" for="title">Title</label>
+            <input
+              class="input"
+              id="title"
+              type="text"
+              name="title"
+              placeholder="Title"
+            />
+            <div class="hidden errorMessage" id="titleError" for="title"></div>
+          </div>
+
+          <div class="textarea-wrapper">
+            <label class="sr-only" for="description">Description</label>
+            <textarea
+              class="textarea"
+              name="description"
+              id="description"
+              placeholder="Description"
+            ></textarea>
+            <div
+              class="hidden errorMessage"
+              id="descriptionError"
+              for="description"
+            ></div>
+          </div>
+
+          <div class="label-input-wrapper">
+            <label class="sr-only" for="tags">Tags</label>
+            <input
+              class="input"
+              type="text"
+              name="tags"
+              id="tags"
+              placeholder="Tags, separate with comma"
+            />
+            <div class="hidden errorMessage" id="tagsError" for="tags"></div>
+          </div>
+
+          <div class="label-input-wrapper">
+            <label class="sr-only" for="date">Date</label>
+            <input class="input" type="datetime-local" name="date" id="date" />
+            <div class="hidden errorMessage" id="dateError" for=""></div>
+          </div>
+
+          <div class="label-input-wrapper">
+            <label class="sr-only" for="image">Image</label>
+            <input
+              class="input"
+              type="url"
+              name="image"
+              id="image"
+              placeholder="Image url"
+            />
+            <div class="hidden errorMessage" id="imageError" for="image"></div>
+          </div>
+          <div class="flex justify-center items-center gap-5 mx-5">
+            <button type="button" id="addImageButton" class="buttonBlue">
+              Add Image
+            </button>
+            <button type="submit" class="buttonGreen">Create BidMe</button>
+          </div>
+          <div class="flex items-center gap-5 mx-5">
+            <div id="previewImage">Image preview</div>
+          </div>
+        </form>
+
+        <div id="createSuccess" class="hidden">
+          <div class="flex flex-col items-center justify-center">
+            <h2>Create Successful</h2>
+            <p>Redirecting you to the homepage</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>

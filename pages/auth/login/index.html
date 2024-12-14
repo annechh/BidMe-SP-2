@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="BidMe's login page" />
+    <script type="module" src="/src/app.js"></script>
+    <link rel="icon" href="/favicon-bidMe.png" />
+    <title>BidMe Login Page</title>
+  </head>
+  <body>
+    <header></header>
+
+    <main>
+      <div
+        id="hideTitleBox"
+        class="flex flex-col items-center justify-center gap-2 mt-[50px]"
+      >
+        <h1 class="h1">Login</h1>
+        <p>Check your bids and BidMe’s</p>
+      </div>
+      <div class="form-div-wrapper">
+        <form class="form" name="login">
+          <div class="flex flex-col gap-2 mx-5 py-2">
+            <div id="message"></div>
+          </div>
+          <div class="label-input-wrapper">
+            <label class="sr-only" for="email">Email</label>
+            <input
+              class="input"
+              id="email"
+              type="email"
+              name="email"
+              placeholder="Email"
+            />
+            <div class="hidden errorMessage" id="emailError"></div>
+          </div>
+
+          <div class="label-input-wrapper">
+            <label class="sr-only" for="password">Password</label>
+            <input
+              class="input"
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+            />
+            <div class="hidden errorMessage" id="passwordError"></div>
+          </div>
+          <div class="w-full flex justify-center">
+            <button class="buttonBlue mx-4 mt-4">Login</button>
+          </div>
+          <a class="auth-link" href="/pages/auth/register/">Go to Register</a>
+        </form>
+        <div id="loginSuccess" class="hidden">
+          <div class="flex flex-col items-center justify-center">
+            <h2>Login Successful</h2>
+            <p>Redirecting you to the homepage</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>

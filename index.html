@@ -2,14 +2,134 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <meta
+      name="description"
+      content="Explore BidMe auction house to buy items or sell your items"
+    />
+    <script type="module" src="/src/app.js"></script>
+    <link rel="icon" href="/favicon-bidMe.png" />
+    <title>BidMe Home</title>
   </head>
   <body>
-    <div id="app"></div>
-    <div>
-      <h1>Hello</h1>
-    </div>
+    <header></header>
+
+    <main>
+      <section class="w-full bg-warmYellow flex justify-center">
+        <div
+          class="flex flex-col-reverse lg:flex-row-reverse max-w-[1700px] w-full items-center lg:justify-between mx-5 2xl:mx-10 gap-5"
+        >
+          <div class="flex flex-col max-w-[800px] w-full">
+            <div
+              class="carousel-section mt-0 lg:mt-[50px] flex-col items-center animate-pulse loader"
+              id="carousel"
+            >
+              <div class="carousel max-w-[800px] w-full" id="carouselWrapper">
+                <ul id="carouselItems"></ul>
+                <div class="slide carousel-image">
+                  <img src="/images/loading-image.png" alt="placeholder" />
+                </div>
+                <div class="arrow-buttons">
+                  <div
+                    class="carousel-slide-btn left"
+                    id="prevBtn"
+                    data-carousel-btn="prev"
+                  >
+                    <i class="fa-solid fa-chevron-left"></i>
+                  </div>
+                  <div
+                    class="carousel-slide-btn right"
+                    id="nextBtn"
+                    data-carousel-btn="next"
+                  >
+                    <i class="fa-solid fa-chevron-right"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="carousel-nav mb-[50px]" id="carouselNav"></div>
+          </div>
+
+          <div>
+            <div
+              class="flex flex-col items-center justify-center gap-5 max-w-[800px] w-full mt-[50px]"
+            >
+              <h1 id="headingMessage">Title</h1>
+              <div
+                id="avatarContainer"
+                class="h-[70px] w-[70px] rounded-full overflow-hidden"
+                style="display: none"
+              >
+                <img
+                  id="avatarWelcome"
+                  class="w-full h-full object-cover"
+                  src="/images/loading-image.png"
+                  alt="placeholder"
+                />
+              </div>
+              <p id="paragraphMessage"></p>
+              <div class="w-full flex flex-col items-center">
+                <button id="becomeUserButton" class="buttonBlue px-5">
+                  Sign up to get started
+                </button>
+                <a id="loginLink" class="py-2 px-5" href="/pages/auth/login/"
+                  >Log in</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="w-full py-[50px] md:py-[75px] lg:py-[100px]">
+        <div class="flex flex-col items-center justify-center gap-5 mx-5">
+          <form
+            class="flex gap-2 md:gap-5 max-w-[1280px] w-full"
+            name="searchForm"
+          >
+            <label class="sr-only" for="search">Search BidMe's</label>
+            <input
+              class="border w-full h-[50px] rounded px-2 md:px-5"
+              type="search"
+              id="search"
+              name="search"
+              placeholder="Search BidMe's"
+            />
+            <button
+              id="searchButton"
+              class="bg-softGreen h-[50px] max-w-[60px] md:max-w-[100px] w-full px-5 rounded"
+            >
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
+          <div id="searchWords" class="hidden w-full">
+            <div
+              class="pl-5 max-w-7xl w-full flex items-center justify-between"
+            >
+              <p id="searchFor" class="pr-2">
+                You searched for
+                <span class="font-semibold animate-pulse" id="searchedFor">
+                  example</span
+                >
+              </p>
+              <button
+                id="resetSearch"
+                class="bg-delete h-[50px] max-w-[60px] md:max-w-[100px] w-full px-5 rounded"
+              >
+                <i class="fa-solid fa-xmark"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="w-full flex flex-col items-center">
+        <div id="listingsCards">
+          <h2>Browse listings</h2>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
   </body>
 </html>

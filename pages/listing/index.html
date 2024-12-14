@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Specific BidMe auction listing, place your bid to win it"
+    />
+    <script type="module" src="/src/app.js"></script>
+    <link rel="icon" href="/favicon-bidMe.png" />
+    <title>BidMe Listing page</title>
+  </head>
+  <body>
+    <header></header>
+
+    <main>
+      <div
+        class="carousel-section mt-0 md:mt-[50px] animate-pulse loader"
+        id="carousel"
+      >
+        <div class="carousel carousel-img-container" id="carouselWrapper">
+          <ul id="carouselItems"></ul>
+          <div class="slide carousel-image">
+            <img src="/images/loading-image.png" alt="placeholder" />
+          </div>
+          <div class="arrow-buttons">
+            <div
+              class="carousel-slide-btn left"
+              id="prevBtn"
+              data-carousel-btn="prev"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </div>
+            <div
+              class="carousel-slide-btn right"
+              id="nextBtn"
+              data-carousel-btn="next"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-nav mb-[20px] md:mb-[50px]" id="carouselNav"></div>
+
+      <section class="max-w-[800px] w-full mb-5 md:mb-[50px]">
+        <div class="flex flex-col gap-5 md:gap-12 mx-5">
+          <div
+            class="avatar-name-date-container flex items-center justify-between mb-[20px] md:mb-[50px]"
+          >
+            <div
+              id="avatarNameContainer"
+              class="avatar-name-container flex items-center gap-2 hover:cursor-pointer"
+            >
+              <div
+                class="avatar-container flex justify-center items-center rounded-full overflow-hidden h-[50px] w-[50px] w-full;"
+                id="avatarContainer"
+              >
+                <img
+                  class="w-full h-full object-cover"
+                  id="avatar"
+                  src="/images/loading-image.png"
+                  alt="placeholder"
+                />
+              </div>
+              <p id="name"></p>
+            </div>
+            <div>
+              <p id="startDate"></p>
+            </div>
+          </div>
+          <h1 class="" id="title">Title</h1>
+          <div class="description-container border-b">
+            <p id="description"></p>
+          </div>
+          <div class="action-ends-container flex flex-col gap-2">
+            <h2 id="auctionEndsTitle">Auction Ends</h2>
+            <div class="flex items-center justify-between border-b">
+              <div>
+                <p id="endDate"></p>
+              </div>
+              <div id="countdownTimer"></div>
+            </div>
+          </div>
+
+          <form class="flex flex-col gap-5" id="placeBidForm">
+            <div class="flex gap-2 md:gap-5">
+              <div
+                class="flex gap-2 items-center w-full border-r"
+                id="currentBidContainer"
+              >
+                <p class="whitespace-nowrap" id="currentBid">Current bid:</p>
+                <div class="flex gap-2 items-center">
+                  <p class="font-semibold" id="currentBidAmount"></p>
+                  <i class="fa-solid fa-coins" id="coinIcon"></i>
+                </div>
+              </div>
+
+              <div
+                class="flex items-center gap-2 w-full border-l pl-2"
+                id="bidWrapper"
+              >
+                <label class="whitespace-nowrap" for="bid">Bid Me</label>
+                <div class="relative w-full">
+                  <input
+                    class="border rounded h-[40px] w-full text-end px-5"
+                    id="bid"
+                    name="bid"
+                    type="number"
+                    placeholder=""
+                  />
+                  <label
+                    class="absolute left-2 md:left-5 top-1/2 transform -translate-y-1/2"
+                    for="bid"
+                  >
+                    <i class="fa-solid fa-coins"></i>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="buttons flex gap-2 md:gap-5 justify-between">
+              <button id="viewBidsButton" class="buttonYellow" type="button">
+                View Bids
+              </button>
+              <button id="bidButton" class="buttonGreen" type="submit">
+                Bid Me
+              </button>
+              <button class="hidden" id="getStartedButton">
+                Register or Login to place a Bid
+              </button>
+              <button
+                id="deleteButton"
+                class="buttonDelete hidden"
+                type="button"
+              >
+                Delete
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section
+        id="viewBidsModal"
+        class="fixed inset-0 bg-black bg-opacity-50 justify-center items-center hidden z-50"
+      >
+        <div
+          class="bg-white rounded-lg shadow-lg w-11/12 max-w-md p-5 relative"
+        >
+          <button
+            id="closeModal"
+            class="absolute top-2 right-2 hover:text-delete"
+          >
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+          <h2 class="text-lg font-semibold mb-4">View Bids</h2>
+          <div class="max-h-[300px] overflow-y-auto">
+            <ul id="bidsByName" class="space-y-2 p-4"></ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>

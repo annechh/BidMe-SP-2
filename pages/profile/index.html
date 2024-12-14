@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="BidMe Profile page. See your own listings or other profile owners listings"
+    />
+    <script type="module" src="/src/app.js"></script>
+    <link rel="icon" href="/favicon-bidMe.png" />
+    <title>BidMe Profile Page</title>
+  </head>
+  <body>
+    <header></header>
+
+    <main>
+      <div
+        class="max-w-[1920px] w-full flex flex-col mb-[100px] gap-[50px] items-center"
+      >
+        <div class="w-full">
+          <div
+            class="banner max-w-[1920px] h-[200px] md:h-[400px] lg:h-[500px] flex items-center justify-center overflow-hidden"
+          >
+            <img
+              id="profileBanner"
+              class="banner-image object-cover w-full h-full"
+              src="/images/loading-image.png"
+              alt="placeholder"
+            />
+          </div>
+
+          <div class="content flex w-full">
+            <div
+              class="avatar flex items-center justify-center overflow-hidden rounded-full w-full h-[100px] max-w-[100px] md:h-[170px] md:max-w-[170px] lg:h-[250px] lg:max-w-[250px] mt-[-50px] md:mt-[-85px] lg:mt-[-125px] ml-[20px] md:ml-[40px] lg:ml-[75px]"
+            >
+              <img
+                id="profileAvatar"
+                class="avatar-image object-cover w-full h-full"
+                src="/images/loading-image.png"
+                alt="placeholder"
+              />
+            </div>
+
+            <div
+              class="flex flex-col justify-between w-full pt-2 lg:pt-5 mr-[20px] md:mr-[40px] lg:mr-[75px]"
+            >
+              <div
+                class="flex flex-row-reverse font-semibold text-xs lg:text-lg"
+              >
+                <p id="profileCredits" class="flex items-center gap-2"></p>
+              </div>
+              <div
+                class="flex items-center w-full text-sm md:text-2xl lg:text-4xl"
+              >
+                <i
+                  id="profileEdit"
+                  class="fa-solid fa-user-pen text-sm md:text-2xl lg:text-4xl cursor-pointer"
+                ></i>
+                <h1
+                  id="profileName"
+                  class="font-poppins font-bold tracking-widest ml-auto"
+                >
+                  Profile Name
+                </h1>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex flex-col items-center">
+          <p
+            id="profileBio"
+            class="text-xs md:text-base lg:text-2xl text-center px-5 md:px-[40px] lg:px-[75px] max-w-[1240px]"
+          ></p>
+        </div>
+
+        <section
+          class="hidden edit-form-container form-div-wrapper"
+          id="formDivWrapper"
+        >
+          <h2>Edit profile</h2>
+          <form class="form" name="editProfile" id="editProfile">
+            <div class="label-input-wrapper">
+              <label class="label" for="banner">Banner</label>
+              <input
+                class="input input-field placeholder:text-xs placeholder:italic"
+                type="url"
+                name="banner"
+                id="banner"
+                placeholder="Banner url"
+              />
+              <span
+                class="clear-field-button hidden items-center justify-center"
+                id="clearBannerField"
+                ><i class="fa-solid fa-xmark"></i
+              ></span>
+              <div class="hidden errorMessage" id="bannerError"></div>
+            </div>
+
+            <div class="label-input-wrapper">
+              <label class="label" for="avatar">Avatar</label>
+              <input
+                class="input input-field placeholder:text-xs placeholder:italic"
+                type="url"
+                name="avatar"
+                id="avatar"
+                placeholder="Avatar url"
+              />
+              <span
+                class="clear-field-button hidden items-center justify-center"
+                id="clearAvatarField"
+                ><i class="fa-solid fa-xmark"></i
+              ></span>
+              <div class="hidden errorMessage" id="avatarError"></div>
+            </div>
+
+            <div class="label-input-wrapper">
+              <label class="label" for="bio">Bio</label>
+              <input
+                class="input input-field placeholder:text-xs placeholder:italic"
+                type="text"
+                name="bio"
+                id="bio"
+                placeholder="Bio"
+              />
+              <span
+                class="clear-field-button hidden items-center justify-center"
+                id="clearBioField"
+                ><i class="fa-solid fa-xmark"></i
+              ></span>
+              <div class="hidden errorMessage" id="bioError"></div>
+            </div>
+
+            <div class="flex flex-col items-center gap-5">
+              <button type="submit" class="buttonGreen" id="saveButton">
+                Save
+              </button>
+              <button type="button" class="buttonDelete" id="cancelButton">
+                Cancel
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <div
+          class="max-w-[1920px] w-full flex flex-col gap-[30px] md:gap-[50px]"
+        >
+          <h2 class="mx-4 md:mx-8 flex items-center gap-2">
+            My BidMe's listings<i class="fa-solid fa-gavel"></i>
+          </h2>
+          <div id="profileAuctions"></div>
+
+          <h2 class="mx-4 md:mx-8 flex items-center gap-2">
+            My BidMe's wins<i class="fa-solid fa-trophy"></i>
+          </h2>
+          <div id="profileWins"></div>
+        </div>
+      </div>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>
