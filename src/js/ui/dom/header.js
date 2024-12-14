@@ -7,7 +7,6 @@ import {
   NEW_LISTING_PAGE,
   PROFILE_PAGE,
   REGISTER_PAGE,
-  // SEARCH_PAGE,
 } from '../../utilities/pagePaths';
 import { createHtmlElement } from './createElement';
 
@@ -19,7 +18,6 @@ export async function buildHeader(profileData) {
 
   if (userData) {
     profileData = await readProfileName(userData.name);
-    // console.log('profileData', profileData);
   }
 
   const header = document.querySelector('header');
@@ -247,14 +245,6 @@ export async function buildHeader(profileData) {
     window.location.href = REGISTER_PAGE;
   });
 
-  // const searchContainer = createHtmlElement({
-  //   element: 'div',
-  //   className: ['nav-list'],
-  // });
-  // searchContainer.addEventListener('click', () => {
-  //   window.location.href = SEARCH_PAGE;
-  // });
-
   const lightModeContainer = createHtmlElement({
     element: 'li',
     className: ['nav-list'],
@@ -291,13 +281,6 @@ export async function buildHeader(profileData) {
     textContent: 'Register',
   });
 
-  // const searchLink = createHtmlElement({
-  //   element: 'a',
-  //   textContent: 'Search BidMe´s',
-  //   // href: SEARCH_PAGE,
-  //   className: [],
-  // });
-
   const lightModeSwitch = createHtmlElement({
     element: 'div',
     textContent: 'Switch to Dark-Mode',
@@ -329,11 +312,6 @@ export async function buildHeader(profileData) {
     className: ['fa-solid', 'fa-user-plus', 'w-[20px]'],
   });
 
-  // const searchIcon = createHtmlElement({
-  //   element: 'i',
-  //   className: ['fa-solid', 'fa-magnifying-glass', 'w-[20px]'],
-  // });
-
   const lightModeIcon = createHtmlElement({
     element: 'i',
     className: ['fa-solid', 'fa-sun', 'w-[20px]'],
@@ -344,16 +322,15 @@ export async function buildHeader(profileData) {
   registerContainer.append(registerIcon, registerButton);
   logoutContainer.append(logoutIcon, logoutButton);
   loginContainer.append(loginIcon, loginButton);
-  // searchContainer.append(searchIcon, searchLink);
+
   lightModeContainer.append(lightModeIcon, lightModeSwitch);
   navigationWrapper.append(
     homeContainer,
     createContainer,
-    loginContainer,
-    logoutContainer,
+    lightModeContainer,
     registerContainer,
-    // searchContainer,
-    lightModeContainer
+    logoutContainer,
+    loginContainer
   );
 
   dropDownContent.append(imageCreditsWrapper, navigationWrapper);
