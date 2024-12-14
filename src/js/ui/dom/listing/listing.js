@@ -49,6 +49,7 @@ export function renderListingInfo(data) {
 
 const deleteButton = document.getElementById('deleteButton');
 const bidButton = document.getElementById('bidButton');
+const getStartedButton = document.getElementById('getStartedButton');
 const viewBidsButton = document.getElementById('viewBidsButton');
 const bidInput = document.getElementById('bid');
 const currentBid = document.getElementById('currentBid');
@@ -118,8 +119,10 @@ function handleGuestView() {
   deleteButton.classList.add('hidden');
   deleteButton.classList.remove('block');
 
-  bidButton.classList.remove('buttonGreen');
-  bidButton.classList.add(
+  bidButton.classList.add('hidden');
+
+  getStartedButton.classList.toggle('hidden');
+  getStartedButton.classList.add(
     'bg-skyBlue',
     'w-full',
     'h-[50px]',
@@ -127,7 +130,7 @@ function handleGuestView() {
     'text-base',
     'font-semibold'
   );
-  bidButton.addEventListener('click', () => {
+  getStartedButton.addEventListener('click', () => {
     window.location.href = AUTH_PAGE;
   });
 
