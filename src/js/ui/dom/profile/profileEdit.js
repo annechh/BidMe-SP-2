@@ -43,27 +43,36 @@ export async function viewProfileData(profileData) {
     initialAvatarValue = avatar;
     initialBioValue = bio;
 
-    clearBannerButton.style.display = bannerInput.value ? 'block' : 'none';
-    clearAvatarButton.style.display = avatarInput.value ? 'block' : 'none';
-    clearBioButton.style.display = bioInput.value ? 'block' : 'none';
+    clearBannerButton.classList.toggle('hidden', !bannerInput.value);
+    clearBannerButton.classList.toggle('flex', !!bannerInput.value);
+
+    clearAvatarButton.classList.toggle('hidden', !avatarInput.value);
+    clearAvatarButton.classList.toggle('flex', !!avatarInput.value);
+
+    clearBioButton.classList.toggle('hidden', !bioInput.value);
+    clearBioButton.classList.toggle('flex', !!bioInput.value);
   }
 }
 
 bannerInput.addEventListener('input', () => {
-  clearBannerButton.style.display = bannerInput.value ? 'block' : 'none';
+  clearBannerButton.classList.toggle('flex', bannerInput.value);
+  clearBannerButton.classList.toggle('hidden', !bannerInput.value);
   previewBanner.src = bannerInput.value;
 });
 avatarInput.addEventListener('input', () => {
-  clearAvatarButton.style.display = avatarInput.value ? 'block' : 'none';
+  clearAvatarButton.classList.toggle('flex', avatarInput.value);
+  clearAvatarButton.classList.toggle('hidden', !avatarInput.value);
   previewAvatar.src = avatarInput.value;
 });
 bioInput.addEventListener('input', () => {
-  clearBioButton.style.display = bioInput.value ? 'block' : 'none';
+  clearBioButton.classList.toggle('flex', bioInput.value);
+  clearBioButton.classList.toggle('hidden', !bioInput.value);
 });
 
 function addClearButtonDisplay(inputElement, clearButtonElement) {
   inputElement.value = '';
-  clearButtonElement.style.display = 'none';
+  clearButtonElement.classList.remove('flex');
+  clearButtonElement.classList.add('hidden');
 }
 
 clearBannerButton.addEventListener('click', () => {
@@ -100,13 +109,26 @@ if (cancelButton) {
 }
 
 function displayClearButton() {
-  clearBannerButton.style.display = initialBannerValue ? 'block' : 'none';
-  clearAvatarButton.style.display = initialAvatarValue ? 'block' : 'none';
-  clearBioButton.style.display = initialBioValue ? 'block' : 'none';
+  clearBannerButton.classList.toggle('hidden', !bannerInput.value);
+  clearBannerButton.classList.toggle('flex', !!bannerInput.value);
+
+  clearAvatarButton.classList.toggle('hidden', !avatarInput.value);
+  clearAvatarButton.classList.toggle('flex', !!avatarInput.value);
+
+  clearBioButton.classList.toggle('hidden', !bioInput.value);
+  clearBioButton.classList.toggle('flex', !!bioInput.value);
 }
 
 function initialValue() {
   bannerInput.value = initialBannerValue;
   avatarInput.value = initialAvatarValue;
   bioInput.value = initialBioValue;
+
+  const errorMessages = document.querySelectorAll('.errorMessage');
+  errorMessages.forEach((errorMessage) => {
+    errorMessage.textContent = '';
+    errorMessage.classList.add('hidden');
+  });
+
+  displayClearButton();
 }

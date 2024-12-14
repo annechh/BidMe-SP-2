@@ -84,52 +84,52 @@
             <div class="label-input-wrapper">
               <label class="label" for="banner">Banner</label>
               <input
-                class="input placeholder:text-xs placeholder:italic"
+                class="input input-field placeholder:text-xs placeholder:italic"
                 type="url"
                 name="banner"
                 id="banner"
                 placeholder="Banner url"
               />
-              <button
-                type="button"
-                class="clear-field-button fa-solid fa-xmark"
+              <span
+                class="clear-field-button hidden items-center justify-center"
                 id="clearBannerField"
-                style="display: none"
-              ></button>
+                ><i class="fa-solid fa-xmark"></i
+              ></span>
+              <div class="hidden errorMessage" id="bannerError"></div>
             </div>
 
             <div class="label-input-wrapper">
               <label class="label" for="avatar">Avatar</label>
               <input
-                class="input placeholder:text-xs placeholder:italic"
+                class="input input-field placeholder:text-xs placeholder:italic"
                 type="url"
                 name="avatar"
                 id="avatar"
                 placeholder="Avatar url"
               />
-              <button
-                type="button"
-                class="clear-field-button fa-solid fa-xmark"
+              <span
+                class="clear-field-button hidden items-center justify-center"
                 id="clearAvatarField"
-                style="display: none"
-              ></button>
+                ><i class="fa-solid fa-xmark"></i
+              ></span>
+              <div class="hidden errorMessage" id="avatarError"></div>
             </div>
 
             <div class="label-input-wrapper">
               <label class="label" for="bio">Bio</label>
               <input
-                class="input placeholder:text-xs placeholder:italic"
+                class="input input-field placeholder:text-xs placeholder:italic"
                 type="text"
                 name="bio"
                 id="bio"
                 placeholder="Bio"
               />
-              <button
-                type="button"
-                class="clear-field-button fa-solid fa-xmark"
+              <span
+                class="clear-field-button hidden items-center justify-center"
                 id="clearBioField"
-                style="display: none"
-              ></button>
+                ><i class="fa-solid fa-xmark"></i
+              ></span>
+              <div class="hidden errorMessage" id="bioError"></div>
             </div>
 
             <div class="flex flex-col items-center gap-5">
@@ -147,14 +147,14 @@
           class="max-w-[1920px] w-full flex flex-col gap-[30px] md:gap-[50px]"
         >
           <h2 class="mx-4 md:mx-8 flex items-center gap-2">
-            My BidMe's wins<i class="fa-solid fa-trophy"></i>
-          </h2>
-          <div id="profileWins"></div>
-
-          <h2 class="mx-4 md:mx-8 flex items-center gap-2">
             My BidMe's listings<i class="fa-solid fa-gavel"></i>
           </h2>
           <div id="profileAuctions"></div>
+
+          <h2 class="mx-4 md:mx-8 flex items-center gap-2">
+            My BidMe's wins<i class="fa-solid fa-trophy"></i>
+          </h2>
+          <div id="profileWins"></div>
         </div>
       </div>
     </main>

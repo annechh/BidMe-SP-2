@@ -1,9 +1,9 @@
 import { applyBreakWordClass } from '../../../utilities/breakLongWords';
+import { isPastDate } from '../../../utilities/dateUtils';
 import { auctionTimeLeft, formatDate } from '../../../utilities/formatDate';
 import { getLocalStorage } from '../../../utilities/localStorage';
 import { AUTH_PAGE } from '../../../utilities/pagePaths';
 import { sortBidsByLatest } from '../../../utilities/sortBids';
-import { isAuctionEnded } from '../../../utilities/validation';
 
 export function renderListingInfo(data) {
   const avatar = document.getElementById('avatar');
@@ -55,7 +55,7 @@ const currentBid = document.getElementById('currentBid');
 const user = getLocalStorage();
 
 function blockBidEndedAuction(auctionDate) {
-  if (isAuctionEnded(auctionDate.endsAt)) {
+  if (isPastDate(auctionDate.endsAt)) {
     bidButton.setAttribute('disabled', 'true');
     bidButton.classList.remove('buttonGreen');
     bidButton.classList.add(

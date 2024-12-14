@@ -29,7 +29,7 @@ export function styleLabelInputWrapper() {
   const targetDiv = document.querySelectorAll('.label-input-wrapper');
 
   targetDiv.forEach((div) => {
-    div.classList.add('flex', 'flex-col', 'gap-2', 'mx-4', 'relative');
+    div.classList.add('flex', 'flex-col', 'gap-2', 'mx-5', 'relative');
   });
 }
 

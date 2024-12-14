@@ -17,13 +17,15 @@
         class="flex flex-col items-center justify-center gap-2 mt-[50px]"
       >
         <h1>Register</h1>
-        <p>Start bidding and place your own BidMe’s</p>
+        <p class="text-center">Start bidding and place your own BidMe’s</p>
       </div>
       <div class="form-div-wrapper">
         <form class="form" name="register">
-          <div id="message"></div>
+          <div class="flex flex-col gap-2 mx-5 py-2">
+            <div id="message"></div>
+          </div>
           <div class="label-input-wrapper">
-            <label for="name">Name</label>
+            <label class="sr-only" for="name">Name</label>
             <input
               class="input"
               id="name"
@@ -33,11 +35,11 @@
               maxlength="20"
               placeholder="Name"
             />
-            <div class="hidden" id="nameError"></div>
+            <div class="hidden errorMessage" id="nameError"></div>
           </div>
 
           <div class="label-input-wrapper">
-            <label for="email">Email</label>
+            <label class="sr-only" for="email">Email</label>
             <input
               class="input"
               id="email"
@@ -45,11 +47,11 @@
               name="email"
               placeholder="Email"
             />
-            <div class="hidden" id="emailError"></div>
+            <div class="hidden errorMessage" id="emailError"></div>
           </div>
 
           <div class="label-input-wrapper">
-            <label for="password">Password</label>
+            <label class="sr-only" for="password">Password</label>
             <input
               class="input"
               type="password"
@@ -57,7 +59,7 @@
               id="password"
               placeholder="Password"
             />
-            <div class="hidden" id="passwordError"></div>
+            <div class="hidden errorMessage" id="passwordError"></div>
           </div>
 
           <div class="w-full flex justify-center">
@@ -69,12 +71,6 @@
           <div class="flex flex-col items-center justify-center">
             <h2>Register Successful</h2>
             <p>Redirecting you to the Login page</p>
-          </div>
-        </div>
-        <div id="registerFailed" class="hidden">
-          <div class="flex flex-col items-center justify-center">
-            <h2>Register Failed</h2>
-            <p>Please try again</p>
           </div>
         </div>
       </div>

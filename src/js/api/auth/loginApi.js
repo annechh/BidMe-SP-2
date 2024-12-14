@@ -1,6 +1,7 @@
 import { setLocalStorage } from '../../utilities/localStorage';
 import { HOME_PAGE } from '../../utilities/pagePaths';
-import { showSuccessMessage } from '../../utilities/validation';
+import { showSuccessMessage } from '../../utilities/validation/displaySuccessMessage';
+import { displayMessage } from '../../utilities/validation/displayMessage';
 import { API_LOGIN } from '../endpoints';
 import { headers } from '../headers';
 
@@ -12,24 +13,28 @@ export async function login({ email, password }) {
       body: JSON.stringify({ email, password }),
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-      alert('Failed to login, wrong email or password');
+      throw new Error(data.errors?.[0]?.message || 'Login failed');
     } else {
-      const data = await response.json();
       setLocalStorage({
         accessToken: data.data.accessToken,
         userData: JSON.stringify(data.data),
       });
 
-      showSuccessMessage();
+      displayMessage('#message', 'success', 'Success');
+
+      setTimeout(() => {
+        showSuccessMessage();
+      }, 1000);
 
       setTimeout(() => {
         window.location.href = HOME_PAGE;
-      }, 2500);
+      }, 3500);
       return data;
     }
   } catch (error) {
-    alert('Could not log in to user account');
-    console.error(error);
+    displayMessage('#message', 'warning', error.message);
   }
 }
