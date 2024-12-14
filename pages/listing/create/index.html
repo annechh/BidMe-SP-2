@@ -82,17 +82,13 @@
             />
             <div class="hidden errorMessage" id="imageError" for="image"></div>
           </div>
-          <div class="flex flex-col items-center gap-5 mx-5">
-            <button
-              type="button"
-              id="addImageButton"
-              class="buttonBlue mx-4 mt-4"
-            >
+          <div class="flex justify-center items-center gap-5 mx-5">
+            <button type="button" id="addImageButton" class="buttonBlue">
               Add Image
             </button>
-            <button type="submit" class="buttonGreen mx-4 mt-4">
-              Create BidMe
-            </button>
+            <button type="submit" class="buttonGreen">Create BidMe</button>
+          </div>
+          <div class="flex items-center gap-5 mx-5">
             <div id="previewImage">Image preview</div>
           </div>
         </form>
@@ -101,12 +97,6 @@
           <div class="flex flex-col items-center justify-center">
             <h2>Create Successful</h2>
             <p>Redirecting you to the homepage</p>
-          </div>
-        </div>
-        <div id="createFailed" class="hidden">
-          <div class="flex flex-col items-center justify-center">
-            <h2>Create new listing Failed</h2>
-            <p>Please try again</p>
           </div>
         </div>
       </div>
