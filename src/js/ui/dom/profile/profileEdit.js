@@ -109,18 +109,26 @@ if (cancelButton) {
 }
 
 function displayClearButton() {
-  clearBannerButton.classList.toggle('flex', initialBannerValue);
-  clearBannerButton.classList.toggle('none', !initialBannerValue);
+  clearBannerButton.classList.toggle('hidden', !bannerInput.value);
+  clearBannerButton.classList.toggle('flex', !!bannerInput.value);
 
-  clearAvatarButton.classList.toggle('flex', initialAvatarValue);
-  clearAvatarButton.classList.toggle('none', !initialAvatarValue);
+  clearAvatarButton.classList.toggle('hidden', !avatarInput.value);
+  clearAvatarButton.classList.toggle('flex', !!avatarInput.value);
 
-  clearBioButton.classList.toggle('flex', initialBioValue);
-  clearBioButton.classList.toggle('none', !initialBioValue);
+  clearBioButton.classList.toggle('hidden', !bioInput.value);
+  clearBioButton.classList.toggle('flex', !!bioInput.value);
 }
 
 function initialValue() {
   bannerInput.value = initialBannerValue;
   avatarInput.value = initialAvatarValue;
   bioInput.value = initialBioValue;
+
+  const errorMessages = document.querySelectorAll('.errorMessage');
+  errorMessages.forEach((errorMessage) => {
+    errorMessage.textContent = '';
+    errorMessage.classList.add('hidden');
+  });
+
+  displayClearButton();
 }
