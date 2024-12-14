@@ -75,7 +75,7 @@
     @apply list-none m-0 p-0;
   }
   .slide {
-    @apply absolute list-none inset-0 opacity-100 rounded transition-opacity duration-300 ease-in-out delay-300 overflow-hidden drop-shadow-darkFaded;
+    @apply absolute list-none inset-0 opacity-100 rounded overflow-hidden drop-shadow-darkFaded;
   }
   .slide img {
     @apply block w-full h-full object-cover object-center rounded;
@@ -84,7 +84,7 @@
     @apply opacity-100 z-10 delay-0;
   }
   .arrow-buttons {
-    @apply w-full flex justify-between items-center mx-5;
+    @apply w-full flex justify-between items-center mx-2 md:mx-5;
   }
   .carousel-slide-btn {
     @apply flex items-center justify-center text-white w-[50px] h-[50px] rounded-full z-20 cursor-pointer bg-darkFaded hover:scale-125 transition-transform duration-300;
