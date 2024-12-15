@@ -61,14 +61,13 @@ The project is built using:
 
    ```
 
-2. Navigate to the project folder:
-   "cd folder-name"
+2. Or use - Open with GitHub Desktop
 
 3. Install dependencies:
-   npm install
+   `npm install`
 
 4. Run the development server:
-   npm run dev
+   `npm run dev`
 
 ## Live demo
 
