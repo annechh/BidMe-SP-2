@@ -15,7 +15,7 @@ export async function carousel(data) {
   media.forEach((data, index) => {
     const createLi = createHtmlElement({
       element: 'li',
-      className: ['slide', 'carousel-image'],
+      className: ['slide', 'carousel-image', 'dark:drop-shadow-whiteFaded'],
     });
     if (index === 0) {
       createLi.setAttribute('data-active', '');
