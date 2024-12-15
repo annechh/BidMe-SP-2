@@ -89,12 +89,14 @@ editProfile.addEventListener('click', () => {
   if (getForm.classList.contains('hidden')) {
     getForm.classList.remove('hidden');
     getForm.classList.add('flex');
+    editProfile.classList.add('fa-xmark');
   } else {
     initialValue();
     displayClearButton();
 
     getForm.classList.remove('flex');
     getForm.classList.add('hidden');
+    editProfile.classList.remove('fa-xmark');
   }
 });
 

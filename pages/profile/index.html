@@ -7,18 +7,63 @@
       name="description"
       content="BidMe Profile page. See your own listings or other profile owners listings"
     />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      src="https://kit.fontawesome.com/aacfbda896.js"
+      crossorigin="anonymous"
+    ></script>
     <script type="module" src="/src/app.js"></script>
     <link rel="icon" href="/favicon-bidMe.png" />
     <title>BidMe Profile Page</title>
   </head>
-  <body>
-    <header></header>
+  <body class="flex flex-col items-center min-h-screen font-roboto">
+    <header class="flex justify-center w-screen fixed z-30 bg-white">
+      <nav id="nav" class="flex w-full">
+        <div
+          class="nav-wrapper relative logo-container flex justify-between items-center w-full"
+        >
+          <a href="/">
+            <img
+              src="/images/logo-lightMode.png"
+              alt="BidMe logo"
+              class="cursor-pointer ml-5 max-h-[50px] md:max-h-[60px] lg:max-h-[75px] hover:scale-110 transition-transform duration-300"
+            />
+          </a>
+          <button
+            id="menuButton"
+            class="menuButton cursor-pointer mr-5 relative hover:scale-110 transition-transform duration-300"
+          >
+            <i
+              id="menuIcon"
+              class="fa-solid fa-bars text-2xl text-black transition-transform"
+            >
+            </i>
+          </button>
+          <div
+            id="dropDownWrapper"
+            class="absolute right-0 top-0 flex flex-col items-center space-y-4 h-screen overflow-hidden w-0 transition-all duration-500 text-nowrap transform-origin-right bg-white drop-shadow-darkFaded z-40"
+          ></div>
+        </div>
+      </nav>
+    </header>
 
-    <main>
+    <main
+      class="flex w-full flex-col items-center justify-center mt-[50px] md:mt-[60px] lg:mt-[75px]"
+    >
       <div
-        class="max-w-[1920px] w-full flex flex-col mb-[100px] gap-[50px] items-center"
+        class="max-w-[1920px] w-full flex flex-col mb-[100px] gap-5 lg:gap-[50px] items-center"
       >
-        <div class="w-full">
+        <div
+          class="hidden banner-avatar w-full flex-col gap-5"
+          id="profileInfo"
+        >
           <div
             class="banner max-w-[1920px] h-[200px] md:h-[400px] lg:h-[500px] flex items-center justify-center overflow-hidden"
           >
@@ -29,7 +74,6 @@
               alt="placeholder"
             />
           </div>
-
           <div class="content flex w-full">
             <div
               class="avatar flex items-center justify-center overflow-hidden rounded-full w-full h-[100px] max-w-[100px] md:h-[170px] md:max-w-[170px] lg:h-[250px] lg:max-w-[250px] mt-[-50px] md:mt-[-85px] lg:mt-[-125px] ml-[20px] md:ml-[40px] lg:ml-[75px]"
@@ -37,11 +81,10 @@
               <img
                 id="profileAvatar"
                 class="avatar-image object-cover w-full h-full"
-                src="/images/loading-image.png"
-                alt="placeholder"
+                src=""
+                alt=""
               />
             </div>
-
             <div
               class="flex flex-col justify-between w-full pt-2 lg:pt-5 mr-[20px] md:mr-[40px] lg:mr-[75px]"
             >
@@ -55,7 +98,7 @@
               >
                 <i
                   id="profileEdit"
-                  class="fa-solid fa-user-pen text-sm md:text-2xl lg:text-4xl cursor-pointer"
+                  class="fa-solid fa-user-pen py-2 px-2 text-sm md:text-2xl lg:text-2xl cursor-pointer hover:scale-125 transition-transform duration-300"
                 ></i>
                 <h1
                   id="profileName"
@@ -66,13 +109,49 @@
               </div>
             </div>
           </div>
+          <div class="flex flex-col items-center">
+            <p
+              id="profileBio"
+              class="text-xs md:text-base lg:text-2xl text-center px-5 md:px-[40px] lg:px-[75px] max-w-[1240px]"
+            ></p>
+          </div>
         </div>
 
-        <div class="flex flex-col items-center">
-          <p
-            id="profileBio"
-            class="text-xs md:text-base lg:text-2xl text-center px-5 md:px-[40px] lg:px-[75px] max-w-[1240px]"
-          ></p>
+        <!-- Skeleton profile -->
+        <div class="skeletonLoaders banner-avatar w-full flex flex-col gap-5">
+          <div
+            class="skeleton-banner max-w-[1920px] h-[200px] md:h-[400px] lg:h-[500px] flex items-center justify-center overflow-hidden"
+          >
+            <div class="bg-gray-300 w-full h-full"></div>
+          </div>
+          <div class="content flex w-full">
+            <div
+              class="skeleton-avatar flex items-center justify-center overflow-hidden rounded-full w-full h-[100px] max-w-[100px] md:h-[170px] md:max-w-[170px] lg:h-[250px] lg:max-w-[250px] mt-[-50px] md:mt-[-85px] lg:mt-[-125px] ml-[20px] md:ml-[40px] lg:ml-[75px]"
+            >
+              <div class="bg-gray-400 rounded-full w-full h-full"></div>
+            </div>
+            <div
+              class="flex flex-col justify-between w-full pt-2 lg:pt-5 mr-[20px] md:mr-[40px] lg:mr-[75px]"
+            >
+              <div
+                class="flex flex-row-reverse font-semibold text-xs lg:text-lg"
+              >
+                <div
+                  class="bg-gray-300 rounded-lg w-[50px] h-[15px] md:h-[20px] lg:h-[25px]"
+                ></div>
+              </div>
+              <div
+                class="flex items-center justify-between w-full text-sm md:text-2xl lg:text-4xl mt-2"
+              >
+                <div
+                  class="bg-gray-300 rounded-lg w-[30px] h-[30px] md:w-[40px] md:h-[40px] lg:w-[50px] lg:h-[50px]"
+                ></div>
+                <div
+                  class="bg-gray-300 rounded-lg w-24 h-[20px] md:h-[30px] lg:h-[40px]"
+                ></div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <section
@@ -143,13 +222,136 @@
           </form>
         </section>
 
-        <div
-          class="max-w-[1920px] w-full flex flex-col gap-[30px] md:gap-[50px]"
-        >
-          <h2 class="mx-4 md:mx-8 flex items-center gap-2">
+        <div class="max-w-[1920px] w-full flex flex-col gap-5 md:gap-[50px]">
+          <h2 class="mx-4 md:mx-8 flex items-center gap-2 mt-5 lg:mt-10">
             My BidMe's listings<i class="fa-solid fa-gavel"></i>
           </h2>
-          <div id="profileAuctions"></div>
+          <div
+            id="profileAuctions"
+            class="hidden max-w-[1920px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[10px] mx-4 mb-[50px] lg:mb-[100px]"
+          ></div>
+
+          <!-- SkeletonCards Loader -->
+          <div
+            class="skeletonLoaders max-w-[1920px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[10px] mx-4 mb-[50px] lg:mb-[100px]"
+          >
+            <!--Skeleton 1-->
+            <div
+              class="listing-card skeleton-loader border rounded animate-pulse"
+            >
+              <div
+                class="content-container p-5 flex flex-col min-h-[410px] md:min-h-[450px] h-full w-full gap-2"
+              >
+                <div
+                  class="seller-date-container flex items-center justify-between"
+                >
+                  <div class="seller-container flex items-center gap-[10px]">
+                    <div
+                      class="seller-avatar-container w-[25px] h-[25px] md:w-[40px] md:h-[40px] bg-gray-300 rounded-full"
+                    ></div>
+                    <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                  </div>
+                  <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                </div>
+                <div
+                  class="flex items-center justify-center w-full max-h-[200px] sm:max-[240px] h-full bg-gray-300 rounded drop-shadow-darkFaded"
+                ></div>
+                <div class="bg-gray-300 h-[20px] w-[60%] rounded mb-auto"></div>
+                <div
+                  class="bg-gray-300 h-[16px] w-[80%] rounded border-b border-darkFaded"
+                ></div>
+                <div class="grid grid-row-2 border-b border-darkFaded gap-2">
+                  <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                  <div class="flex justify-between">
+                    <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                    <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                  </div>
+                </div>
+                <div class="bid-container flex items-center gap-2">
+                  <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                  <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                </div>
+              </div>
+            </div>
+
+            <!--Skeleton 2-->
+            <div
+              class="listing-card skeleton-loader border rounded animate-pulse"
+            >
+              <div
+                class="content-container p-5 flex flex-col min-h-[410px] md:min-h-[450px] h-full w-full gap-2"
+              >
+                <div
+                  class="seller-date-container flex items-center justify-between"
+                >
+                  <div class="seller-container flex items-center gap-[10px]">
+                    <div
+                      class="seller-avatar-container w-[25px] h-[25px] md:w-[40px] md:h-[40px] bg-gray-300 rounded-full"
+                    ></div>
+                    <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                  </div>
+                  <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                </div>
+                <div
+                  class="flex items-center justify-center w-full max-h-[200px] sm:max-[240px] h-full bg-gray-300 rounded drop-shadow-darkFaded"
+                ></div>
+                <div class="bg-gray-300 h-[20px] w-[60%] rounded mb-auto"></div>
+                <div
+                  class="bg-gray-300 h-[16px] w-[80%] rounded border-b border-darkFaded"
+                ></div>
+                <div class="grid grid-row-2 border-b border-darkFaded gap-2">
+                  <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                  <div class="flex justify-between">
+                    <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                    <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                  </div>
+                </div>
+                <div class="bid-container flex items-center gap-2">
+                  <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                  <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                </div>
+              </div>
+            </div>
+
+            <!--Skeleton 3-->
+            <div
+              class="listing-card skeleton-loader border rounded animate-pulse"
+            >
+              <div
+                class="content-container p-5 flex flex-col min-h-[410px] md:min-h-[450px] h-full w-full gap-2"
+              >
+                <div
+                  class="seller-date-container flex items-center justify-between"
+                >
+                  <div class="seller-container flex items-center gap-[10px]">
+                    <div
+                      class="seller-avatar-container w-[25px] h-[25px] md:w-[40px] md:h-[40px] bg-gray-300 rounded-full"
+                    ></div>
+                    <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                  </div>
+                  <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                </div>
+                <div
+                  class="flex items-center justify-center w-full max-h-[200px] sm:max-[240px] h-full bg-gray-300 rounded drop-shadow-darkFaded"
+                ></div>
+                <div class="bg-gray-300 h-[20px] w-[60%] rounded mb-auto"></div>
+                <div
+                  class="bg-gray-300 h-[16px] w-[80%] rounded border-b border-darkFaded"
+                ></div>
+                <div class="grid grid-row-2 border-b border-darkFaded gap-2">
+                  <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                  <div class="flex justify-between">
+                    <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                    <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                  </div>
+                </div>
+                <div class="bid-container flex items-center gap-2">
+                  <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                  <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <h2 class="mx-4 md:mx-8 flex items-center gap-2">
             My BidMe's wins<i class="fa-solid fa-trophy"></i>
@@ -159,6 +361,19 @@
       </div>
     </main>
 
-    <footer></footer>
+    <footer class="flex w-full justify-center border-t-2 border-darkFaded">
+      <div
+        class="h-[150px] lg:h-[300px] max-w-[1920px] w-full flex flex-col items-center justify-center gap-2"
+      >
+        <a href="/">
+          <img
+            src="/images/logo-lightMode.png"
+            class="max-h-14 lg:max-h-24 hover:scale-110 transition-transform duration-300"
+            alt="Logo"
+          />
+        </a>
+        <p class="text-darkFaded text-xs lg:text-base">@ BidMe Auctions</p>
+      </div>
+    </footer>
   </body>
 </html>

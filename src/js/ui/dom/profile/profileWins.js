@@ -29,7 +29,13 @@ export async function buildListingsWins() {
   userData.profile.forEach((data) => {
     const listingCard = createHtmlElement({
       element: 'div',
-      className: ['listing-card', 'border', 'rounded'],
+      className: [
+        'listing-card',
+        'border',
+        'rounded',
+        'hover:cursor-pointer',
+        'hover:bg-warmYellow',
+      ],
       id: data.id,
     });
 
@@ -43,7 +49,6 @@ export async function buildListingsWins() {
         'md:flex-row',
         'gap-2',
         'md:gap-5',
-        'hover:cursor-pointer',
       ],
     });
 
@@ -105,13 +110,13 @@ export async function buildListingsWins() {
     const won = createHtmlElement({
       element: 'p',
       textContent: 'Won ',
-      className: ['card-p-text'],
+      className: ['card-text'],
     });
 
     const endDate = createHtmlElement({
       element: 'p',
       textContent: formatDate(data.endsAt),
-      className: ['card-p-text'],
+      className: ['card-text'],
     });
 
     const bidContainer = createHtmlElement({
@@ -124,7 +129,7 @@ export async function buildListingsWins() {
 
     const bidAmount = createHtmlElement({
       element: 'p',
-      className: ['card-p-text', 'font-semibold'],
+      className: ['card-text', 'font-semibold'],
       textContent: latestBidAmount,
     });
 
