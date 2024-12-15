@@ -17,8 +17,6 @@ On BidMe user can:
 - Delete listings created
 - View own total credits
 
----
-
 ## User Stories of this project
 
 This project has these following user stories:
@@ -33,8 +31,6 @@ This project has these following user stories:
 8. A registered user may view Bids made on a Listing
 9. An unregistered user may search through Listings
 
----
-
 ## Technologies
 
 The project is built using:
@@ -48,3 +44,28 @@ The project is built using:
 - **Husky** - Git hooks
 - **Prettier** - Code formatting
 - **ESLint** - Linting
+
+## Getting Started
+
+### Prerequisites
+
+- Make sure you have **Node.js** installed.
+- If you don't have Node installed, you can download it from [nodejs.org](https://nodejs.org/).
+
+### Steps to Run Locally
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/annechh/BidMe-SP-2.git
+
+   ```
+
+2. Navigate to the project folder:
+   "cd folder-name"
+
+3. Install dependencies:
+   npm install
+
+4. Run the development server:
+   npm run dev
