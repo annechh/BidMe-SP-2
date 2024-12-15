@@ -18,7 +18,35 @@
     <title>BidMe Register Page</title>
   </head>
   <body class="flex flex-col items-center min-h-screen font-roboto">
-    <header></header>
+    <header class="flex justify-center w-screen fixed z-30 bg-white">
+      <nav id="nav" class="flex w-full">
+        <div
+          class="nav-wrapper relative logo-container flex justify-between items-center w-full"
+        >
+          <a href="/">
+            <img
+              src="/images/logo-lightMode.png"
+              alt="BidMe logo"
+              class="cursor-pointer ml-5 max-h-[50px] md:max-h-[60px] lg:max-h-[75px] hover:scale-110 transition-transform duration-300"
+            />
+          </a>
+          <button
+            id="menuButton"
+            class="menuButton cursor-pointer mr-5 relative hover:scale-110 transition-transform duration-300"
+          >
+            <i
+              id="menuIcon"
+              class="fa-solid fa-bars text-2xl text-black transition-transform"
+            >
+            </i>
+          </button>
+          <div
+            id="dropDownWrapper"
+            class="absolute right-0 top-0 flex flex-col items-center space-y-4 h-screen overflow-hidden w-0 transition-all duration-500 text-nowrap transform-origin-right bg-white drop-shadow-darkFaded z-40"
+          ></div>
+        </div>
+      </nav>
+    </header>
 
     <main
       class="flex flex-grow w-full flex-col items-center justify-center mt-[50px] md:mt-[60px] lg:mt-[75px]"
