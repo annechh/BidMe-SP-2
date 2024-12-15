@@ -20,100 +20,7 @@ export async function buildHeader(profileData) {
     profileData = await readProfileName(userData.name);
   }
 
-  const header = document.querySelector('header');
-  header.classList.add(
-    'flex',
-    'justify-center',
-    'w-screen',
-    'fixed',
-    'z-30',
-    'bg-white'
-  );
-
-  const nav = createHtmlElement({
-    element: 'nav',
-    id: 'nav',
-    className: ['flex', 'w-full'],
-  });
-
-  const navWrapper = createHtmlElement({
-    element: 'div',
-    className: [
-      'relative',
-      'logo-container',
-      'flex',
-      'justify-between',
-      'items-center',
-      'w-full',
-    ],
-  });
-
-  const logo = createHtmlElement({
-    element: 'img',
-    className: [
-      'cursor-pointer',
-      'ml-5',
-      'max-h-[50px]',
-      'md:max-h-[60px]',
-      'lg:max-h-[75px]',
-      'hover:scale-110',
-      'transition-transform',
-      'duration-300',
-    ],
-    src: '/images/logo-lightMode.png',
-    alt: 'BidMe logo',
-  });
-  logo.addEventListener('click', () => (window.location.href = HOME_PAGE));
-
-  const menuButton = createHtmlElement({
-    element: 'button',
-    id: 'menuButton',
-    className: [
-      'menuButton',
-      'cursor-pointer',
-      'mr-5',
-      'relative',
-      'hover:scale-110',
-      'transition-transform',
-      'duration-300',
-    ],
-  });
-
-  const menuIcon = createHtmlElement({
-    element: 'i',
-    id: 'menuIcon',
-    className: [
-      'fa-solid',
-      'fa-bars',
-      'text-2xl',
-      'text-black',
-      'transition-transform',
-    ],
-  });
-
-  const dropDownWrapper = createHtmlElement({
-    element: 'div',
-    id: 'dropDownWrapper',
-    className: [
-      'absolute',
-      'right-0',
-      'top-0',
-      'flex',
-      'flex-col',
-      'items-center',
-      'space-y-4',
-      'h-screen',
-      'overflow-hidden',
-      'w-0',
-      'transition-all',
-      'duration-500',
-      'text-nowrap',
-      'transform-origin-right',
-      'bg-white',
-      'drop-shadow-darkFaded',
-      'z-40',
-    ],
-  });
+  const dropDownWrapper = document.getElementById('dropDownWrapper');
 
   const dropDownContent = createHtmlElement({
     element: 'div',
@@ -335,10 +242,6 @@ export async function buildHeader(profileData) {
 
   dropDownContent.append(imageCreditsWrapper, navigationWrapper);
   dropDownWrapper.append(dropDownContent);
-  menuButton.appendChild(menuIcon);
-  navWrapper.append(logo, menuButton, dropDownWrapper);
-  nav.appendChild(navWrapper);
-  header.appendChild(nav);
 }
 
 export function clickMenu() {
