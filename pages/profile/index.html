@@ -52,7 +52,7 @@
     </header>
 
     <main
-      class="flex flex-grow w-full flex-col items-center justify-center mt-[50px] md:mt-[60px] lg:mt-[75px]"
+      class="flex w-full flex-col items-center justify-center mt-[50px] md:mt-[60px] lg:mt-[75px]"
     >
       <div
         class="max-w-[1920px] w-full flex flex-col mb-[100px] gap-5 lg:gap-[50px] items-center"
@@ -188,7 +188,132 @@
           <h2 class="mx-4 md:mx-8 flex items-center gap-2">
             My BidMe's listings<i class="fa-solid fa-gavel"></i>
           </h2>
-          <div id="profileAuctions"></div>
+          <div
+            id="profileAuctions"
+            class="hidden max-w-[1920px] grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[10px] mx-4 mb-[50px] lg:mb-[100px]"
+          ></div>
+
+          <!-- SkeletonCards Loader -->
+          <div
+            class="skeletonLoaders max-w-[1920px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[10px] mx-4 mb-[50px] lg:mb-[100px]"
+          >
+            <!--Skeleton 1-->
+            <div
+              class="listing-card skeleton-loader border rounded animate-pulse"
+            >
+              <div
+                class="content-container p-5 flex flex-col min-h-[410px] md:min-h-[450px] h-full w-full gap-2"
+              >
+                <div
+                  class="seller-date-container flex items-center justify-between"
+                >
+                  <div class="seller-container flex items-center gap-[10px]">
+                    <div
+                      class="seller-avatar-container w-[25px] h-[25px] md:w-[40px] md:h-[40px] bg-gray-300 rounded-full"
+                    ></div>
+                    <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                  </div>
+                  <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                </div>
+                <div
+                  class="flex items-center justify-center w-full max-h-[200px] sm:max-[240px] h-full bg-gray-300 rounded drop-shadow-darkFaded"
+                ></div>
+                <div class="bg-gray-300 h-[20px] w-[60%] rounded mb-auto"></div>
+                <div
+                  class="bg-gray-300 h-[16px] w-[80%] rounded border-b border-darkFaded"
+                ></div>
+                <div class="grid grid-row-2 border-b border-darkFaded gap-2">
+                  <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                  <div class="flex justify-between">
+                    <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                    <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                  </div>
+                </div>
+                <div class="bid-container flex items-center gap-2">
+                  <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                  <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                </div>
+              </div>
+            </div>
+
+            <!--Skeleton 2-->
+            <div
+              class="listing-card skeleton-loader border rounded animate-pulse"
+            >
+              <div
+                class="content-container p-5 flex flex-col min-h-[410px] md:min-h-[450px] h-full w-full gap-2"
+              >
+                <div
+                  class="seller-date-container flex items-center justify-between"
+                >
+                  <div class="seller-container flex items-center gap-[10px]">
+                    <div
+                      class="seller-avatar-container w-[25px] h-[25px] md:w-[40px] md:h-[40px] bg-gray-300 rounded-full"
+                    ></div>
+                    <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                  </div>
+                  <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                </div>
+                <div
+                  class="flex items-center justify-center w-full max-h-[200px] sm:max-[240px] h-full bg-gray-300 rounded drop-shadow-darkFaded"
+                ></div>
+                <div class="bg-gray-300 h-[20px] w-[60%] rounded mb-auto"></div>
+                <div
+                  class="bg-gray-300 h-[16px] w-[80%] rounded border-b border-darkFaded"
+                ></div>
+                <div class="grid grid-row-2 border-b border-darkFaded gap-2">
+                  <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                  <div class="flex justify-between">
+                    <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                    <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                  </div>
+                </div>
+                <div class="bid-container flex items-center gap-2">
+                  <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                  <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                </div>
+              </div>
+            </div>
+
+            <!--Skeleton 3-->
+            <div
+              class="listing-card skeleton-loader border rounded animate-pulse"
+            >
+              <div
+                class="content-container p-5 flex flex-col min-h-[410px] md:min-h-[450px] h-full w-full gap-2"
+              >
+                <div
+                  class="seller-date-container flex items-center justify-between"
+                >
+                  <div class="seller-container flex items-center gap-[10px]">
+                    <div
+                      class="seller-avatar-container w-[25px] h-[25px] md:w-[40px] md:h-[40px] bg-gray-300 rounded-full"
+                    ></div>
+                    <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                  </div>
+                  <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                </div>
+                <div
+                  class="flex items-center justify-center w-full max-h-[200px] sm:max-[240px] h-full bg-gray-300 rounded drop-shadow-darkFaded"
+                ></div>
+                <div class="bg-gray-300 h-[20px] w-[60%] rounded mb-auto"></div>
+                <div
+                  class="bg-gray-300 h-[16px] w-[80%] rounded border-b border-darkFaded"
+                ></div>
+                <div class="grid grid-row-2 border-b border-darkFaded gap-2">
+                  <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                  <div class="flex justify-between">
+                    <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                    <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                  </div>
+                </div>
+                <div class="bid-container flex items-center gap-2">
+                  <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                  <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                </div>
+              </div>
+            </div>
+          </div>
 
           <h2 class="mx-4 md:mx-8 flex items-center gap-2">
             My BidMe's wins<i class="fa-solid fa-trophy"></i>
