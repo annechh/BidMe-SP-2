@@ -32,7 +32,7 @@ export function auctionTimeLeft(endTime) {
 
     if (timeLeft <= 0) {
       timerElement.textContent = 'Auction Ended';
-      timerElement.classList.add('card-p-text', 'font-semibold');
+      timerElement.classList.add('font-semibold');
       clearInterval(timerInterval);
       return;
     }
@@ -54,7 +54,7 @@ export function auctionTimeLeft(endTime) {
     timeString += `${minutes}m ${seconds}s`;
 
     timerElement.textContent = timeString.trim();
-    timerElement.classList.add('card-p-text', 'font-semibold');
+    timerElement.classList.add('font-semibold');
   }
 
   const timerInterval = setInterval(updateCountdown, 1000);

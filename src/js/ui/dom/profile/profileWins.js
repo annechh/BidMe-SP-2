@@ -110,13 +110,13 @@ export async function buildListingsWins() {
     const won = createHtmlElement({
       element: 'p',
       textContent: 'Won ',
-      className: ['card-p-text'],
+      className: ['card-text'],
     });
 
     const endDate = createHtmlElement({
       element: 'p',
       textContent: formatDate(data.endsAt),
-      className: ['card-p-text'],
+      className: ['card-text'],
     });
 
     const bidContainer = createHtmlElement({
@@ -129,7 +129,7 @@ export async function buildListingsWins() {
 
     const bidAmount = createHtmlElement({
       element: 'p',
-      className: ['card-p-text', 'font-semibold'],
+      className: ['card-text', 'font-semibold'],
       textContent: latestBidAmount,
     });
 

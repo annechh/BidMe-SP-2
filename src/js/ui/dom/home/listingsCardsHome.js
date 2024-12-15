@@ -88,13 +88,13 @@ export function buildListingCards(data) {
 
   const sellerName = createHtmlElement({
     element: 'p',
-    className: ['card-p-text', 'seller-name'],
+    className: ['card-text', 'seller-name'],
     textContent: data.seller.name,
   });
 
   const startDate = createHtmlElement({
     element: 'p',
-    className: ['card-p-text', 'start-date'],
+    className: ['card-text', 'start-date'],
     textContent: formatDate(data.created),
   });
 
@@ -144,7 +144,7 @@ export function buildListingCards(data) {
   const description = createHtmlElement({
     element: 'p',
     textContent: data.description,
-    className: ['card-p-text', 'line-clamp-1', 'border-b', 'border-darkFaded'],
+    className: ['card-text', 'line-clamp-1', 'border-b', 'border-darkFaded'],
   });
   applyBreakWordClass(description);
 
@@ -160,25 +160,25 @@ export function buildListingCards(data) {
 
   const dateCountdownContainer = createHtmlElement({
     element: 'div',
-    className: ['flex', 'justify-between'],
+    className: ['flex', 'justify-between', 'card-text'],
   });
 
   const endDate = createHtmlElement({
     element: 'p',
     textContent: formatDate(data.endsAt),
-    className: ['card-p-text'],
+    className: ['card-text'],
   });
 
   const countdownTimer = auctionTimeLeft(data.endsAt);
 
   const bidContainer = createHtmlElement({
     element: 'div',
-    className: ['bid-container', 'flex', 'items-center', 'gap-2'],
+    className: ['bid-container', 'flex', 'items-center', 'gap-2', 'card-text'],
   });
 
   const currentBid = createHtmlElement({
     element: 'p',
-    className: ['card-p-text', 'current-bid'],
+    className: ['current-bid'],
     textContent: 'Current bid: ',
   });
 
