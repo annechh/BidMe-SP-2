@@ -126,7 +126,8 @@
           </div>
 
           <div
-            class="flex flex-col items-center justify-center gap-5 max-w-[800px] w-full mt-[50px] min-h-[200px]"
+            class="hidden flex-col items-center justify-center gap-5 max-w-[800px] w-full mt-[50px] h-[200px] lg:h-[300px]"
+            id="welcomeMessage"
           >
             <h1 id="headingMessage">Title</h1>
             <div
@@ -142,7 +143,7 @@
               />
             </div>
             <p id="paragraphMessage"></p>
-            <div class="w-full flex flex-col items-center">
+            <div class="w-full flex flex-col items-center" id="becomeUser">
               <button id="becomeUserButton" class="buttonBlue px-5">
                 Sign up to get started
               </button>
@@ -150,6 +151,14 @@
                 >Log in</a
               >
             </div>
+          </div>
+
+          <!-- Skeleton message-->
+          <div
+            class="skeletonLoaders flex flex-col items-center justify-center gap-5 max-w-[800px] w-full mt-[50px] h-[200px] lg:h-[300px] animate-pulse"
+          >
+            <div class="h-6 w-3/4 bg-gray-300 rounded-md"></div>
+            <div class="h-4 w-2/3 bg-gray-300 rounded-md"></div>
           </div>
         </div>
       </section>
@@ -205,7 +214,7 @@
 
         <!-- SkeletonCards Loader -->
         <div
-          class="max-w-7xl w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[10px] mx-4 mb-[50px] lg:mb-[100px]"
+          class="max-w-7xl skeletonLoaders w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[10px] mx-4 mb-[50px] lg:mb-[100px]"
         >
           <!--Skeleton 1-->
           <div
