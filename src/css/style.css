@@ -83,13 +83,13 @@
     @apply text-xs md:text-base;
   }
   .input {
-    @apply rounded h-[50px] px-4 text-black font-semibold bg-white border border-darkFaded;
+    @apply rounded h-[50px] px-4 text-black font-semibold bg-white border border-darkFaded placeholder:text-sm md:placeholder:text-base;
   }
   .textarea-wrapper {
     @apply flex flex-col gap-2 mx-4 relative;
   }
   .textarea {
-    @apply rounded h-[150px] px-4 text-black font-semibold bg-white border border-darkFaded placeholder:pt-2;
+    @apply rounded h-[150px] px-4 text-black font-semibold bg-white border border-darkFaded placeholder:pt-2 placeholder:text-sm md:placeholder:text-base;
   }
 }
 
