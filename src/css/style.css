@@ -60,7 +60,32 @@
 
 @layer components {
   .nav-list {
-    @apply flex items-center gap-2 lg:gap-5 cursor-pointer hover:scale-110 transition-transform duration-300;
+    @apply flex items-center gap-2 lg:gap-5 text-base md:text-lg cursor-pointer hover:scale-110 transition-transform duration-300;
+  }
+}
+
+@layer components {
+  /* Forms*/
+  .form-div-wrapper {
+    @apply py-5 md:py-10 w-full flex flex-col gap-5 justify-center items-center mx-4;
+  }
+  .form {
+    @apply flex flex-col gap-[25px] max-w-[600px] w-full h-full;
+  }
+  .label-input-wrapper {
+    @apply flex flex-col gap-2 mx-5 relative;
+  }
+  .label {
+    @apply text-xs md:text-base;
+  }
+  .input {
+    @apply rounded h-[50px] px-4 text-black font-semibold bg-white border border-darkFaded;
+  }
+  .textarea-wrapper {
+    @apply flex flex-col gap-2 mx-4 relative;
+  }
+  .textarea {
+    @apply rounded h-[150px] px-4 text-black font-semibold bg-white border border-darkFaded placeholder:pt-2;
   }
 }
 
