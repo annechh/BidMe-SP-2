@@ -2,7 +2,7 @@ import './css/style.css';
 
 import router from './js/router';
 import { buildHeader, clickMenu } from './js/ui/dom/header';
-import { setupDarkLightToggle } from './js/ui/global/darkMode';
+import { checkTheme, setupDarkLightToggle } from './js/ui/global/darkMode';
 import { setLogoutListener } from './js/ui/global/logout';
 
 async function app() {
@@ -11,6 +11,7 @@ async function app() {
   setupDarkLightToggle();
   clickMenu();
   setLogoutListener();
+  checkTheme();
 }
 
 app();
