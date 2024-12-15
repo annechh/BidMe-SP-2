@@ -57,7 +57,10 @@
       <div
         class="max-w-[1920px] w-full flex flex-col mb-[100px] gap-5 lg:gap-[50px] items-center"
       >
-        <div class="w-full">
+        <div
+          class="hidden banner-avatar w-full flex-col gap-5"
+          id="profileInfo"
+        >
           <div
             class="banner max-w-[1920px] h-[200px] md:h-[400px] lg:h-[500px] flex items-center justify-center overflow-hidden"
           >
@@ -68,7 +71,6 @@
               alt="placeholder"
             />
           </div>
-
           <div class="content flex w-full">
             <div
               class="avatar flex items-center justify-center overflow-hidden rounded-full w-full h-[100px] max-w-[100px] md:h-[170px] md:max-w-[170px] lg:h-[250px] lg:max-w-[250px] mt-[-50px] md:mt-[-85px] lg:mt-[-125px] ml-[20px] md:ml-[40px] lg:ml-[75px]"
@@ -76,11 +78,10 @@
               <img
                 id="profileAvatar"
                 class="avatar-image object-cover w-full h-full"
-                src="/images/loading-image.png"
-                alt="placeholder"
+                src=""
+                alt=""
               />
             </div>
-
             <div
               class="flex flex-col justify-between w-full pt-2 lg:pt-5 mr-[20px] md:mr-[40px] lg:mr-[75px]"
             >
@@ -105,13 +106,49 @@
               </div>
             </div>
           </div>
+          <div class="flex flex-col items-center">
+            <p
+              id="profileBio"
+              class="text-xs md:text-base lg:text-2xl text-center px-5 md:px-[40px] lg:px-[75px] max-w-[1240px]"
+            ></p>
+          </div>
         </div>
 
-        <div class="flex flex-col items-center">
-          <p
-            id="profileBio"
-            class="text-xs md:text-base lg:text-2xl text-center px-5 md:px-[40px] lg:px-[75px] max-w-[1240px]"
-          ></p>
+        <!-- Skeleton profile -->
+        <div class="skeletonLoaders banner-avatar w-full flex flex-col gap-5">
+          <div
+            class="skeleton-banner max-w-[1920px] h-[200px] md:h-[400px] lg:h-[500px] flex items-center justify-center overflow-hidden"
+          >
+            <div class="bg-gray-300 w-full h-full"></div>
+          </div>
+          <div class="content flex w-full">
+            <div
+              class="skeleton-avatar flex items-center justify-center overflow-hidden rounded-full w-full h-[100px] max-w-[100px] md:h-[170px] md:max-w-[170px] lg:h-[250px] lg:max-w-[250px] mt-[-50px] md:mt-[-85px] lg:mt-[-125px] ml-[20px] md:ml-[40px] lg:ml-[75px]"
+            >
+              <div class="bg-gray-400 rounded-full w-full h-full"></div>
+            </div>
+            <div
+              class="flex flex-col justify-between w-full pt-2 lg:pt-5 mr-[20px] md:mr-[40px] lg:mr-[75px]"
+            >
+              <div
+                class="flex flex-row-reverse font-semibold text-xs lg:text-lg"
+              >
+                <div
+                  class="bg-gray-300 rounded-lg w-[50px] h-[15px] md:h-[20px] lg:h-[25px]"
+                ></div>
+              </div>
+              <div
+                class="flex items-center w-full text-sm md:text-2xl lg:text-4xl mt-2"
+              >
+                <div
+                  class="bg-gray-300 rounded-lg w-[30px] h-[30px] md:w-[40px] md:h-[40px] lg:w-[50px] lg:h-[50px]"
+                ></div>
+                <div
+                  class="bg-gray-300 rounded-lg w-full h-[20px] md:h-[30px] lg:h-[40px] ml-auto"
+                ></div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <section
@@ -182,10 +219,8 @@
           </form>
         </section>
 
-        <div
-          class="max-w-[1920px] w-full flex flex-col gap-[30px] md:gap-[50px]"
-        >
-          <h2 class="mx-4 md:mx-8 flex items-center gap-2">
+        <div class="max-w-[1920px] w-full flex flex-col gap-5 md:gap-[50px]">
+          <h2 class="mx-4 md:mx-8 flex items-center gap-2 mt-5 lg:mt-10">
             My BidMe's listings<i class="fa-solid fa-gavel"></i>
           </h2>
           <div
