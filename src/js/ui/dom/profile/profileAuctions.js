@@ -19,17 +19,6 @@ export async function buildListingCardsProfile() {
   const IS_OWN_PROFILE = profileName === getLocalStorage().name;
 
   const profileAuctions = document.getElementById('profileAuctions');
-  profileAuctions.classList.add(
-    'max-w-[1920px]',
-    'grid',
-    'grid-cols-1',
-    'sm:grid-cols-2',
-    'lg:grid-cols-3',
-    'gap-[10px]',
-    'mx-4',
-    'mb-[50px]',
-    'lg:mb-[100px]'
-  );
 
   userData.profile.forEach((data) => {
     const listingCard = createHtmlElement({
