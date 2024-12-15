@@ -122,14 +122,7 @@ function handleGuestView() {
   bidButton.classList.add('hidden');
 
   getStartedButton.classList.toggle('hidden');
-  getStartedButton.classList.add(
-    'bg-skyBlue',
-    'w-full',
-    'h-[50px]',
-    'rounded-full',
-    'text-base',
-    'font-semibold'
-  );
+  getStartedButton.classList.add('buttonGuest');
   getStartedButton.addEventListener('click', () => {
     window.location.href = AUTH_PAGE;
   });

@@ -34,7 +34,14 @@ export async function buildListingCardsProfile() {
   userData.profile.forEach((data) => {
     const listingCard = createHtmlElement({
       element: 'div',
-      className: ['listing-card', 'border', 'rounded'],
+      className: [
+        'listing-card',
+        'border',
+        'rounded',
+        'bg-white',
+        'drop-shadow-darkFaded',
+        'hover:drop-shadow-yellow',
+      ],
       id: data.id,
     });
 
@@ -96,13 +103,13 @@ export async function buildListingCardsProfile() {
 
     const sellerName = createHtmlElement({
       element: 'p',
-      className: ['card-p-text', 'seller-name'],
+      className: ['card-text', 'seller-name'],
       textContent: sellerData.profile.name,
     });
 
     const startDate = createHtmlElement({
       element: 'p',
-      className: ['card-p-text', 'start-date'],
+      className: ['card-text', 'start-date'],
       textContent: formatDate(data.created),
     });
 
@@ -132,7 +139,14 @@ export async function buildListingCardsProfile() {
           ? data.media[0].url
           : '/images/placeholder-image.png',
       alt: data.media && data.media.length > 0 ? data.media[0].alt : '',
-      className: ['object-cover', 'w-full', 'h-full'],
+      className: [
+        'object-cover',
+        'w-full',
+        'h-full',
+        'hover:scale-110',
+        'transition-transform',
+        'duration-300',
+      ],
     });
 
     const listingTitle = createHtmlElement({
@@ -145,12 +159,7 @@ export async function buildListingCardsProfile() {
     const description = createHtmlElement({
       element: 'p',
       textContent: data.description ?? '',
-      className: [
-        'card-p-text',
-        'line-clamp-1',
-        'border-b',
-        'border-darkFaded',
-      ],
+      className: ['card-text', 'line-clamp-1', 'border-b', 'border-darkFaded'],
     });
     applyBreakWordClass(description);
 
@@ -166,25 +175,31 @@ export async function buildListingCardsProfile() {
 
     const dateCountdownContainer = createHtmlElement({
       element: 'div',
-      className: ['flex', 'justify-between'],
+      className: ['flex', 'justify-between', 'card-text'],
     });
 
     const endDate = createHtmlElement({
       element: 'p',
       textContent: formatDate(data.endsAt),
-      className: ['card-p-text'],
+      className: ['card-text'],
     });
 
     const countdownTimer = auctionTimeLeft(data.endsAt);
 
     const bidContainer = createHtmlElement({
       element: 'div',
-      className: ['bid-container', 'flex', 'items-center', 'gap-2'],
+      className: [
+        'bid-container',
+        'flex',
+        'items-center',
+        'gap-2',
+        'card-text',
+      ],
     });
 
     const currentBid = createHtmlElement({
       element: 'p',
-      className: ['card-p-text', 'current-bid'],
+      className: ['current-bid'],
       textContent: 'Current bid: ',
     });
 
@@ -213,12 +228,6 @@ export async function buildListingCardsProfile() {
     });
     buttonContainer.style.display = IS_OWN_PROFILE ? 'flex' : 'none';
 
-    // const editButton = createHtmlElement({
-    //   element: 'button',
-    //   className: ['buttonGreen'],
-    //   textContent: 'Edit',
-    // });
-
     const deleteButton = createHtmlElement({
       element: 'button',
       id: 'deleteButton',
@@ -229,7 +238,7 @@ export async function buildListingCardsProfile() {
       await onDeleteListing(data.id);
     });
 
-    buttonContainer.append(deleteButton);
+    buttonContainer.appendChild(deleteButton);
     bidContainer.append(currentBid, currentBidAmount, creditIcon);
     listingImageContainer.appendChild(listingImage);
     sellerAvatarContainer.appendChild(sellerAvatar);
@@ -247,8 +256,8 @@ export async function buildListingCardsProfile() {
       bidContainer,
       buttonContainer
     );
-    listingCard.append(contentContainer);
-    profileAuctions.append(listingCard);
+    listingCard.appendChild(contentContainer);
+    profileAuctions.appendChild(listingCard);
   });
   return profileAuctions;
 }

@@ -1,30 +1,35 @@
-@import url(https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&display=swap);
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Did not work in base, component or utilities */
+/* Classes are dynamically created, therefor they are outside the tailwind layers*/
 .alert-success {
-  @apply bg-softGreen py-5 px-5 rounded font-semibold border border-green-700;
+  @apply bg-softGreen py-5 px-5 rounded font-semibold border border-green-700 text-xs md:text-sm lg:text-base;
 }
 .alert-warning {
-  @apply bg-delete py-5 px-5 rounded font-semibold border border-red-800;
+  @apply bg-delete py-5 px-5 rounded font-semibold border border-red-800 text-xs md:text-sm lg:text-base;
 }
 
 @layer base {
   .errorMessage {
-    @apply py-2 px-5 rounded bg-delete border border-red-800;
+    @apply py-2 px-5 rounded bg-delete border border-red-800 text-xs md:text-sm lg:text-base;
   }
   .auth-link {
     @apply text-center px-4 py-2 md:px-8 md:py-4 hover:underline;
   }
   h1 {
-    @apply font-poppins text-base md:text-2xl lg:text-4xl font-bold tracking-[3.2px];
+    @apply font-poppins font-bold text-base md:text-2xl lg:text-4xl tracking-[3.2px];
   }
-  h2,
+  h2 {
+    @apply font-poppins font-semibold text-sm md:text-base lg:text-lg
+  }
   h3 {
-    @apply font-poppins font-semibold text-sm md:text-base lg:text-lg;
+    @apply font-poppins font-semibold text-xs md:text-sm lg:text-base;
+  }
+  .base-text,
+  .card-text {
+    @apply text-xs md:text-sm lg:text-base
   }
   .iconSmaller {
     @apply text-sm md:text-base lg:text-xl;
@@ -32,17 +37,26 @@
 }
 
 @layer components {
+  .buttonYellow,
+  .buttonDelete,
+  .buttonGreen,
+  .buttonBlue {
+    @apply  h-[50px] max-w-[300px] w-full rounded-full text-sm md:text-base font-semibold hover:scale-110 transition-transform duration-300;
+  }
+  .buttonGuest {
+    @apply bg-skyBlue h-[50px] w-full rounded-full text-sm md:text-base font-semibold hover:scale-110 transition-transform duration-300;
+  }
   .buttonYellow {
-    @apply bg-warmYellow h-[50px] max-w-[300px] w-full rounded-full text-sm md:text-base font-semibold;
+    @apply bg-warmYellow 
   }
   .buttonBlue {
-    @apply bg-skyBlue h-[50px] max-w-[300px] w-full rounded-full text-sm md:text-base font-semibold;
+    @apply bg-skyBlue 
   }
   .buttonGreen {
-    @apply bg-softGreen h-[50px] max-w-[300px] w-full rounded-full text-sm md:text-base font-semibold;
+    @apply bg-softGreen 
   }
   .buttonDelete {
-    @apply bg-delete h-[50px] max-w-[300px] w-full rounded-full text-sm md:text-base font-semibold;
+    @apply bg-delete 
   }
 }
 
@@ -54,11 +68,37 @@
 
 @layer components {
   .nav-list {
-    @apply flex items-center gap-2 lg:gap-5 cursor-pointer;
+    @apply flex items-center gap-2 lg:gap-5 text-base md:text-lg cursor-pointer hover:scale-110 transition-transform duration-300;
   }
 }
 
 @layer components {
+  /* Forms*/
+  .form-div-wrapper {
+    @apply py-5 md:py-10 w-full flex flex-col gap-5 justify-center items-center mx-4;
+  }
+  .form {
+    @apply flex flex-col gap-[25px] max-w-[600px] w-full h-full;
+  }
+  .label-input-wrapper {
+    @apply flex flex-col gap-2 mx-5 relative;
+  }
+  .label {
+    @apply text-xs md:text-base;
+  }
+  .input {
+    @apply rounded h-[50px] px-4 text-black font-semibold bg-white border border-darkFaded text-xs md:text-sm lg:text-base placeholder:text-sm md:placeholder:text-base;
+  }
+  .textarea-wrapper {
+    @apply flex flex-col gap-2 mx-4 relative;
+  }
+  .textarea {
+    @apply rounded h-[150px] px-4 text-black font-semibold bg-white border border-darkFaded text-xs md:text-sm lg:text-base placeholder:pt-2 placeholder:text-sm md:placeholder:text-base;
+  }
+}
+
+@layer components {
+  /* Carousel*/
   .carousel-section {
     @apply w-full flex justify-center;
   }
@@ -69,7 +109,7 @@
     @apply list-none m-0 p-0;
   }
   .slide {
-    @apply absolute list-none inset-0 opacity-100 transition-opacity duration-300 ease-in-out delay-300;
+    @apply absolute list-none inset-0 opacity-100 rounded overflow-hidden drop-shadow-darkFaded;
   }
   .slide img {
     @apply block w-full h-full object-cover object-center rounded;
@@ -78,18 +118,18 @@
     @apply opacity-100 z-10 delay-0;
   }
   .arrow-buttons {
-    @apply w-full flex justify-between items-center mx-5;
+    @apply w-full flex justify-between items-center mx-2 md:mx-5;
   }
   .carousel-slide-btn {
-    @apply flex items-center justify-center text-white w-[50px] h-[50px] rounded-full z-20 hover:bg-darkFaded cursor-pointer;
+    @apply flex items-center justify-center text-white w-[50px] h-[50px] rounded-full z-20 cursor-pointer bg-darkFaded hover:scale-125 transition-transform duration-300;
   }
   .carousel-nav {
     @apply flex justify-center items-center gap-5 mt-5 w-full;
   }
   .carousel-indicator {
-    @apply bg-darkFaded w-[10px] h-[10px] rounded-full;
+    @apply bg-darkFaded w-[7px] h-[7px] md:w-[10px] md:h-[10px] rounded-full;
   }
   .carousel-indicator[data-active] {
-    @apply bg-darkBG w-[15px] h-[15px] rounded-full;
+    @apply bg-darkBG w-[10px] h-[10px] md:w-[15px] md:h-[15px] rounded-full;
   }
 }

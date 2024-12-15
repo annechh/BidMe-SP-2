@@ -7,7 +7,6 @@ import {
   NEW_LISTING_PAGE,
   PROFILE_PAGE,
   REGISTER_PAGE,
-  // SEARCH_PAGE,
 } from '../../utilities/pagePaths';
 import { createHtmlElement } from './createElement';
 
@@ -19,92 +18,9 @@ export async function buildHeader(profileData) {
 
   if (userData) {
     profileData = await readProfileName(userData.name);
-    // console.log('profileData', profileData);
   }
 
-  const header = document.querySelector('header');
-  header.classList.add(
-    'flex',
-    'justify-center',
-    'w-screen',
-    'fixed',
-    'z-30',
-    'bg-white'
-  );
-
-  const nav = createHtmlElement({
-    element: 'nav',
-    id: 'nav',
-    className: ['flex', 'w-full'],
-  });
-
-  const navWrapper = createHtmlElement({
-    element: 'div',
-    className: [
-      'relative',
-      'logo-container',
-      'flex',
-      'justify-between',
-      'items-center',
-      'w-full',
-    ],
-  });
-
-  const logo = createHtmlElement({
-    element: 'img',
-    className: [
-      'cursor-pointer',
-      'ml-5',
-      'max-h-[50px]',
-      'md:max-h-[60px]',
-      'lg:max-h-[75px]',
-    ],
-    src: '/images/logo-lightMode.png',
-    alt: 'BidMe logo',
-  });
-  logo.addEventListener('click', () => (window.location.href = HOME_PAGE));
-
-  const menuButton = createHtmlElement({
-    element: 'button',
-    id: 'menuButton',
-    className: ['menuButton', 'cursor-pointer', 'mr-5', 'relative'],
-  });
-
-  const menuIcon = createHtmlElement({
-    element: 'i',
-    id: 'menuIcon',
-    className: [
-      'fa-solid',
-      'fa-bars',
-      'text-2xl',
-      'text-black',
-      'transition-transform',
-    ],
-  });
-
-  const dropDownWrapper = createHtmlElement({
-    element: 'div',
-    id: 'dropDownWrapper',
-    className: [
-      'absolute',
-      'right-0',
-      'top-0',
-      'flex',
-      'flex-col',
-      'items-center',
-      'space-y-4',
-      'h-screen',
-      'overflow-hidden',
-      'w-0',
-      'transition-all',
-      'duration-500',
-      'text-nowrap',
-      'transform-origin-right',
-      'bg-white',
-      'drop-shadow-darkFaded',
-      'z-40',
-    ],
-  });
+  const dropDownWrapper = document.getElementById('dropDownWrapper');
 
   const dropDownContent = createHtmlElement({
     element: 'div',
@@ -145,6 +61,10 @@ export async function buildHeader(profileData) {
       'md:max-w-[75px]',
       'lg:h-[100px]',
       'lg:max-w-[100px]',
+      'cursor-pointer',
+      'hover:scale-110',
+      'transition-transform',
+      'duration-300',
     ],
   });
   profileAvatarContainer.addEventListener('click', () => {
@@ -232,14 +152,6 @@ export async function buildHeader(profileData) {
     window.location.href = REGISTER_PAGE;
   });
 
-  // const searchContainer = createHtmlElement({
-  //   element: 'div',
-  //   className: ['nav-list'],
-  // });
-  // searchContainer.addEventListener('click', () => {
-  //   window.location.href = SEARCH_PAGE;
-  // });
-
   const lightModeContainer = createHtmlElement({
     element: 'li',
     className: ['nav-list'],
@@ -276,13 +188,6 @@ export async function buildHeader(profileData) {
     textContent: 'Register',
   });
 
-  // const searchLink = createHtmlElement({
-  //   element: 'a',
-  //   textContent: 'Search BidMe´s',
-  //   // href: SEARCH_PAGE,
-  //   className: [],
-  // });
-
   const lightModeSwitch = createHtmlElement({
     element: 'div',
     textContent: 'Switch to Dark-Mode',
@@ -314,11 +219,6 @@ export async function buildHeader(profileData) {
     className: ['fa-solid', 'fa-user-plus', 'w-[20px]'],
   });
 
-  // const searchIcon = createHtmlElement({
-  //   element: 'i',
-  //   className: ['fa-solid', 'fa-magnifying-glass', 'w-[20px]'],
-  // });
-
   const lightModeIcon = createHtmlElement({
     element: 'i',
     className: ['fa-solid', 'fa-sun', 'w-[20px]'],
@@ -329,24 +229,19 @@ export async function buildHeader(profileData) {
   registerContainer.append(registerIcon, registerButton);
   logoutContainer.append(logoutIcon, logoutButton);
   loginContainer.append(loginIcon, loginButton);
-  // searchContainer.append(searchIcon, searchLink);
+
   lightModeContainer.append(lightModeIcon, lightModeSwitch);
   navigationWrapper.append(
     homeContainer,
     createContainer,
-    loginContainer,
-    logoutContainer,
+    lightModeContainer,
     registerContainer,
-    // searchContainer,
-    lightModeContainer
+    logoutContainer,
+    loginContainer
   );
 
   dropDownContent.append(imageCreditsWrapper, navigationWrapper);
   dropDownWrapper.append(dropDownContent);
-  menuButton.appendChild(menuIcon);
-  navWrapper.append(logo, menuButton, dropDownWrapper);
-  nav.appendChild(navWrapper);
-  header.appendChild(nav);
 }
 
 export function clickMenu() {
@@ -374,7 +269,7 @@ export function clickMenu() {
   }
 
   function openMenu() {
-    toggleClasses(dropDownWrapper, ['w-56', 'md:w-72', 'lg:w-96'], ['w-0']);
+    toggleClasses(dropDownWrapper, ['w-64', 'md:w-72', 'lg:w-96'], ['w-0']);
     toggleClasses(menuButton, ['z-50']);
     toggleClasses(menuIcon, ['fa-xmark', 'rotate-180'], ['fa-bars']);
   }
@@ -382,7 +277,7 @@ export function clickMenu() {
   function closeMenu() {
     if (dropDownWrapper.classList.contains('w-0')) return;
 
-    toggleClasses(dropDownWrapper, ['w-0'], ['w-56', 'md:w-72', 'lg:w-96']);
+    toggleClasses(dropDownWrapper, ['w-0'], ['w-64', 'md:w-72', 'lg:w-96']);
     toggleClasses(menuButton, [], ['z-50']);
     toggleClasses(menuIcon, ['opacity-0'], ['rotate-180', 'opacity-100']);
 

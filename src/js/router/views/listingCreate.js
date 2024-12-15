@@ -4,17 +4,8 @@ import {
   previewImage,
   toggleInputVisibility,
 } from '../../ui/listing/create';
-import {
-  formStyle,
-  styleTextArea,
-  styleTextAreaWrapper,
-} from '../../ui/styles/styleForms';
 
 async function loadCreatePage() {
-  formStyle();
-  styleTextArea();
-  styleTextAreaWrapper();
-
   const form = document.forms.create;
   form.addEventListener('submit', onCreateListing);
 

@@ -7,14 +7,53 @@
       name="description"
       content="Specific BidMe auction listing, place your bid to win it"
     />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://kit.fontawesome.com/aacfbda896.js"></script>
     <script type="module" src="/src/app.js"></script>
     <link rel="icon" href="/favicon-bidMe.png" />
     <title>BidMe Listing page</title>
   </head>
-  <body>
-    <header></header>
+  <body class="flex flex-col items-center min-h-screen font-roboto">
+    <header class="flex justify-center w-screen fixed z-30 bg-white">
+      <nav id="nav" class="flex w-full">
+        <div
+          class="nav-wrapper relative logo-container flex justify-between items-center w-full"
+        >
+          <a href="/">
+            <img
+              src="/images/logo-lightMode.png"
+              alt="BidMe logo"
+              class="cursor-pointer ml-5 max-h-[50px] md:max-h-[60px] lg:max-h-[75px] hover:scale-110 transition-transform duration-300"
+            />
+          </a>
+          <button
+            id="menuButton"
+            class="menuButton cursor-pointer mr-5 relative hover:scale-110 transition-transform duration-300"
+          >
+            <i
+              id="menuIcon"
+              class="fa-solid fa-bars text-2xl text-black transition-transform"
+            >
+            </i>
+          </button>
+          <div
+            id="dropDownWrapper"
+            class="absolute right-0 top-0 flex flex-col items-center space-y-4 h-screen overflow-hidden w-0 transition-all duration-500 text-nowrap transform-origin-right bg-white drop-shadow-darkFaded z-40"
+          ></div>
+        </div>
+      </nav>
+    </header>
 
-    <main>
+    <main
+      class="flex flex-grow w-full flex-col items-center justify-center mt-[50px] md:mt-[60px] lg:mt-[75px]"
+    >
       <div
         class="carousel-section mt-0 md:mt-[50px] animate-pulse loader"
         id="carousel"
@@ -51,10 +90,10 @@
           >
             <div
               id="avatarNameContainer"
-              class="avatar-name-container flex items-center gap-2 hover:cursor-pointer"
+              class="avatar-name-container flex items-center gap-2 hover:cursor-pointer hover:scale-110 transition-transform duration-300"
             >
               <div
-                class="avatar-container flex justify-center items-center rounded-full overflow-hidden h-[50px] w-[50px] w-full;"
+                class="avatar-container flex justify-center items-center rounded-full overflow-hidden h-[40px] w-[40px] md:h-[50px] md:w-[50px] w-full;"
                 id="avatarContainer"
               >
                 <img
@@ -64,30 +103,30 @@
                   alt="placeholder"
                 />
               </div>
-              <p id="name"></p>
+              <p class="base-text" id="name"></p>
             </div>
             <div>
-              <p id="startDate"></p>
+              <p class="base-text" id="startDate"></p>
             </div>
           </div>
           <h1 class="" id="title">Title</h1>
           <div class="description-container border-b">
-            <p id="description"></p>
+            <p class="base-text" id="description"></p>
           </div>
           <div class="action-ends-container flex flex-col gap-2">
             <h2 id="auctionEndsTitle">Auction Ends</h2>
             <div class="flex items-center justify-between border-b">
-              <div>
+              <div class="base-text">
                 <p id="endDate"></p>
               </div>
-              <div id="countdownTimer"></div>
+              <div class="base-text" id="countdownTimer"></div>
             </div>
           </div>
 
           <form class="flex flex-col gap-5" id="placeBidForm">
             <div class="flex gap-2 md:gap-5">
               <div
-                class="flex gap-2 items-center w-full border-r"
+                class="flex gap-2 items-center w-full border-r base-text"
                 id="currentBidContainer"
               >
                 <p class="whitespace-nowrap" id="currentBid">Current bid:</p>
@@ -101,7 +140,7 @@
                 class="flex items-center gap-2 w-full border-l pl-2"
                 id="bidWrapper"
               >
-                <label class="whitespace-nowrap" for="bid">Bid Me</label>
+                <label class="whitespace-nowrap label" for="bid">Bid Me</label>
                 <div class="relative w-full">
                   <input
                     class="border rounded h-[40px] w-full text-end px-5"
@@ -114,7 +153,7 @@
                     class="absolute left-2 md:left-5 top-1/2 transform -translate-y-1/2"
                     for="bid"
                   >
-                    <i class="fa-solid fa-coins"></i>
+                    <i class="fa-solid fa-coins base-text"></i>
                   </label>
                 </div>
               </div>
@@ -126,7 +165,7 @@
               <button id="bidButton" class="buttonGreen" type="submit">
                 Bid Me
               </button>
-              <button class="hidden" id="getStartedButton">
+              <button id="getStartedButton" class="hidden">
                 Register or Login to place a Bid
               </button>
               <button
@@ -162,6 +201,19 @@
       </section>
     </main>
 
-    <footer></footer>
+    <footer class="flex w-full justify-center border-t-2 border-darkFaded">
+      <div
+        class="h-[150px] lg:h-[300px] max-w-[1920px] w-full flex flex-col items-center justify-center gap-2"
+      >
+        <a href="/">
+          <img
+            src="/images/logo-lightMode.png"
+            class="max-h-14 lg:max-h-24 hover:scale-110 transition-transform duration-300"
+            alt="Logo"
+          />
+        </a>
+        <p class="text-darkFaded text-xs lg:text-base">@ BidMe Auctions</p>
+      </div>
+    </footer>
   </body>
 </html>

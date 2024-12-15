@@ -39,6 +39,7 @@ export async function handleSearch(listings) {
     renderListingCards(searchListing.listings);
 
     searchedFor.textContent = searchInput.value;
+    searchedFor.classList.add('border', 'py-2', 'px-2', 'rounded');
   });
 
   searchInput.addEventListener('input', () => {

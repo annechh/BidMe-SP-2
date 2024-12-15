@@ -21,12 +21,10 @@ export function welcomeUser() {
 
     targetH1.textContent = `Welcome back ${userName}`;
     avatarContainer.style.display = 'block';
-    // avatarContainer.classList.add('animate-bounce');
     targetParagraph.textContent = 'Explore BidMe´s or ';
     targetButton.style.display = 'none';
     targetLoginLink.style.display = 'none';
 
-    // console.log(user);
     avatar.src = user.avatar.url;
     avatar.alt = user.avatar.alt;
     avatar.classList.add('cursor-pointer');
