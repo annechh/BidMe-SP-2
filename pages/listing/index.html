@@ -93,7 +93,7 @@
               class="avatar-name-container flex items-center gap-2 hover:cursor-pointer hover:scale-110 transition-transform duration-300"
             >
               <div
-                class="avatar-container flex justify-center items-center rounded-full overflow-hidden h-[50px] w-[50px] w-full;"
+                class="avatar-container flex justify-center items-center rounded-full overflow-hidden h-[40px] w-[40px] md:h-[50px] md:w-[50px] w-full;"
                 id="avatarContainer"
               >
                 <img
@@ -103,30 +103,30 @@
                   alt="placeholder"
                 />
               </div>
-              <p id="name"></p>
+              <p class="base-text" id="name"></p>
             </div>
             <div>
-              <p id="startDate"></p>
+              <p class="base-text" id="startDate"></p>
             </div>
           </div>
           <h1 class="" id="title">Title</h1>
           <div class="description-container border-b">
-            <p id="description"></p>
+            <p class="base-text" id="description"></p>
           </div>
           <div class="action-ends-container flex flex-col gap-2">
             <h2 id="auctionEndsTitle">Auction Ends</h2>
             <div class="flex items-center justify-between border-b">
-              <div>
+              <div class="base-text">
                 <p id="endDate"></p>
               </div>
-              <div id="countdownTimer"></div>
+              <div class="base-text" id="countdownTimer"></div>
             </div>
           </div>
 
           <form class="flex flex-col gap-5" id="placeBidForm">
             <div class="flex gap-2 md:gap-5">
               <div
-                class="flex gap-2 items-center w-full border-r"
+                class="flex gap-2 items-center w-full border-r base-text"
                 id="currentBidContainer"
               >
                 <p class="whitespace-nowrap" id="currentBid">Current bid:</p>
@@ -140,7 +140,7 @@
                 class="flex items-center gap-2 w-full border-l pl-2"
                 id="bidWrapper"
               >
-                <label class="whitespace-nowrap" for="bid">Bid Me</label>
+                <label class="whitespace-nowrap label" for="bid">Bid Me</label>
                 <div class="relative w-full">
                   <input
                     class="border rounded h-[40px] w-full text-end px-5"
@@ -153,7 +153,7 @@
                     class="absolute left-2 md:left-5 top-1/2 transform -translate-y-1/2"
                     for="bid"
                   >
-                    <i class="fa-solid fa-coins"></i>
+                    <i class="fa-solid fa-coins base-text"></i>
                   </label>
                 </div>
               </div>
@@ -165,7 +165,7 @@
               <button id="bidButton" class="buttonGreen" type="submit">
                 Bid Me
               </button>
-              <button class="hidden" id="getStartedButton">
+              <button id="getStartedButton" class="hidden">
                 Register or Login to place a Bid
               </button>
               <button

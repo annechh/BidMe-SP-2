@@ -5,15 +5,15 @@
 
 /* Classes are dynamically created, therefor they are outside the tailwind layers*/
 .alert-success {
-  @apply bg-softGreen py-5 px-5 rounded font-semibold border border-green-700;
+  @apply bg-softGreen py-5 px-5 rounded font-semibold border border-green-700 text-xs md:text-sm lg:text-base;
 }
 .alert-warning {
-  @apply bg-delete py-5 px-5 rounded font-semibold border border-red-800;
+  @apply bg-delete py-5 px-5 rounded font-semibold border border-red-800 text-xs md:text-sm lg:text-base;
 }
 
 @layer base {
   .errorMessage {
-    @apply py-2 px-5 rounded bg-delete border border-red-800;
+    @apply py-2 px-5 rounded bg-delete border border-red-800 text-xs md:text-sm lg:text-base;
   }
   .auth-link {
     @apply text-center px-4 py-2 md:px-8 md:py-4 hover:underline;
@@ -27,6 +27,7 @@
   h3 {
     @apply font-poppins font-semibold text-xs md:text-sm lg:text-base;
   }
+  .base-text,
   .card-text {
     @apply text-xs md:text-sm lg:text-base
   }
@@ -41,6 +42,9 @@
   .buttonGreen,
   .buttonBlue {
     @apply  h-[50px] max-w-[300px] w-full rounded-full text-sm md:text-base font-semibold hover:scale-110 transition-transform duration-300;
+  }
+  .buttonGuest {
+    @apply bg-skyBlue h-[50px] w-full rounded-full text-sm md:text-base font-semibold hover:scale-110 transition-transform duration-300;
   }
   .buttonYellow {
     @apply bg-warmYellow 
@@ -83,13 +87,13 @@
     @apply text-xs md:text-base;
   }
   .input {
-    @apply rounded h-[50px] px-4 text-black font-semibold bg-white border border-darkFaded placeholder:text-sm md:placeholder:text-base;
+    @apply rounded h-[50px] px-4 text-black font-semibold bg-white border border-darkFaded text-xs md:text-sm lg:text-base placeholder:text-sm md:placeholder:text-base;
   }
   .textarea-wrapper {
     @apply flex flex-col gap-2 mx-4 relative;
   }
   .textarea {
-    @apply rounded h-[150px] px-4 text-black font-semibold bg-white border border-darkFaded placeholder:pt-2 placeholder:text-sm md:placeholder:text-base;
+    @apply rounded h-[150px] px-4 text-black font-semibold bg-white border border-darkFaded text-xs md:text-sm lg:text-base placeholder:pt-2 placeholder:text-sm md:placeholder:text-base;
   }
 }
 
@@ -123,9 +127,9 @@
     @apply flex justify-center items-center gap-5 mt-5 w-full;
   }
   .carousel-indicator {
-    @apply bg-darkFaded w-[10px] h-[10px] rounded-full;
+    @apply bg-darkFaded w-[7px] h-[7px] md:w-[10px] md:h-[10px] rounded-full;
   }
   .carousel-indicator[data-active] {
-    @apply bg-darkBG w-[15px] h-[15px] rounded-full;
+    @apply bg-darkBG w-[10px] h-[10px] md:w-[15px] md:h-[15px] rounded-full;
   }
 }
