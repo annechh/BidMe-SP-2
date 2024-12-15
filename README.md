@@ -32,3 +32,19 @@ This project has these following user stories:
 7. A registered user may add a Bid to another user’s Listing
 8. A registered user may view Bids made on a Listing
 9. An unregistered user may search through Listings
+
+---
+
+## Technologies
+
+The project is built using:
+
+- **Vanilla JavaScript**
+- **HTML**
+- **Tailwind CSS**
+- **FontAwesome**
+- **GoogleFonts**
+- **Vite** - Build tool
+- **Husky** - Git hooks
+- **Prettier** - Code formatting
+- **ESLint** - Linting
