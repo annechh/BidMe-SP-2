@@ -6,14 +6,11 @@ export async function searchListings(search = '', limit = 51, page = 1) {
     const queryParam = `&limit=${limit}&page=${page}&_seller=true&_bids=true&sort=created&sortOrder=desc&q=${search}`;
 
     const url = `${API_LISTINGS_SEARCH}?${queryParam}`;
-    console.log(url);
 
     const response = await fetch(url, {
       method: 'GET',
       headers: headers(),
     });
-
-    console.log('RESPONSE: ', response);
 
     if (!response.ok) {
       alert('Could not search for auction listings');
@@ -21,9 +18,6 @@ export async function searchListings(search = '', limit = 51, page = 1) {
       const data = await response.json();
       const listings = data.data;
       const meta = data.meta;
-
-      // console.log('Listings Data: ', data.data);
-      // console.log('Listings Meta: ', meta);
 
       return { listings, meta };
     }

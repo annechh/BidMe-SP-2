@@ -124,7 +124,6 @@ export function validateDate() {
   if (isNaN(Date.parse(date))) {
     dateError.textContent = 'Invalid date format. Please select a valid date.';
     dateError.classList.remove('hidden');
-    console.log('Invalid date format.');
     return false;
   }
   return dateValidation(date, dateError);

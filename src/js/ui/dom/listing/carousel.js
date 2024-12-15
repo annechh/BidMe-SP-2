@@ -12,8 +12,6 @@ export async function carousel(data) {
       ? listingMedia
       : [{ url: '/images/placeholder-image.png' }];
 
-  console.log('MEDIA in carousel', listingMedia);
-
   media.forEach((data, index) => {
     const createLi = createHtmlElement({
       element: 'li',

@@ -19,15 +19,10 @@ export async function createListing({
     });
 
     const data = await response.json();
-    console.log(response.body);
 
     if (!response.ok) {
-      console.log('hey', !response.ok);
-
       throw new Error(data.errors?.[0]?.message || 'Create New listing failed');
     } else {
-      console.log('Response data: ', data.data);
-
       displayMessage('#message', 'success', 'Success');
 
       setTimeout(() => {

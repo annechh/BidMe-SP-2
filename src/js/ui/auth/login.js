@@ -16,7 +16,6 @@ export async function onLogin(event) {
   const isPasswordValid = validatePassword();
 
   if (!isEmailValid || !isPasswordValid) {
-    console.log('Validation failed');
     return;
   }
 

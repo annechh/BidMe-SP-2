@@ -17,8 +17,6 @@ export async function register({ name, email, password }) {
     if (!response.ok) {
       throw new Error(data.errors?.[0]?.message || 'Registration failed');
     } else {
-      console.log('register data', data);
-
       displayMessage('#message', 'success', 'Success');
 
       setTimeout(() => {

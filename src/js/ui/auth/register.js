@@ -19,7 +19,6 @@ export async function onRegister(event) {
   const isPasswordValid = validatePassword();
 
   if (!isNameValid || !isEmailValid || !isPasswordValid) {
-    console.log('Validation failed');
     return;
   }
 
