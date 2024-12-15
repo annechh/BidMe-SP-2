@@ -20,8 +20,8 @@
     <title>BidMe Home</title>
   </head>
   <body class="flex flex-col items-center min-h-screen font-roboto">
-    <header class="flex justify-center w-screen fixed z-30 bg-white">
-      <nav id="nav" class="flex w-full">
+    <header class="flex justify-center w-screen">
+      <nav id="nav" class="flex w-full fixed bg-white z-30">
         <div
           class="nav-wrapper relative logo-container flex justify-between items-center w-full"
         >
@@ -48,25 +48,20 @@
           ></div>
         </div>
       </nav>
-    </header>
 
-    <main
-      class="flex flex-grow w-full flex-col items-center justify-center mt-[50px] md:mt-[60px] lg:mt-[75px]"
-    >
-      <section class="w-full bg-warmYellow flex justify-center">
+      <section
+        class="w-full bg-warmYellow flex justify-center mt-[50px] md:mt-[60px] lg:mt-[75px]"
+      >
         <div
           class="flex flex-col-reverse lg:flex-row-reverse max-w-[1700px] w-full items-center lg:justify-between mx-5 2xl:mx-10 gap-5"
         >
           <div class="flex flex-col max-w-[800px] w-full">
             <div
-              class="carousel-section mt-0 lg:mt-[50px] flex-col items-center animate-pulse loader"
+              class="hidden carousel-section mt-0 lg:mt-[50px] flex-col items-center"
               id="carousel"
             >
               <div class="carousel max-w-[800px] w-full" id="carouselWrapper">
                 <ul id="carouselItems"></ul>
-                <div class="slide carousel-image">
-                  <img src="/images/loading-image.png" alt="placeholder" />
-                </div>
                 <div class="arrow-buttons">
                   <div
                     class="carousel-slide-btn left"
@@ -84,41 +79,92 @@
                   </div>
                 </div>
               </div>
+              <div class="carousel-nav mb-[50px]" id="carouselNav"></div>
             </div>
-            <div class="carousel-nav mb-[50px]" id="carouselNav"></div>
+
+            <!-- Skeleton carousel -->
+            <div
+              class="skeletonLoaders carousel-section mt-0 lg:mt-[50px] flex-col items-center"
+              id="carouselSkeleton"
+            >
+              <div
+                class="carousel max-w-[800px] w-full h-[300px] sm:h-[400px] md:h-[500px]"
+              >
+                <ul class="flex w-full h-full">
+                  <li
+                    class="skeleton-slide rounded w-full drop-shadow-darkFaded"
+                  >
+                    <div
+                      class="bg-gray-300 rounded drop-shadow-darkFaded w-full h-full"
+                    ></div>
+                  </li>
+                </ul>
+              </div>
+              <div
+                class="carousel-nav mt-5 mb-[50px] flex justify-center gap-5"
+              >
+                <span
+                  class="bg-gray-200 w-[10px] h-[10px] md:w-[15px] md:h-[15px] rounded-full"
+                ></span>
+                <span
+                  class="bg-gray-200 w-[7px] h-[7px] md:w-[10px] md:h-[10px] rounded-full"
+                ></span>
+                <span
+                  class="bg-gray-200 w-[7px] h-[7px] md:w-[10px] md:h-[10px] rounded-full"
+                ></span>
+                <span
+                  class="bg-gray-200 w-[7px] h-[7px] md:w-[10px] md:h-[10px] rounded-full"
+                ></span>
+                <span
+                  class="bg-gray-200 w-[7px] h-[7px] md:w-[10px] md:h-[10px] rounded-full"
+                ></span>
+                <span
+                  class="bg-gray-200 w-[7px] h-[7px] md:w-[10px] md:h-[10px] rounded-full"
+                ></span>
+              </div>
+            </div>
           </div>
 
-          <div>
+          <div
+            class="hidden flex-col items-center justify-center gap-5 max-w-[800px] w-full mt-[50px] h-[200px] lg:h-[300px]"
+            id="welcomeMessage"
+          >
+            <h1 id="headingMessage">Title</h1>
             <div
-              class="flex flex-col items-center justify-center gap-5 max-w-[800px] w-full mt-[50px]"
+              id="avatarContainer"
+              class="h-[70px] w-[70px] rounded-full overflow-hidden hover:scale-110 transition-transform duration-300"
+              style="display: none"
             >
-              <h1 id="headingMessage">Title</h1>
-              <div
-                id="avatarContainer"
-                class="h-[70px] w-[70px] rounded-full overflow-hidden hover:scale-110 transition-transform duration-300"
-                style="display: none"
-              >
-                <img
-                  id="avatarWelcome"
-                  class="w-full h-full object-cover"
-                  src="/images/loading-image.png"
-                  alt="placeholder"
-                />
-              </div>
-              <p id="paragraphMessage"></p>
-              <div class="w-full flex flex-col items-center">
-                <button id="becomeUserButton" class="buttonBlue px-5">
-                  Sign up to get started
-                </button>
-                <a id="loginLink" class="py-2 px-5" href="/pages/auth/login/"
-                  >Log in</a
-                >
-              </div>
+              <img
+                id="avatarWelcome"
+                class="w-full h-full object-cover"
+                src="/images/loading-image.png"
+                alt="placeholder"
+              />
             </div>
+            <p id="paragraphMessage"></p>
+            <div class="w-full flex flex-col items-center" id="becomeUser">
+              <button id="becomeUserButton" class="buttonBlue px-5">
+                Sign up to get started
+              </button>
+              <a id="loginLink" class="py-2 px-5" href="/pages/auth/login/"
+                >Log in</a
+              >
+            </div>
+          </div>
+
+          <!-- Skeleton message-->
+          <div
+            class="skeletonLoaders flex flex-col items-center justify-center gap-5 max-w-[800px] w-full mt-[50px] h-[200px] lg:h-[300px] animate-pulse"
+          >
+            <div class="h-6 w-3/4 bg-gray-300 rounded-md"></div>
+            <div class="h-4 w-2/3 bg-gray-300 rounded-md"></div>
           </div>
         </div>
       </section>
+    </header>
 
+    <main class="flex flex-grow w-full flex-col items-center justify-center">
       <div class="w-full py-[50px] md:py-[75px] lg:py-[100px]">
         <div class="flex flex-col items-center justify-center gap-5 mx-5">
           <form
@@ -160,8 +206,132 @@
       </div>
 
       <section class="w-full flex flex-col items-center">
-        <div id="listingsCards">
-          <h2>Browse listings</h2>
+        <h2 class="sr-only">Browse listings</h2>
+        <div
+          id="listingsCards"
+          class="hidden max-w-7xl w-full h-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[10px] mx-5 mb-[50px] lg:mb-[100px]"
+        ></div>
+
+        <!-- SkeletonCards Loader -->
+        <div
+          class="max-w-7xl skeletonLoaders w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[10px] mx-4 mb-[50px] lg:mb-[100px]"
+        >
+          <!--Skeleton 1-->
+          <div
+            class="listing-card skeletonLoaders border rounded animate-pulse"
+          >
+            <div
+              class="content-container p-5 flex flex-col min-h-[410px] md:min-h-[450px] h-full w-full gap-2"
+            >
+              <div
+                class="seller-date-container flex items-center justify-between"
+              >
+                <div class="seller-container flex items-center gap-[10px]">
+                  <div
+                    class="seller-avatar-container w-[25px] h-[25px] md:w-[40px] md:h-[40px] bg-gray-300 rounded-full"
+                  ></div>
+                  <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                </div>
+                <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+              </div>
+              <div
+                class="flex items-center justify-center w-full max-h-[200px] sm:max-[240px] h-full bg-gray-300 rounded drop-shadow-darkFaded"
+              ></div>
+              <div class="bg-gray-300 h-[20px] w-[60%] rounded mb-auto"></div>
+              <div
+                class="bg-gray-300 h-[16px] w-[80%] rounded border-b border-darkFaded"
+              ></div>
+              <div class="grid grid-row-2 border-b border-darkFaded gap-2">
+                <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                <div class="flex justify-between">
+                  <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                  <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                </div>
+              </div>
+              <div class="bid-container flex items-center gap-2">
+                <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+              </div>
+            </div>
+          </div>
+
+          <!--Skeleton 2-->
+          <div
+            class="listing-card skeletonLoaders border rounded animate-pulse"
+          >
+            <div
+              class="content-container p-5 flex flex-col min-h-[410px] md:min-h-[450px] h-full w-full gap-2"
+            >
+              <div
+                class="seller-date-container flex items-center justify-between"
+              >
+                <div class="seller-container flex items-center gap-[10px]">
+                  <div
+                    class="seller-avatar-container w-[25px] h-[25px] md:w-[40px] md:h-[40px] bg-gray-300 rounded-full"
+                  ></div>
+                  <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                </div>
+                <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+              </div>
+              <div
+                class="flex items-center justify-center w-full max-h-[200px] sm:max-[240px] h-full bg-gray-300 rounded drop-shadow-darkFaded"
+              ></div>
+              <div class="bg-gray-300 h-[20px] w-[60%] rounded mb-auto"></div>
+              <div
+                class="bg-gray-300 h-[16px] w-[80%] rounded border-b border-darkFaded"
+              ></div>
+              <div class="grid grid-row-2 border-b border-darkFaded gap-2">
+                <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                <div class="flex justify-between">
+                  <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                  <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                </div>
+              </div>
+              <div class="bid-container flex items-center gap-2">
+                <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+              </div>
+            </div>
+          </div>
+
+          <!--Skeleton 3-->
+          <div
+            class="listing-card skeletonLoaders border rounded animate-pulse"
+          >
+            <div
+              class="content-container p-5 flex flex-col min-h-[410px] md:min-h-[450px] h-full w-full gap-2"
+            >
+              <div
+                class="seller-date-container flex items-center justify-between"
+              >
+                <div class="seller-container flex items-center gap-[10px]">
+                  <div
+                    class="seller-avatar-container w-[25px] h-[25px] md:w-[40px] md:h-[40px] bg-gray-300 rounded-full"
+                  ></div>
+                  <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                </div>
+                <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+              </div>
+              <div
+                class="flex items-center justify-center w-full max-h-[200px] sm:max-[240px] h-full bg-gray-300 rounded drop-shadow-darkFaded"
+              ></div>
+              <div class="bg-gray-300 h-[20px] w-[60%] rounded mb-auto"></div>
+              <div
+                class="bg-gray-300 h-[16px] w-[80%] rounded border-b border-darkFaded"
+              ></div>
+              <div class="grid grid-row-2 border-b border-darkFaded gap-2">
+                <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                <div class="flex justify-between">
+                  <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+                  <div class="bg-gray-300 h-[16px] w-[80px] rounded"></div>
+                </div>
+              </div>
+              <div class="bid-container flex items-center gap-2">
+                <div class="bg-gray-300 h-[16px] w-[100px] rounded"></div>
+                <div class="bg-gray-300 h-[16px] w-[50px] rounded"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>

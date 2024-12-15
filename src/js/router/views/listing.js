@@ -8,17 +8,9 @@ import { PROFILE_PAGE } from '../../utilities/pagePaths';
 
 async function loadListingPage() {
   const listing = await readListing();
-  console.log('Listing data from view: ', listing);
 
+  await carousel(listing);
   renderListingInfo(listing);
-
-  try {
-    const animatePulseLoader = document.querySelector('.loader');
-    animatePulseLoader.classList.remove('animate-pulse');
-    await carousel(listing);
-  } catch (error) {
-    throw new error();
-  }
 
   const avatarNameContainer = document.getElementById('avatarNameContainer');
   const viewBidsButton = document.getElementById('viewBidsButton');
@@ -52,6 +44,17 @@ async function loadListingPage() {
   deleteButton.addEventListener('click', async () => {
     await onDeleteListing(listing.id);
   });
+
+  const skeletonLoaderContainer = document.querySelector('.skeletonLoaders');
+  const carouselSection = document.getElementById('carousel');
+  const carouselNav = document.getElementById('carouselNav');
+
+  if (skeletonLoaderContainer) {
+    skeletonLoaderContainer.classList.add('hidden');
+  }
+
+  carouselSection.classList.remove('hidden');
+  carouselNav.classList.remove('hidden');
 
   const form = document.forms.placeBidForm;
   form.addEventListener('submit', onPlaceBid);

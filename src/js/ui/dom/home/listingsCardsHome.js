@@ -225,19 +225,6 @@ export function buildListingCards(data) {
 export function renderListingCards(allListings) {
   let renderListings = document.getElementById('listingsCards');
 
-  renderListings.classList.add(
-    'max-w-7xl',
-    'h-full',
-    'grid',
-    'grid-cols-1',
-    'sm:grid-cols-2',
-    'lg:grid-cols-3',
-    'gap-[10px]',
-    'mx-5',
-    'mb-[50px]',
-    'lg:mb-[100px]'
-  );
-
   if (!renderListings) {
     console.error('Listings container not found');
     return;

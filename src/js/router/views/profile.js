@@ -14,6 +14,21 @@ async function loadProfile() {
 
   const form = document.forms.editProfile;
   form.addEventListener('submit', onUpdateProfile);
+
+  const skeletonLoaders = document.querySelectorAll('.skeletonLoaders');
+  skeletonLoaders.forEach((loader) => loader.classList.add('hidden'));
+
+  const profileInfo = document.getElementById('profileInfo');
+  if (profileInfo) {
+    profileInfo.classList.remove('hidden');
+    profileInfo.classList.add('flex');
+  }
+
+  const listingCards = document.getElementById('profileAuctions');
+  if (listingCards) {
+    listingCards.classList.remove('hidden');
+    listingCards.classList.add('grid');
+  }
 }
 
 loadProfile();
