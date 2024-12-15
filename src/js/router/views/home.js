@@ -14,20 +14,25 @@ async function loadHomePage() {
   await carousel(endsSoonListings);
   welcomeUser();
 
-  const skeletonLoaderContainer = document.querySelector('.skeletonLoaders');
-  const listingCards = document.getElementById('listingsCards');
-  const carouselSection = document.getElementById('carousel');
-  const carouselNav = document.getElementById('carouselNav');
+  const skeletonLoaderContainer = document.querySelectorAll('.skeletonLoaders');
+  skeletonLoaderContainer.forEach((loader) => loader.classList.add('hidden'));
 
-  if (skeletonLoaderContainer) {
-    skeletonLoaderContainer.classList.add('hidden');
+  const welcomeMessage = document.getElementById('welcomeMessage');
+  if (welcomeMessage) {
+    welcomeMessage.classList.remove('hidden');
+    welcomeMessage.classList.add('flex');
   }
 
-  carouselSection.classList.remove('hidden');
-  carouselNav.classList.remove('hidden');
+  const carouselSection = document.getElementById('carousel');
+  if (carouselSection) {
+    carouselSection.classList.remove('hidden');
+  }
 
-  listingCards.classList.remove('hidden');
-  listingCards.classList.add('grid');
+  const listingCards = document.getElementById('listingsCards');
+  if (listingCards) {
+    listingCards.classList.remove('hidden');
+    listingCards.classList.add('grid');
+  }
 }
 
 await loadHomePage();
