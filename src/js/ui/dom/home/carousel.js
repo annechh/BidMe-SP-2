@@ -10,11 +10,7 @@ export async function carousel(endingSoon) {
   const listingData = endingSoon.slice(0, MAX_SLIDES);
   const listings = listingData;
 
-  // console.log('MEDIA in carousel', listings);
-
   listings.forEach((listing, index) => {
-    // console.log(listing);
-
     const createLi = createHtmlElement({
       element: 'li',
       className: ['slide', 'carousel-image', 'cursor-pointer'],
@@ -23,7 +19,6 @@ export async function carousel(endingSoon) {
       createLi.setAttribute('data-active', '');
     }
     createLi.addEventListener('click', () => {
-      console.log(listing);
       window.location.href = `${LISTING_PAGE}?name=${listing.seller.name}&id=${listing.id}`;
     });
 

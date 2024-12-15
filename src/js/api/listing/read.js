@@ -49,7 +49,6 @@ export async function readListings(
     );
 
     const url = `${API_LISTINGS}?${queryParam}`;
-    // console.log(url);
 
     const response = await fetch(url, {
       method: 'GET',
@@ -63,9 +62,6 @@ export async function readListings(
       const listings = data.data;
       const meta = data.meta;
 
-      // console.log('Listings Data: ', data.data);
-      // console.log('Listings Meta: ', meta);
-
       return { listings, meta };
     }
   } catch (error) {
@@ -77,7 +73,6 @@ export async function readListing() {
   const id = new URLSearchParams(window.location.search).get('id');
   try {
     const url = `${API_LISTINGS}/${id}?_seller=true&_bids=true`;
-    // console.log('Read listing url: ', url);
 
     const response = await fetch(url, {
       method: 'GET',
@@ -89,8 +84,6 @@ export async function readListing() {
     } else {
       const data = await response.json();
       const listing = data.data;
-
-      // console.log('Listing Data from fetch: ', data.data.media[0]?.url);
 
       return listing;
     }

@@ -35,8 +35,6 @@ export async function updateProfile() {
       const data = await response.json();
       location.reload(true);
 
-      console.log('Successfully updated profile: ', data);
-
       const currentStoredData = getLocalStorage();
       const updatedData = {
         ...currentStoredData,
@@ -45,8 +43,6 @@ export async function updateProfile() {
         bio: document.getElementById('bio').value,
       };
       localStorage.setItem('userData', JSON.stringify(updatedData));
-
-      console.log('updated storage: ', updatedData);
 
       return { data };
     }

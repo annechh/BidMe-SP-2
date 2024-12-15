@@ -17,7 +17,6 @@ function nameValidation(name, nameError) {
 export function validateName() {
   const nameInput = document.getElementById('name');
   const nameError = document.getElementById('nameError');
-  // nameError.classList.add('py-2', 'px-5', 'bg-delete');
   const name = nameInput.value;
 
   if (checkIfEmptyField(name, nameError)) {
@@ -42,7 +41,6 @@ function emailValidation(email, emailError) {
 export function validateEmail() {
   const emailInput = document.getElementById('email');
   const emailError = document.getElementById('emailError');
-  // emailError.classList.add('py-2', 'px-5', 'bg-delete');
   const email = emailInput.value;
 
   if (checkIfEmptyField(email, emailError)) {
@@ -65,7 +63,6 @@ function passwordValidation(password, passwordError) {
 export function validatePassword() {
   const passwordInput = document.getElementById('password');
   const passwordError = document.getElementById('passwordError');
-  // passwordError.classList.add('py-2', 'px-5', 'bg-delete');
   const password = passwordInput.value;
 
   if (checkIfEmptyField(password, passwordError)) {
