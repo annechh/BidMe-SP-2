@@ -24,12 +24,13 @@
   </head>
   <body class="flex flex-col items-center min-h-screen font-roboto">
     <header class="flex justify-center w-screen">
-      <nav id="nav" class="flex w-full fixed bg-white z-30">
+      <nav id="nav" class="flex w-full fixed bg-white dark:bg-darkBG z-30">
         <div
           class="nav-wrapper relative logo-container flex justify-between items-center w-full"
         >
           <a href="/">
             <img
+              id="headerLogo"
               src="/images/logo-lightMode.png"
               alt="BidMe logo"
               class="cursor-pointer ml-5 max-h-[50px] md:max-h-[60px] lg:max-h-[75px] hover:scale-110 transition-transform duration-300"
@@ -41,13 +42,13 @@
           >
             <i
               id="menuIcon"
-              class="fa-solid fa-bars text-2xl text-black transition-transform"
+              class="fa-solid fa-bars text-2xl text-black dark:bg-darkBG dark:text-white transition-transform"
             >
             </i>
           </button>
           <div
             id="dropDownWrapper"
-            class="absolute right-0 top-0 flex flex-col items-center space-y-4 h-screen overflow-hidden w-0 transition-all duration-500 text-nowrap transform-origin-right bg-white drop-shadow-darkFaded z-40"
+            class="absolute right-0 top-0 flex flex-col items-center space-y-4 h-screen overflow-hidden w-0 transition-all duration-500 text-nowrap transform-origin-right bg-white dark:bg-darkBG dark:text-white drop-shadow-darkFaded z-40"
           ></div>
         </div>
       </nav>
@@ -171,15 +172,16 @@
       <div class="w-full py-[50px] md:py-[75px] lg:py-[100px]">
         <div class="flex flex-col items-center justify-center gap-5 mx-5">
           <form
-            class="flex gap-2 md:gap-5 max-w-[1280px] w-full drop-shadow-darkFaded"
+            class="flex gap-2 md:gap-5 max-w-[1280px] w-full drop-shadow-darkFaded dark:drop-shadow-whiteFaded"
             name="searchForm"
           >
             <label class="sr-only" for="search">Search BidMe's</label>
             <input
-              class="border w-full h-[50px] rounded px-2 md:px-5"
+              class="border w-full h-[50px] rounded px-2 md:px-5 dark:bg-darkBG dark:border-whiteFaded input-search dark:text-white"
               type="search"
               id="search"
               name="search"
+              autocomplete="off"
               placeholder="Search BidMe's"
             />
             <button
@@ -193,7 +195,7 @@
             <div
               class="pl-5 max-w-7xl w-full flex items-center justify-between"
             >
-              <p id="searchFor" class="pr-2">
+              <p id="searchFor" class="pr-2 dark:text-white">
                 You searched for
                 <span class="font-semibold" id="searchedFor"> example</span>
               </p>
@@ -339,18 +341,23 @@
       </section>
     </main>
 
-    <footer class="flex w-full justify-center border-t-2 border-darkFaded">
+    <footer
+      class="flex w-full justify-center border-t-2 border-darkFaded dark:border-whiteFaded"
+    >
       <div
         class="h-[150px] lg:h-[300px] max-w-[1920px] w-full flex flex-col items-center justify-center gap-2"
       >
         <a href="/">
           <img
+            id="footerLogo"
             src="/images/logo-lightMode.png"
             class="max-h-14 lg:max-h-24 hover:scale-110 transition-transform duration-300"
             alt="Logo"
           />
         </a>
-        <p class="text-darkFaded text-xs lg:text-base">@ BidMe Auctions</p>
+        <p class="text-darkFaded text-xs lg:text-base dark:text-whiteFaded">
+          @ BidMe Auctions
+        </p>
       </div>
     </footer>
   </body>

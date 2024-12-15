@@ -20,6 +20,7 @@ export default {
       },
       dropShadow: {
         darkFaded: '0 5px 10px rgba(0, 0, 0, 0.25)',
+        whiteFaded: '0 5px 10px rgba(255, 255, 225, 0.15)',
         yellow: '0 5px 10px rgba(255, 195, 104, 1)',
       },
       fontFamily: {

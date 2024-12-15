@@ -15,7 +15,7 @@ export async function carousel(data) {
   media.forEach((data, index) => {
     const createLi = createHtmlElement({
       element: 'li',
-      className: ['slide', 'carousel-image'],
+      className: ['slide', 'carousel-image', 'dark:drop-shadow-whiteFaded'],
     });
     if (index === 0) {
       createLi.setAttribute('data-active', '');
@@ -31,7 +31,7 @@ export async function carousel(data) {
     carouselItems.append(createLi);
 
     let indicator = document.createElement('span');
-    indicator.classList.add('carousel-indicator');
+    indicator.classList.add('carousel-indicator-listing', 'dark:bg-whiteFaded');
     if (index === 0) {
       indicator.setAttribute('data-active', '');
     }

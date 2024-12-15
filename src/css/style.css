@@ -11,24 +11,27 @@
 }
 
 @layer base {
+  body {
+    @apply dark:bg-darkBG
+  }
   .errorMessage {
     @apply py-2 px-5 rounded bg-delete border border-red-800 text-xs md:text-sm lg:text-base;
   }
   .auth-link {
-    @apply text-center px-4 py-2 md:px-8 md:py-4 hover:underline;
+    @apply text-center px-4 py-2 md:px-8 md:py-4 hover:underline dark:text-white;
   }
   h1 {
     @apply font-poppins font-bold text-base md:text-2xl lg:text-4xl tracking-[3.2px];
   }
   h2 {
-    @apply font-poppins font-semibold text-sm md:text-base lg:text-lg;
+    @apply font-poppins font-semibold text-sm md:text-base lg:text-lg dark:text-white;
   }
   h3 {
-    @apply font-poppins font-semibold text-xs md:text-sm lg:text-base;
+    @apply font-poppins font-semibold text-xs md:text-sm lg:text-base dark:text-white;
   }
   .base-text,
   .card-text {
-    @apply text-xs md:text-sm lg:text-base;
+    @apply text-xs md:text-sm lg:text-base dark:text-white;
   }
   .iconSmaller {
     @apply text-sm md:text-base lg:text-xl;
@@ -83,16 +86,23 @@
     @apply flex flex-col gap-2 mx-5 relative;
   }
   .label {
-    @apply text-xs md:text-base;
+    @apply text-xs md:text-base dark:text-white;
   }
   .input {
-    @apply rounded h-[50px] px-4 text-black font-semibold bg-white border border-darkFaded text-xs md:text-sm lg:text-base placeholder:text-sm md:placeholder:text-base;
+    @apply rounded h-[50px] px-4 text-black font-semibold bg-white border border-darkFaded text-xs md:text-sm lg:text-base placeholder:text-sm md:placeholder:text-base dark:text-white dark:bg-darkBG dark:border-whiteFaded;
+  }
+  .input:focus {
+    @apply dark:text-white dark:bg-darkBG;
   }
   .textarea-wrapper {
-    @apply flex flex-col gap-2 mx-4 relative;
+    @apply flex flex-col gap-2 mx-5 relative;
   }
   .textarea {
-    @apply rounded h-[150px] px-4 text-black font-semibold bg-white border border-darkFaded text-xs md:text-sm lg:text-base placeholder:pt-2 placeholder:text-sm md:placeholder:text-base;
+    @apply rounded h-[150px] px-4 text-black font-semibold bg-white border border-darkFaded text-xs md:text-sm lg:text-base placeholder:pt-2 placeholder:text-sm md:placeholder:text-base dark:text-white dark:bg-darkBG dark:border-whiteFaded;
+  }
+  .input:focus,
+  .input-search:focus {
+    @apply dark:text-white dark:bg-darkBG
   }
 }
 
@@ -130,5 +140,11 @@
   }
   .carousel-indicator[data-active] {
     @apply bg-darkBG w-[10px] h-[10px] md:w-[15px] md:h-[15px] rounded-full;
+  }
+  .carousel-indicator-listing {
+    @apply bg-darkFaded w-[7px] h-[7px] md:w-[10px] md:h-[10px] rounded-full;
+  }
+  .carousel-indicator-listing[data-active] {
+    @apply dark:bg-white w-[10px] h-[10px] md:w-[15px] md:h-[15px] rounded-full
   }
 }
