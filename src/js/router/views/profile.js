@@ -14,6 +14,14 @@ async function loadProfile() {
 
   const form = document.forms.editProfile;
   form.addEventListener('submit', onUpdateProfile);
+
+  const skeletonLoaderContainer = document.querySelector('.skeletonLoaders');
+  const listingCards = document.getElementById('profileAuctions');
+  if (skeletonLoaderContainer) {
+    skeletonLoaderContainer.classList.add('hidden');
+  }
+  listingCards.classList.remove('hidden');
+  listingCards.classList.add('grid');
 }
 
 loadProfile();
