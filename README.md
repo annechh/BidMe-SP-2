@@ -69,3 +69,7 @@ The project is built using:
 
 4. Run the development server:
    npm run dev
+
+## Live demo
+
+Link to live demo site - [BidMe](https://bidme-sp2.netlify.app/)
