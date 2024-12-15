@@ -1,6 +1,5 @@
 import { readListings } from '../../api/listing/read';
 import { carousel } from '../../ui/dom/home/carousel';
-import { renderListingCards } from '../../ui/dom/home/listingsCardsHome';
 import { welcomeUser } from '../../ui/dom/home/welcomeMessage';
 import { handleSearch } from '../../ui/search/search';
 
@@ -12,17 +11,23 @@ async function loadHomePage() {
     sortOrder: 'asc',
   });
   await handleSearch(allListings);
+  await carousel(endsSoonListings);
+  welcomeUser();
 
-  try {
-    const animatePulseLoader = document.querySelector('.loader');
-    animatePulseLoader.classList.remove('animate-pulse');
-    await carousel(endsSoonListings);
-  } catch (error) {
-    throw new error();
+  const skeletonLoaderContainer = document.querySelector('.skeletonLoaders');
+  const listingCards = document.getElementById('listingsCards');
+  const carouselSection = document.getElementById('carousel');
+  const carouselNav = document.getElementById('carouselNav');
+
+  if (skeletonLoaderContainer) {
+    skeletonLoaderContainer.classList.add('hidden');
   }
 
-  renderListingCards(allListings);
-  welcomeUser();
+  carouselSection.classList.remove('hidden');
+  carouselNav.classList.remove('hidden');
+
+  listingCards.classList.remove('hidden');
+  listingCards.classList.add('grid');
 }
 
 await loadHomePage();
