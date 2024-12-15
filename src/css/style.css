@@ -19,11 +19,16 @@
     @apply text-center px-4 py-2 md:px-8 md:py-4 hover:underline;
   }
   h1 {
-    @apply font-poppins text-base md:text-2xl lg:text-4xl font-bold tracking-[3.2px];
+    @apply font-poppins font-bold text-base md:text-2xl lg:text-4xl tracking-[3.2px];
   }
-  h2,
+  h2 {
+    @apply font-poppins font-semibold text-sm md:text-base lg:text-lg
+  }
   h3 {
-    @apply font-poppins font-semibold text-sm md:text-base lg:text-lg;
+    @apply font-poppins font-semibold text-xs md:text-sm lg:text-base;
+  }
+  .card-text {
+    @apply text-xs md:text-sm lg:text-base
   }
   .iconSmaller {
     @apply text-sm md:text-base lg:text-xl;
@@ -49,7 +54,6 @@
   .buttonDelete {
     @apply bg-delete 
   }
-
 }
 
 @layer components {
@@ -90,6 +94,7 @@
 }
 
 @layer components {
+  /* Carousel*/
   .carousel-section {
     @apply w-full flex justify-center;
   }
