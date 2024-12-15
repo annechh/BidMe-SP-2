@@ -25,7 +25,7 @@
   </head>
   <body class="flex flex-col items-center min-h-screen font-roboto">
     <header class="flex justify-center w-screen fixed z-30 bg-white">
-      <nav id="nav" class="flex w-full">
+      <nav id="nav" class="flex w-full fixed bg-white dark:bg-darkBG z-30">
         <div
           class="nav-wrapper relative logo-container flex justify-between items-center w-full"
         >
@@ -42,13 +42,13 @@
           >
             <i
               id="menuIcon"
-              class="fa-solid fa-bars text-2xl text-black transition-transform"
+              class="fa-solid fa-bars text-2xl text-black dark:bg-darkBG dark:text-white transition-transform"
             >
             </i>
           </button>
           <div
             id="dropDownWrapper"
-            class="absolute right-0 top-0 flex flex-col items-center space-y-4 h-screen overflow-hidden w-0 transition-all duration-500 text-nowrap transform-origin-right bg-white drop-shadow-darkFaded z-40"
+            class="absolute right-0 top-0 flex flex-col items-center space-y-4 h-screen overflow-hidden w-0 transition-all duration-500 text-nowrap transform-origin-right bg-white dark:bg-darkBG dark:text-white drop-shadow-darkFaded z-40"
           ></div>
         </div>
       </nav>
@@ -61,7 +61,7 @@
         class="max-w-[1920px] w-full flex flex-col mb-[100px] gap-5 lg:gap-[50px] items-center"
       >
         <div
-          class="hidden banner-avatar w-full flex-col gap-5"
+          class="hidden banner-avatar w-full flex-col gap-5 dark:text-white"
           id="profileInfo"
         >
           <div
@@ -361,7 +361,9 @@
       </div>
     </main>
 
-    <footer class="flex w-full justify-center border-t-2 border-darkFaded">
+    <footer
+      class="flex w-full justify-center border-t-2 border-darkFaded dark:border-whiteFaded"
+    >
       <div
         class="h-[150px] lg:h-[300px] max-w-[1920px] w-full flex flex-col items-center justify-center gap-2"
       >
@@ -372,7 +374,9 @@
             alt="Logo"
           />
         </a>
-        <p class="text-darkFaded text-xs lg:text-base">@ BidMe Auctions</p>
+        <p class="text-darkFaded text-xs lg:text-base dark:text-white">
+          @ BidMe Auctions
+        </p>
       </div>
     </footer>
   </body>

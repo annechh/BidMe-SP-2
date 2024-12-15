@@ -14,6 +14,10 @@ export function buildListingCards(data) {
       'bg-white',
       'drop-shadow-darkFaded',
       'hover:drop-shadow-yellow',
+      'dark:bg-darkBG',
+      'dark:border-whiteFaded',
+      'dark:drop-shadow-whiteFaded',
+      'dark:hover:drop-shadow-yellow',
     ],
     id: data.id,
   });
@@ -144,13 +148,25 @@ export function buildListingCards(data) {
   const description = createHtmlElement({
     element: 'p',
     textContent: data.description,
-    className: ['card-text', 'line-clamp-1', 'border-b', 'border-darkFaded'],
+    className: [
+      'card-text',
+      'line-clamp-1',
+      'border-b',
+      'border-darkFaded',
+      'dark:border-whiteFaded',
+    ],
   });
   applyBreakWordClass(description);
 
   const auctionEndsContainer = createHtmlElement({
     element: 'div',
-    className: ['grid', 'grid-row-2', 'border-b', 'border-darkFaded'],
+    className: [
+      'grid',
+      'grid-row-2',
+      'border-b',
+      'border-darkFaded',
+      'dark:border-whiteFaded',
+    ],
   });
 
   const endingTitle = createHtmlElement({

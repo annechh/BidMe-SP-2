@@ -34,7 +34,10 @@ export async function buildListingsWins() {
         'border',
         'rounded',
         'hover:cursor-pointer',
-        'hover:bg-warmYellow',
+        'bg-white',
+        'dark:bg-darkBG',
+        'hover:drop-shadow-yellow',
+        'dark:border-whiteFaded',
       ],
       id: data.id,
     });
@@ -135,7 +138,7 @@ export async function buildListingsWins() {
 
     const creditIcon = createHtmlElement({
       element: 'i',
-      className: ['fa-solid', 'fa-coins'],
+      className: ['fa-solid', 'fa-coins', 'dark:text-white'],
     });
 
     listingImageContainer.appendChild(listingImage);

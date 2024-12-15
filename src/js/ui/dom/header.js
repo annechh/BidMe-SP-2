@@ -155,6 +155,7 @@ export async function buildHeader(profileData) {
   const lightModeContainer = createHtmlElement({
     element: 'li',
     className: ['nav-list'],
+    id: 'darkMode',
   });
 
   const homeLink = createHtmlElement({
