@@ -136,9 +136,15 @@
     @apply flex justify-center items-center gap-5 mt-5 w-full;
   }
   .carousel-indicator {
-    @apply bg-darkFaded dark:bg-whiteFaded w-[7px] h-[7px] md:w-[10px] md:h-[10px] rounded-full;
+    @apply bg-darkFaded w-[7px] h-[7px] md:w-[10px] md:h-[10px] rounded-full;
   }
   .carousel-indicator[data-active] {
-    @apply bg-darkBG dark:bg-white w-[10px] h-[10px] md:w-[15px] md:h-[15px] rounded-full;
+    @apply bg-darkBG w-[10px] h-[10px] md:w-[15px] md:h-[15px] rounded-full;
+  }
+  .carousel-indicator-listing {
+    @apply bg-darkFaded w-[7px] h-[7px] md:w-[10px] md:h-[10px] rounded-full;
+  }
+  .carousel-indicator-listing[data-active] {
+    @apply dark:bg-white w-[10px] h-[10px] md:w-[15px] md:h-[15px] rounded-full
   }
 }

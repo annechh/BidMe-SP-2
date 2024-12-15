@@ -31,7 +31,7 @@ export async function carousel(data) {
     carouselItems.append(createLi);
 
     let indicator = document.createElement('span');
-    indicator.classList.add('carousel-indicator');
+    indicator.classList.add('carousel-indicator-listing', 'dark:bg-whiteFaded');
     if (index === 0) {
       indicator.setAttribute('data-active', '');
     }
