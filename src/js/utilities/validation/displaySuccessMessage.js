@@ -10,6 +10,8 @@ export function showSuccessMessage() {
   const createListingForm = document.forms.create;
   const createSuccess = document.getElementById('createSuccess');
 
+  const bidSuccess = document.getElementById('bidSuccess');
+
   if (loginSuccess) {
     loginSuccess.style.display = 'block';
   }
@@ -18,6 +20,9 @@ export function showSuccessMessage() {
   }
   if (createSuccess) {
     createSuccess.style.display = 'block';
+  }
+  if (bidSuccess) {
+    bidSuccess.style.display = 'block';
   }
 
   if (loginForm) {

@@ -181,25 +181,31 @@
               </div>
 
               <div
-                class="flex items-center gap-2 w-full border-l pl-2"
+                class="flex flex-col items-end gap-2 w-full border-l pl-2"
                 id="bidWrapper"
               >
-                <label class="whitespace-nowrap label" for="bid">Bid Me</label>
-                <div class="relative w-full">
-                  <input
-                    class="border rounded h-[40px] w-full text-end px-5"
-                    id="bid"
-                    name="bid"
-                    type="number"
-                    placeholder=""
-                  />
-                  <label
-                    class="absolute left-2 md:left-5 top-1/2 transform -translate-y-1/2"
-                    for="bid"
+                <div class="flex items-center gap-2 w-full border-l pl-2">
+                  <label class="whitespace-nowrap label" for="bid"
+                    >Bid Me</label
                   >
-                    <i class="fa-solid fa-coins base-text"></i>
-                  </label>
+                  <div class="relative w-full">
+                    <input
+                      class="border rounded h-[40px] w-full text-end px-5"
+                      id="bid"
+                      name="bid"
+                      type="number"
+                      placeholder=""
+                    />
+                    <label
+                      class="absolute left-2 md:left-5 top-1/2 transform -translate-y-1/2"
+                      for="bid"
+                    >
+                      <i class="fa-solid fa-coins base-text"></i>
+                    </label>
+                  </div>
                 </div>
+                <div class="hidden errorMessage" id="bidError"></div>
+                <div id="message"></div>
               </div>
             </div>
             <div class="buttons flex gap-2 md:gap-5 justify-between">
@@ -219,6 +225,10 @@
               >
                 Delete
               </button>
+            </div>
+            <div class="flex justify-end">
+              <div class="hidden errorMessage" id="bidError"></div>
+              <div id="message"></div>
             </div>
           </form>
         </div>

@@ -1,3 +1,4 @@
+import { displayMessage } from '../../utilities/validation/displayMessage';
 import { API_LISTINGS } from '../endpoints';
 import { headers } from '../headers';
 
@@ -12,17 +13,18 @@ export async function placeBidListing(body) {
       body: JSON.stringify({ amount: body }),
     });
 
-    if (!response.ok) {
-      alert('Could not place bid');
-    } else {
-      const data = await response.json();
+    const data = await response.json();
 
+    if (!response.ok) {
+      throw new Error(data.errors?.[0]?.message || 'Could not place bid');
+    } else {
+      displayMessage('#message', 'success', 'Successfully placed your bid');
       setTimeout(() => {
         window.location.reload();
-      }, 500);
+      }, 3000);
       return data;
     }
   } catch (error) {
-    alert(error, 'Error placing bid on auction listing');
+    displayMessage('#message', 'warning', error.message);
   }
 }

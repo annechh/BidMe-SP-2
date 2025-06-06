@@ -4,15 +4,15 @@
 
 /* Classes are dynamically created, therefor they are outside the tailwind layers*/
 .alert-success {
-  @apply bg-softGreen py-5 px-5 rounded font-semibold border border-green-700 text-xs md:text-sm lg:text-base;
+  @apply bg-softGreen py-2 px-5 rounded font-semibold border border-green-700 text-xs md:text-sm lg:text-base;
 }
 .alert-warning {
-  @apply bg-delete py-5 px-5 rounded font-semibold border border-red-800 text-xs md:text-sm lg:text-base;
+  @apply bg-delete py-2 px-5 rounded font-semibold border border-red-800 text-xs md:text-sm lg:text-base;
 }
 
 @layer base {
   body {
-    @apply dark:bg-darkBG
+    @apply dark:bg-darkBG;
   }
   .errorMessage {
     @apply py-2 px-5 rounded bg-delete border border-red-800 text-xs md:text-sm lg:text-base;
@@ -102,7 +102,7 @@
   }
   .input:focus,
   .input-search:focus {
-    @apply dark:text-white dark:bg-darkBG
+    @apply dark:text-white dark:bg-darkBG;
   }
 }
 
@@ -145,6 +145,6 @@
     @apply bg-darkFaded w-[7px] h-[7px] md:w-[10px] md:h-[10px] rounded-full;
   }
   .carousel-indicator-listing[data-active] {
-    @apply dark:bg-white w-[10px] h-[10px] md:w-[15px] md:h-[15px] rounded-full
+    @apply dark:bg-white w-[10px] h-[10px] md:w-[15px] md:h-[15px] rounded-full;
   }
 }
